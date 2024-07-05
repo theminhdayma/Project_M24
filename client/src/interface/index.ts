@@ -1,25 +1,15 @@
-export interface Admin {
-    id: number,
-    nameAdmin: string,
-    imageAdmin: string
-    phone: string,
-    email: string,
-    password: string,
-    role: number,
-    statusAdmin: boolean,
-}
 
 export interface User {
     id: number,
-    nameUser: string,
+    name: string,
     age: number
     address: string
     numberPhone: string,
     email: string,
     password: string,
-    imageUser: string
+    image: string
     role: number,
-    statusUser: boolean,
+    status: boolean,
 }
 
 export interface Category {

@@ -1,9 +1,31 @@
-import { useEffect } from "react";
-import "../../style/Admin.css"
-import ManagerUser from "./ManagerUser";
-import { Link, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import "../../style/Admin.css";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { User } from "../../interface";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllAccount } from "../../service/user.service";
 
 export default function Admin() {
+  const listUser: User[] = useSelector((state: any) => state.user.user);
+  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(getAllAccount());
+  }, []);
+
+  useEffect(() => {
+    const user = listUser.find((user: User) => user.status === true);
+    if (user?.role === 0) {
+      navigate("/admin");
+    } else {
+      navigate("/")
+    }
+  }, []);
+  
+
+  
   // CÁC CHỨC NĂNG CHUYỂN TAB
   useEffect(() => {
     const allSideMenu = document.querySelectorAll<HTMLAnchorElement>(
@@ -91,7 +113,6 @@ export default function Admin() {
   }, []);
   //CÁC CHỨC NĂNG CHUYỂN TAB
 
-  
   return (
     <>
       <div className="body">
@@ -120,12 +141,6 @@ export default function Admin() {
                 <span className="text">Quản Lý doanh thu</span>
               </Link>
             </li>
-            {/* <li>
-              <a href="#">
-                <i className="bx bxs-message-dots" />
-                <span className="text">Quản lý tin nhắn</span>
-              </a>
-            </li> */}
           </ul>
           <ul className="side-menu">
             <li>
@@ -208,14 +223,13 @@ export default function Admin() {
               </li>
             </ul>
             <div className="table-data">
-              <Outlet/>
+              <Outlet />
             </div>
           </main>
           {/* MAIN */}
         </section>
         {/* CONTENT */}
       </div>
-    
     </>
   );
 }

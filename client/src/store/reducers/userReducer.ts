@@ -1,21 +1,21 @@
-import { getAllUser, registerUser, login, logout } from "../../service/user.service";
+import { login, logout, getAllAccount, register } from "../../service/user.service";
 import { User } from "../../interface";
 import { createSlice } from "@reduxjs/toolkit";
 
-const listUser: User[] = [];
+const listAccount: User[] = [];
 
 const userReducer = createSlice({
   name: "user",
   initialState: {
-    user: listUser,
+    user: listAccount,
   },
   reducers: {},
   extraReducers: (builder: any) => {
     builder
-      .addCase(getAllUser.fulfilled, (state: any, action: any) => {
+      .addCase(getAllAccount.fulfilled, (state: any, action: any) => {
         state.user = action.payload;
       })
-      .addCase(registerUser.fulfilled, (state: any, action: any) => {
+      .addCase(register.fulfilled, (state: any, action: any) => {
         state.user.push(action.payload);
       })
       .addCase(login.fulfilled, (state: any, action: any) => {

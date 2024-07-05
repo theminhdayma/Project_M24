@@ -1,73 +1,51 @@
 {
-  "admin": [
+  "accounts": [
     {
       "id": 1,
-      "nameAdmin": "Thế Minh",
-      "imageAdmin": "",
-      "phone": "0364577211",
-      "email": "theminhz2005@gmail.com",
-      "password": "11111111",
-      "role": 0,
-      "statusAdmin": false
-    },
-    {
-      "id": 2,
-      "nameAdmin": "Minh Sâm",
-      "imageAdmin": "",
-      "phone": "0987654321",
-      "email": "minhsam2807@gmail.com",
-      "password": "12345678",
-      "role": 0,
-      "statusAdmin": false
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "nameUser": "Thế Minh",
+      "name": "Thế Minh",
       "age": 19,
       "address": "Hà Nội",
       "numberPhone": "0364577211",
-      "email": "theminh@gmail.com",
+      "email": "theminh2005z@gmail.com",
       "password": "11111111",
-      "imageUser": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9",
-      "role": 1,
-      "statusUser": false
+      "image": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9",
+      "role": 0,
+      "status": true
     },
     {
-      "nameUser": "Thế Minh",
-      "age": 0,
-      "address": "",
-      "numberPhone": "",
-      "email": "minh2005z@gmail.com",
+      "name": "Minh Sâm",
+      "age": 18,
+      "address": "Hà Nội",
+      "numberPhone": "0987654321",
+      "email": "minhsam2807@gmail.com",
       "password": "11111111",
-      "imageUser": "",
-      "role": 1,
-      "statusUser": false,
+      "image": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9",
+      "role": 0,
+      "status": false,
       "id": 2
     },
     {
-      "nameUser": "Thế Minh",
+      "name": "Thế Minh",
       "age": 0,
       "address": "",
       "numberPhone": "",
       "email": "minhvy@gmail.com",
       "password": "11111111",
-      "imageUser": "",
+      "image": "",
       "role": 1,
-      "statusUser": false,
+      "status": false,
       "id": 3
     },
     {
-      "nameUser": "Phúc Du",
+      "name": "Phúc Du",
       "age": 0,
       "address": "",
       "numberPhone": "",
-      "email": "phucdu@gmail.com",
+      "email": "hello@gmail.com",
       "password": "11111111",
-      "imageUser": "",
+      "image": "",
       "role": 1,
-      "statusUser": false,
+      "status": false,
       "id": 4
     }
   ],

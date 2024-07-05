@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../style/Login.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllUser, login } from "../service/user.service";
+import { getAllAccount, login } from "../service/user.service";
 import { User } from "../interface";
 
 export default function Login() {
@@ -11,10 +11,10 @@ export default function Login() {
     password: "",
   });
 
-  const listUser: User[] = useSelector((state: any) => state.user.user);
+  const listAccount: User[] = useSelector((state: any) => state.user.user);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllUser());
+    dispatch(getAllAccount());
   }, [dispatch]);
 
   const [error, setError] = useState("");
@@ -38,7 +38,7 @@ export default function Login() {
       return;
     }
 
-    const user = listUser.find(
+    const user = listAccount.find(
       (user) =>
         user.email === inputValue.email && user.password === inputValue.password
     );

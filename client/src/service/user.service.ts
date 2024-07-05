@@ -1,35 +1,35 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getAllUser: any = createAsyncThunk(
-  "user/getAllUser",
+export const getAllAccount: any = createAsyncThunk(
+  "user/getAllAccount",
   async () => {
-    const res = await axios.get("http://localhost:8080/users");
+    const res = await axios.get("http://localhost:8080/accounts");
     return res.data;
   }
 );
 
-export const registerUser: any = createAsyncThunk(
+export const register: any = createAsyncThunk(
   "user/registerUser",
   async (newUser: any) => {
-    const { nameUser, age, address, numberPhone, email, password, imageUser, role, statusUser } = newUser;
-    const response = await axios.post("http://localhost:8080/users", { nameUser, age, address, numberPhone, email, password, imageUser, role, statusUser });
+    const { name, age, address, numberPhone, email, password, image, role, status } = newUser;
+    const response = await axios.post("http://localhost:8080/accounts", { name, age, address, numberPhone, email, password, image, role, status });
     return response.data;
   }
 );
 
 export const login: any = createAsyncThunk(
   "user/login",
-  async (userId: number) => {
-    const response = await axios.patch(`http://localhost:8080/users/${userId}`, { statusUser: true });
+  async (id: number) => {
+    const response = await axios.patch(`http://localhost:8080/accounts/${id}`, { status: true });
     return response.data;
   }
 );
 
 export const logout: any = createAsyncThunk(
   "user/logoutUser",
-  async (userId: number) => {
-    const response = await axios.patch(`http://localhost:8080/users/${userId}`, { statusUser: false });
+  async (id: number) => {
+    const response = await axios.patch(`http://localhost:8080/accounts/${id}`, { status: false });
     return response.data;
   }
 );

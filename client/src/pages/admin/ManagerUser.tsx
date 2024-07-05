@@ -1,6 +1,18 @@
-import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { User } from "../../interface";
+import { useEffect } from "react";
+import { getAllAccount } from "../../service/user.service";
 
 export default function ManagerUser() {
+  const listAccount: User[] = useSelector((state: any) => state.user.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllAccount());
+  }, [dispatch]);
+
+  // Lọc danh sách tài khoản để chỉ lấy những account có role bằng 1
+  const listUser = listAccount.filter((account) => account.role === 1);
+
   return (
     <>
       <div className="order">
@@ -16,102 +28,37 @@ export default function ManagerUser() {
               <th>Tên</th>
               <th>Số điện thoại</th>
               <th>Email</th>
-              <th>Ngày thêm</th>
+              <th>Địa chỉ</th>
               <th>Status</th>
               <th>Chức năng</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>
-                <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-                <p>Thế Minh</p>
-              </td>
-              <td>0364577211</td>
-              <td>theminh2005z@gmail.com</td>
-              <td>01-10-2021</td>
-              <td>
-                <span style={{backgroundColor: "red"}} className="status completed">Ngừng hoạt động</span>
-              </td>
-              <td className="flex gap-2">
-                <button className="button block">Chặn</button>
-                <button className="button update">Sửa</button>
-                <button className="button delete">Xóa</button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>
-                <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-                <p>Thế Minh</p>
-              </td>
-              <td>0364577211</td>
-              <td>theminh2005z@gmail.com</td>
-              <td>01-10-2021</td>
-              <td>
-                <span style={{backgroundColor: "green"}} className="status pending">Đang hoạt động</span>
-              </td>
-              <td className="flex gap-2">
-                <button className="button block">Chặn</button>
-                <button className="button update">Sửa</button>
-                <button className="button delete">Xóa</button>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>
-                <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-                <p>Thế Minh</p>
-              </td>
-              <td>0364577211</td>
-              <td>theminh2005z@gmail.com</td>
-              <td>01-10-2021</td>
-              <td>
-                <span style={{backgroundColor: "green"}} className="status process">Đang hoạt động</span>
-              </td>
-              <td className="flex gap-2">
-                <button className="button block">Chặn</button>
-                <button className="button update">Sửa</button>
-                <button className="button delete">Xóa</button>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>
-                <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-                <p>Thế Minh</p>
-              </td>
-              <td>0364577211</td>
-              <td>theminh2005z@gmail.com</td>
-              <td>01-10-2021</td>
-              <td>
-                <span style={{backgroundColor: "red"}} className="status pending">Ngừng hoạt động</span>
-              </td>
-              <td className="flex gap-2">
-                <button className="button block">Chặn</button>
-                <button className="button update">Sửa</button>
-                <button className="button delete">Xóa</button>
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>
-                <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-                <p>Thế Minh</p>
-              </td>
-              <td>0364577211</td>
-              <td>theminh2005z@gmail.com</td>
-              <td>01-10-2021</td>
-              <td>
-                <span style={{backgroundColor: "red"}} className="status completed">Ngừng hoạt động</span>
-              </td>
-              <td className="flex gap-2">
-                <button className="button block">Chặn</button>
-                <button className="button update">Sửa</button>
-                <button className="button delete">Xóa</button>
-              </td>
-            </tr>
+            {listUser.map((user: User, index: number) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>
+                  <img src={user.image} alt={user.name}/>
+                  <p>{user.name}</p>
+                </td>
+                <td>{user.numberPhone}</td>
+                <td>{user.email}</td>
+                <td>{user.address}</td>
+                <td>
+                  <span
+                    style={{ backgroundColor: "red" }}
+                    className="status completed"
+                  >
+                    Ngừng hoạt động
+                  </span>
+                </td>
+                <td className="flex gap-2">
+                  <button className="button block">Chặn</button>
+                  <button className="button update">Sửa</button>
+                  <button className="button delete">Xóa</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

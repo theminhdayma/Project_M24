@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { User } from "../../interface";
 import { useEffect, useState } from "react";
-import { getAllUser, logout } from "../../service/user.service";
+import { getAllAccount, logout } from "../../service/user.service";
 
 export default function HeaderUser() {
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
@@ -10,11 +10,11 @@ export default function HeaderUser() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllUser());
+    dispatch(getAllAccount());
   }, [dispatch]);
 
   useEffect(() => {
-    const user = listUser.find((user: User) => user.statusUser === true);
+    const user = listUser.find((user: User) => user.status === true);
     setLoggedInUser(user || null);
   }, [listUser]);
 
@@ -27,8 +27,27 @@ export default function HeaderUser() {
 
   return (
     <header>
-      <div className="container-header">
+      <div style={{ display: "flex" }} className="container-header">
         <div className="header-top">
+          {loggedInUser?.role === 0 && (
+            <Link
+              style={{
+                width: "100px",
+                fontSize: "30px",
+                fontWeight: "600",
+                color: "green",
+                padding: "10px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              to={"/admin"}
+            >
+              <i className="bx bxs-log-out-circle text-3xl" />
+              <span>Admin</span>
+            </Link>
+          )}
+
           <div className="logo">
             <img
               src="https://designercomvn.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2018/12/06090103/logo-shop-qu%E1%BA%A7n-%C3%A1o-8.png"
@@ -55,20 +74,20 @@ export default function HeaderUser() {
                 to={"/product"}
                 className="flex gap-2 justify-center items-center"
               >
-                {loggedInUser.imageUser === "" ? (
+                {loggedInUser.image === "" ? (
                   <img
                     className="w-9 h-9 object-cover rounded-full"
                     src="https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"
-                    alt={loggedInUser.nameUser}
+                    alt={loggedInUser.name}
                   />
                 ) : (
                   <img
                     className="w-9 h-9 object-cover rounded-full"
-                    src={loggedInUser.imageUser}
-                    alt={loggedInUser.nameUser}
+                    src={loggedInUser.image}
+                    alt={loggedInUser.name}
                   />
                 )}
-                <h2 className="text-xl">{loggedInUser.nameUser}</h2>
+                <h2 className="text-xl">{loggedInUser.name}</h2>
               </Link>
               <button
                 onClick={handleLogout}

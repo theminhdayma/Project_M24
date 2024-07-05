@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../service/user.service";
+import { register } from "../service/user.service";
 import { User } from "../interface";
 
 export default function Register() {
   // State chứa thông tin đăng ký
   const [inputValue, setInputValue] = useState({
-    nameUser: "",
+    name: "",
     age: 0,
     address: "",
     numberPhone: "",
     email: "",
     password: "",
-    imageUser: "",
+    image: "",
     role: 1,
-    statusUser: false,
+    status: false,
     confirmPassword: "",
   });
   const [error, setError] = useState<string>("");
@@ -38,7 +38,7 @@ export default function Register() {
 
     // Không được bỏ trống trường thông tin nào
     if (
-      !inputValue.nameUser ||
+      !inputValue.name ||
       !inputValue.email ||
       !inputValue.password ||
       !inputValue.confirmPassword
@@ -72,23 +72,23 @@ export default function Register() {
       return;
     }
 
-    const { nameUser, age, address, numberPhone, email, password, imageUser, role, statusUser } = inputValue;
-    dispatch(registerUser({ nameUser, age, address, numberPhone, email, password, imageUser, role, statusUser }));
+    const { name, age, address, numberPhone, email, password, image, role, status } = inputValue;
+    dispatch(register({ name, age, address, numberPhone, email, password, image, role, status }));
 
     // chuyển hướng sang đăng nhập
     navigate("/login");
 
     // reset lại state lưu trữ thông tin đăng ký
     setInputValue({
-      nameUser: "",
+      name: "",
       age: 0,
       address: "",
       numberPhone: "",
       email: "",
       password: "",
-      imageUser: "",
+      image: "",
       role: 1,
-      statusUser: false,
+      status: false,
       confirmPassword: "",
     });
     setError("");
@@ -102,7 +102,7 @@ export default function Register() {
   // Hàm kiểm tra xem email đã tồn tại chưa
   const checkExistingUser = async (email: string) => {
     try {
-      const response = await fetch("http://localhost:8080/users");
+      const response = await fetch("http://localhost:8080/accounts");
       const data = await response.json();
 
       if (data && data.length > 0) {
@@ -131,8 +131,8 @@ export default function Register() {
               <i className="bx bxs-user" />
               <input
                 type="text"
-                name="nameUser"
-                value={inputValue.nameUser}
+                name="name"
+                value={inputValue.name}
                 onChange={handleChange}
                 placeholder="Enter User"
               />
