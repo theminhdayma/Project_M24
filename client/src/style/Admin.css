@@ -596,6 +596,7 @@ body {
 	color: #ffffff;
 	font-size: 14px;
 	transition: background-color 0.3s ease;
+	border-radius: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -610,6 +611,81 @@ body {
   }
   
   button.block {
-	background-color: #ffc107; 
+	background-color: #ff0000; 
   }
-  
+
+  button.unblock {
+	background-color: rgb(209, 209, 4); 
+  }
+
+/* From  */
+
+/* FormAddUser.css */
+.manageUser_modal {
+	position: absolute;
+	left: 300px;
+	.addEmployee__form{
+		margin: auto;
+		padding: 10px 20px;
+		width: 400px;
+		height: 550px;
+		border-radius: 5px;
+		background-color: white;
+		position: relative;
+		.closeEmployee_form {
+			cursor: pointer;
+			background-color:#BB2327;
+			width: 35px;
+			position: absolute;
+			height: 35px;
+			border-top-right-radius: 5px;
+			border-bottom-left-radius: 5px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			top:0;
+			right:0;
+			color: white;
+			font-size: large;
+		}
+		.addEmployee_item{
+			margin-bottom: 10px;
+			input{
+				margin-top: 5px;
+				height: 38px;
+				width: 100%;
+				padding-left: 12px;
+				border-radius: 2px;
+				border: 1px solid #e3e9ed;  
+				margin-bottom: 5px;
+			}
+		}
+		.addEmployee_item:last-child{
+			display: flex;
+			justify-content: flex-end;
+			gap: 20px;
+			.closeEmployee_btn{
+				margin: 10px 0px;
+				background-color:#ffffff;
+				color: #000000;
+				outline: none;
+				border: 1px solid grey;
+				border-radius: 5px;
+				cursor: pointer;
+				width: 80px;
+				height: 30px;
+			}
+			.addEmployee_btn{
+				margin: 10px 0px;
+				background-color:#2962ff;
+				color: #F5F5F5;
+				outline: none;
+				border:none;
+				border-radius: 5px;
+				cursor: pointer;
+				width: 80px;
+				height: 30px;
+			}
+		}
+	}
+}

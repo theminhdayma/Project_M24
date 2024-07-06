@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { register } from "../service/user.service";
-import { User } from "../interface";
-
+import { register } from "../../service/user.service";
+import { User } from "../../interface";
 export default function Register() {
   // State chứa thông tin đăng ký
   const [inputValue, setInputValue] = useState({
@@ -15,7 +14,7 @@ export default function Register() {
     password: "",
     image: "",
     role: 1,
-    status: false,
+    status: true,
     confirmPassword: "",
   });
   const [error, setError] = useState<string>("");
@@ -72,8 +71,31 @@ export default function Register() {
       return;
     }
 
-    const { name, age, address, numberPhone, email, password, image, role, status } = inputValue;
-    dispatch(register({ name, age, address, numberPhone, email, password, image, role, status }));
+
+    const {
+      name,
+      age,
+      address,
+      numberPhone,
+      email,
+      password,
+      image,
+      role,
+      status,
+    } = inputValue;
+    dispatch(
+      register({
+        name,
+        age,
+        address,
+        numberPhone,
+        email,
+        password,
+        image,
+        role,
+        status,
+      })
+    );
 
     // chuyển hướng sang đăng nhập
     navigate("/login");
@@ -88,7 +110,7 @@ export default function Register() {
       password: "",
       image: "",
       role: 1,
-      status: false,
+      status: true,
       confirmPassword: "",
     });
     setError("");

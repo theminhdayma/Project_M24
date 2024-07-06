@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
 
   return (
-    <>
+    <div className="bg-white">
       <HeaderUser />
       <main>
         <section className="hero">
@@ -75,6 +75,6 @@ export default function Home() {
         </section>
       </main>
       <FooterUser />
-    </>
+    </div>
   );
 }

@@ -1,31 +1,18 @@
-import { useEffect, useState } from "react";
-import "../../style/Admin.css";
+import { useEffect } from "react";
+import "../../style/Admin.css"
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { User } from "../../interface";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllAccount } from "../../service/user.service";
+import { getLocal } from "../../store/reducers/Local";
 
 export default function Admin() {
-  const listUser: User[] = useSelector((state: any) => state.user.user);
-  
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const loggedInUser = getLocal("loggedInUser");
   useEffect(() => {
-    dispatch(getAllAccount());
-  }, []);
-
-  useEffect(() => {
-    const user = listUser.find((user: User) => user.status === true);
-    if (user?.role === 0) {
+    if (loggedInUser?.role === 0) {
       navigate("/admin");
     } else {
-      navigate("/")
+      navigate("/");
     }
   }, []);
-  
-
-  
   // CÁC CHỨC NĂNG CHUYỂN TAB
   useEffect(() => {
     const allSideMenu = document.querySelectorAll<HTMLAnchorElement>(
@@ -143,6 +130,12 @@ export default function Admin() {
             </li>
           </ul>
           <ul className="side-menu">
+            <li>
+              <Link to={"/"} className="logout">
+                <i className="bx bxs-log-out-circle text-3xl text-green-500" />
+                <span className="text text-3xl text-green-500">Home</span>
+              </Link>
+            </li>
             <li>
               <a href="#" className="logout">
                 <i className="bx bxs-log-out-circle text-3xl" />

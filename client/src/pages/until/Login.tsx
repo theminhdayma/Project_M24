@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
-import "../style/Login.css";
+import "../../style/Login.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllAccount, login } from "../service/user.service";
-import { User } from "../interface";
+import { getAllAccount, login } from "../../service/user.service";
+import { User } from "../../interface";
+import CryptoJS from "crypto-js";
 
 export default function Login() {
   const [inputValue, setInputValue] = useState({
@@ -38,22 +39,33 @@ export default function Login() {
       return;
     }
 
-    const user = listAccount.find(
-      (user) =>
-        user.email === inputValue.email && user.password === inputValue.password
-    );
-    
-    if (!user) {
-      setError("Email hoặc mật khẩu không chính xác.");
-      return;
-    }
+    const user = listAccount.find((user) => user.email === inputValue.email);
+    if (user) {
+      const decryptedPassword = CryptoJS.DES.decrypt(
+        user.password,
+        "secret_key"
+      ).toString(CryptoJS.enc.Utf8);
 
-    dispatch(login(user.id));
-    navigate("/");
-    setInputValue({
-      email: "",
-      password: "",
-    });
+      if (decryptedPassword !== inputValue.password) {
+        setError("Email hoặc mật khẩu không chính xác.");
+        return;
+      }
+
+      if (user.status !== true) {
+        setError("Tài khoản đã bị cấm.");
+        return;
+      }
+
+      dispatch(login(user.id)).then(() => {
+        navigate("/");
+        setInputValue({
+          email: "",
+          password: "",
+        });
+      });
+    } else {
+      setError("Email hoặc mật khẩu không chính xác.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,7 +116,7 @@ export default function Login() {
             </div>
           </div>
           <button type="submit">Đăng Nhập</button>
-          <p className="signup">Or Sign In Using</p>
+          <p className="signup">Or Sign Up Using</p>
           <div className="social_icon">
             <a href="#" id="facebook">
               <i className="bx bxl-facebook" />
@@ -121,7 +133,7 @@ export default function Login() {
           </div>
           <div className="alreadyAccount">
             <p>
-              Already have an account? <Link to={"/register"}>Đăng Ký</Link>
+              Don't have an account? <Link to="/register">Đăng Ký</Link>
             </p>
           </div>
         </form>

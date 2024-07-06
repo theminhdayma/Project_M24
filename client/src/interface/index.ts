@@ -24,6 +24,7 @@ export interface ProductType {
     nameProduct: string,
     total: number,
     price: number
+    purchaseCount: number
     description: string
     imageProduct: string[]
     statusProduct: boolean

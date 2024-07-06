@@ -1,27 +1,26 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { User } from "../../interface";
 import { useEffect, useState } from "react";
-import { getAllAccount, logout } from "../../service/user.service";
+import { logout } from "../../service/user.service";
+import { getLocal } from "../../store/reducers/Local";
 
 export default function HeaderUser() {
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
-  const listUser: User[] = useSelector((state: any) => state.user.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllAccount());
-  }, [dispatch]);
-
-  useEffect(() => {
-    const user = listUser.find((user: User) => user.status === true);
-    setLoggedInUser(user || null);
-  }, [listUser]);
+    const user = getLocal("loggedInUser");
+    if (user) {
+      setLoggedInUser(user);
+    }
+  }, []);
 
   const handleLogout = () => {
     if (loggedInUser) {
-      dispatch(logout(loggedInUser.id));
-      setLoggedInUser(null);
+      dispatch(logout(loggedInUser.id)).then(() => {
+        setLoggedInUser(null);
+      });
     }
   };
 

@@ -1,4 +1,19 @@
+import { useDispatch, useSelector } from "react-redux";
+import { ProductType } from "../../interface";
+import { useEffect } from "react";
+import { getProducts } from "../../service/product.service";
+
 export default function ManagerProduct() {
+  const listProduct: ProductType[] = useSelector(
+    (state: any) => state.product.product
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+  console.log(listProduct);
   return (
     <>
       <div className="order">
@@ -11,26 +26,30 @@ export default function ManagerProduct() {
           <thead>
             <tr>
               <th>STT</th>
-              <th>Tên sản phẩm</th>
+              <th className="w-[700px] pr-2 pl-2">Tên sản phẩm</th>
               <th>Số lượng</th>
-              <th>Giá</th>
+              <th>Giá(USD)</th>
               <th>Lượt mua</th>
               <th>Chức năng</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Quần áo</td>
-              <td>100</td>
-              <td>123</td>
-              <td>123</td>
-              <td className="flex gap-2">
-                <button className="button update">Sửa</button>
-                <button className="button delete">Xóa</button>
-              </td>
-            </tr>
-            <tr>
+            {listProduct.map((product: ProductType, index: number) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>
+                  <span className="w-[700px] pl-6">{product.description}</span>
+                </td>
+                <td>{product.total}</td>
+                <td>{product.price}</td>
+                <td>{product.purchaseCount}</td>
+                <td className="flex gap-2">
+                  <button className="button update">Sửa</button>
+                  <button className="button delete">Xóa</button>
+                </td>
+              </tr>
+            ))}
+            {/* <tr>
               <td>2</td>
               <td>Quần áo</td>
               <td>200</td>
@@ -73,7 +92,7 @@ export default function ManagerProduct() {
                 <button className="button update">Sửa</button>
                 <button className="button delete">Xóa</button>
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>
