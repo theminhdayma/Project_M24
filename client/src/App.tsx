@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import "./style/Admin.css"
-import "./style/Login.css"
-import "./style/user.css"
+import "./style/Admin.css";
+import "./style/Login.css";
+import "./style/user.css";
 import Admin from "./pages/admin/Admin";
 import Login from "./pages/until/Login";
 import Register from "./pages/until/Register";
@@ -12,6 +12,7 @@ import Cart from "./pages/user/Cart";
 import ManagerUser from "./pages/admin/ManagerUser";
 import ManagerProduct from "./pages/admin/ManagerProduct";
 import ManagerRevenue from "./pages/admin/ManagerRevenue";
+import ManagerCategory from "./pages/admin/ManagerCategory";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/admin" element={<ManagerUser />}></Route>
           <Route path="/admin/product" element={<ManagerProduct />}></Route>
           <Route path="/admin/revenue" element={<ManagerRevenue />}></Route>
+          <Route path="/admin/category" element={<ManagerCategory />}></Route>
         </Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>

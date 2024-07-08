@@ -1,7 +1,7 @@
 import { login, logout, getAllAccount, register, block, unblock } from "../../service/user.service";
 import { User } from "../../interface";
 import { createSlice } from "@reduxjs/toolkit";
-import { deleteLocal } from "./Local";
+import { deleteLocal, saveLocal } from "./Local";
 
 const listAccount: User[] = [];
 
@@ -9,7 +9,7 @@ const userReducer = createSlice({
   name: "user",
   initialState: {
     user: listAccount,
-    loggedInUser: null, // Thêm trạng thái cho người dùng đang đăng nhập
+    loggedInUser: null, 
   },
   reducers: {},
   extraReducers: (builder: any) => {
@@ -25,8 +25,8 @@ const userReducer = createSlice({
         if (index !== -1) {
           state.user[index] = action.payload;
         }
-        state.loggedInUser = action.payload; // Lưu thông tin người dùng đang đăng nhập
-        localStorage.setItem("loggedInUser", JSON.stringify(action.payload)); // Lưu thông tin vào localStorage
+        state.loggedInUser = action.payload;
+        saveLocal("loggedInUser", action.payload)
       })
       .addCase(logout.fulfilled, (state: any, action: any) => {
         const index = state.user.findIndex((user: User) => user.id === action.payload.id);

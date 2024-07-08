@@ -4,15 +4,15 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { getLocal } from "../../store/reducers/Local";
 
 export default function Admin() {
-  const navigate = useNavigate();
-  const loggedInUser = getLocal("loggedInUser");
-  useEffect(() => {
-    if (loggedInUser?.role === 0) {
-      navigate("/admin");
-    } else {
-      navigate("/");
-    }
-  }, []);
+  // const navigate = useNavigate();
+  // const loggedInUser = getLocal("loggedInUser");
+  // useEffect(() => {
+  //   if (loggedInUser?.role === 0) {
+  //     navigate("/admin");
+  //   } else {
+  //     navigate("/");
+  //   }
+  // }, []);
   // CÁC CHỨC NĂNG CHUYỂN TAB
   useEffect(() => {
     const allSideMenu = document.querySelectorAll<HTMLAnchorElement>(
@@ -126,6 +126,12 @@ export default function Admin() {
               <Link to={"/admin/revenue"}>
                 <i className="bx bxs-doughnut-chart" />
                 <span className="text">Quản Lý doanh thu</span>
+              </Link>
+            </li>
+            <li>
+              <Link to={"/admin/category"}>
+                <i className="bx bxs-doughnut-chart" />
+                <span className="text">Quản Lý danh mục</span>
               </Link>
             </li>
           </ul>

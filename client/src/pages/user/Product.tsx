@@ -17,51 +17,41 @@ export default function Product() {
   useEffect(() => {
     dispatch(getProducts());
   }, []);
-  console.log(listProduct);
 
   return (
     <>
       <HeaderUser />
-      <main>
+      <main className="main">
+        <nav>
+          <div className="filter-sort">
+            <select>
+              <option value="all">All</option>
+              <option value="category1">Category 1</option>
+              <option value="category2">Category 2</option>
+              {/* Add more categories as needed */}
+            </select>
+            <select>
+              <option value="name">Sort by Name</option>
+              <option value="price">Sort by Price</option>
+            </select>
+          </div>
+        </nav>
         <section className="product-list">
           <div className="container">
             <h2>Our Products</h2>
             <div className="product-grid">
-              <div className="product">
-                <Link to={"/product-detail"}>
-                  <img src="images/product1.jpg" alt="Product 1" />
-                  <h3>Product 1</h3>
-                  <p>$10.00</p>
-                </Link>
-              </div>
-              <div className="product">
-                <Link to={"/product-detail"}>
-                  <img src="images/product2.jpg" alt="Product 2" />
-                  <h3>Product 2</h3>
-                  <p>$20.00</p>
-                </Link>
-              </div>
-              <div className="product">
-                <Link to={"/product-detail"}>
-                  <img src="images/product3.jpg" alt="Product 3" />
-                  <h3>Product 3</h3>
-                  <p>$30.00</p>
-                </Link>
-              </div>
-              <div className="product">
-                <Link to={"/product-detail"}>
-                  <img src="images/product4.jpg" alt="Product 4" />
-                  <h3>Product 4</h3>
-                  <p>$40.00</p>
-                </Link>
-              </div>
-              <div className="product">
-                <Link to={"/product-detail"}>
-                  <img src="images/product5.jpg" alt="Product 5" />
-                  <h3>Product 5</h3>
-                  <p>$50.00</p>
-                </Link>
-              </div>
+              {listProduct.map((product: ProductType, index: number) => (
+                <div key={index} className="product">
+                  <Link to={"/product-detail"}>
+                    <img
+                      src={product.imageProduct[0]}
+                      alt={product.nameProduct}
+                    />
+                    <h3>{product.nameProduct}</h3>
+                    <p>{product.price} USD</p>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </section>
