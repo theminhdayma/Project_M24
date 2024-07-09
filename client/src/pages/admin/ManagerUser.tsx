@@ -5,8 +5,6 @@ import { block, getAllAccount, unblock } from "../../service/user.service";
 import { getLocal } from "../../store/reducers/Local";
 import FormAddUser from "../../components/From/FormAddUser";
 
-
-
 export default function ManagerUser() {
   const [showAddForm, setShowAddForm] = useState(false);
   const listAccount: User[] = useSelector((state: any) => state.user.user);
@@ -29,8 +27,8 @@ export default function ManagerUser() {
   };
 
   const closeFromAdd = () => {
-    setShowAddForm(false)
-  }
+    setShowAddForm(false);
+  };
 
   const handleBlock = (id: number) => {
     dispatch(block(id));
@@ -54,14 +52,14 @@ export default function ManagerUser() {
               <th>Tên</th>
               <th>Số điện thoại</th>
               <th>Email</th>
-              <th>Địa chỉ</th>
+              <th>Ngày tạo</th>
               <th>Status</th>
               <th>Chức năng</th>
             </tr>
           </thead>
           <tbody>
             {listUser.map((user: User, index: number) => (
-              <tr key={index}>
+              <tr className="cursor-pointer" key={index}>
                 <td>{index + 1}</td>
                 <td>
                   {user.image === "" ? (
@@ -81,7 +79,7 @@ export default function ManagerUser() {
                 </td>
                 <td>{user.numberPhone}</td>
                 <td>{user.email}</td>
-                <td>{user.address}</td>
+                <td>{user.created_at}</td>
                 <td>
                   {user.role === 0 ? (
                     <span style={{ marginLeft: "20px" }}>ADMIN</span>
@@ -133,7 +131,7 @@ export default function ManagerUser() {
           </tbody>
         </table>
       </div>
-      {showAddForm && <FormAddUser closeFromAdd = {closeFromAdd}/>}
+      {showAddForm && <FormAddUser closeFromAdd={closeFromAdd} />}
     </>
   );
 }

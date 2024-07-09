@@ -46,25 +46,6 @@ export default function Login() {
       const bytes = CryptoJS.AES.decrypt(user.password, "secret_key");
       const decryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
 
-      console.log(1111, decryptedPassword);
-
-      // Encrypt
-      var ciphertext = CryptoJS.AES.encrypt(
-        "11111111",
-        "secret_key"
-      ).toString();
-
-      // Decrypt
-      var bytess = CryptoJS.AES.decrypt(
-        "U2FsdGVkX1+Qm2aigzEk3UN7NZqVevL1EM2qfosb7KI=",
-        "secret_key"
-      );
-      console.log(ciphertext);
-
-      var originalText = bytess.toString(CryptoJS.enc.Utf8);
-
-      console.log(originalText); // 'my message'
-
       if (decryptedPassword !== inputValue.password) {
         setError("Email hoặc mật khẩu không chính xác.");
         return;

@@ -2,17 +2,30 @@ import { useEffect } from "react";
 import "../../style/Admin.css"
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { getLocal } from "../../store/reducers/Local";
+import { useDispatch } from "react-redux";
+import { logout } from "../../service/user.service";
 
 export default function Admin() {
-  // const navigate = useNavigate();
-  // const loggedInUser = getLocal("loggedInUser");
-  // useEffect(() => {
-  //   if (loggedInUser?.role === 0) {
-  //     navigate("/admin");
-  //   } else {
-  //     navigate("/");
-  //   }
-  // }, []);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const loggedInUser = getLocal("loggedInUser");
+  useEffect(() => {
+    if (loggedInUser?.role === 0) {
+      navigate("/admin");
+    } else {
+      navigate("/");
+    }
+  }, []);
+
+  //Đăng xuất
+  const handleLogout = () => {
+    if (loggedInUser) {
+      dispatch(logout(loggedInUser.id)).then(() => {
+        navigate("/")
+      });
+    }
+  };
+
   // CÁC CHỨC NĂNG CHUYỂN TAB
   useEffect(() => {
     const allSideMenu = document.querySelectorAll<HTMLAnchorElement>(
@@ -143,10 +156,10 @@ export default function Admin() {
               </Link>
             </li>
             <li>
-              <a href="#" className="logout">
+              <button onClick={handleLogout} className="logout">
                 <i className="bx bxs-log-out-circle text-3xl" />
                 <span className="text text-3xl">Logout</span>
-              </a>
+              </button>
             </li>
           </ul>
         </section>

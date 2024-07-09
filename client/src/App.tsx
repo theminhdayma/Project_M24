@@ -23,10 +23,10 @@ export default function App() {
         <Route path="/product-detail" element={<ProductDetail />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/admin" element={<Admin />}>
-          <Route path="/admin" element={<ManagerUser />}></Route>
-          <Route path="/admin/product" element={<ManagerProduct />}></Route>
-          <Route path="/admin/revenue" element={<ManagerRevenue />}></Route>
-          <Route path="/admin/category" element={<ManagerCategory />}></Route>
+          <Route index element={<ManagerUser />} />
+          <Route path="product" element={<ManagerProduct />} />
+          <Route path="revenue" element={<ManagerRevenue />} />
+          <Route path="category" element={<ManagerCategory />}></Route>
         </Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>

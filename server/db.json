@@ -10,6 +10,8 @@
       "password": "U2FsdGVkX182CPR30wxRjVPU9ibgJUvvscpAm5ihRv8=",
       "image": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9",
       "role": 0,
+      "created_at": "01-01-2024",
+      "updated_at": "",
       "status": true
     },
     {
@@ -21,32 +23,50 @@
       "password": "U2FsdGVkX182CPR30wxRjVPU9ibgJUvvscpAm5ihRv8=",
       "image": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9",
       "role": 0,
+      "created_at": "01-01-2024",
+      "updated_at": "",
       "status": true,
       "id": 2
     },
     {
-      "name": "1",
+      "name": "2",
       "age": 0,
       "address": "",
       "numberPhone": "",
-      "email": "1@gmail.com",
-      "password": "U2FsdGVkX182CPR30wxRjVPU9ibgJUvvscpAm5ihRv8=",
+      "email": "2@gmail.com",
+      "password": "U2FsdGVkX1/Rhg2F2ROgXmP8aGYDMnqQyRZRh4Izl+k=",
       "image": "",
       "role": 1,
+      "created_at": "08-07-2024",
+      "updated_at": "",
       "status": true,
-      "id": 3
+      "id": 5
     }
   ],
-  "catergory": [
+  "category": [
     {
-      "id": 1,
-      "name": "Giày dép",
-      "status": true
+      "name": "Giày dép đây",
+      "description": "Tất cả các sản phẩm liên quan tới giày dép ",
+      "products": [],
+      "created_at": "01-01-2024",
+      "status": true,
+      "id": 1
     },
     {
       "id": 2,
       "name": "Quần áo",
+      "description": "Tất cả các sản phẩm liên quan tới quần áo",
+      "products": [],
+      "created_at": "01-01-2024",
       "status": true
+    },
+    {
+      "name": "Mũ",
+      "description": "Tất cả sản phẩm liên quan tới mũ",
+      "products": [],
+      "created_at": "09-07-2024",
+      "status": true,
+      "id": 3
     }
   ],
   "products": [
@@ -54,7 +74,7 @@
       "id": 1,
       "idCategory": 1,
       "nameProduct": "Giày NIKE",
-      "total": 89,
+      "total": 6513,
       "price": 578,
       "purchaseCount": 1129,
       "description": "Giày NIKE_AF1 Trắng Bản Cao Cấp, Giày Nike_AIR_FORCE_1 Thời Trang Nam Nữ (CÓ HỖ TRỢ ĐỔI SIZE) || BAKANY",
@@ -63,13 +83,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwlcekuq56fv19",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwlcekuq6l0b67"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 2,
       "idCategory": 2,
       "nameProduct": "quần jean",
-      "total": 74,
+      "total": 7634,
       "price": 332,
       "purchaseCount": 2703,
       "description": "Quần Jeans Ống Suông thêu Chữ Gối phối dây tua, quần bò Jeans ống rộng Nam Nữ unisex",
@@ -78,13 +100,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvblhvjpp6qs8c",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvblhvjpxm5gae"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 3,
       "idCategory": 1,
       "nameProduct": "Giày NIKE",
-      "total": 26,
+      "total": 3643,
       "price": 136,
       "purchaseCount": 1562,
       "description": "Giày NIKE_AF1 Black White Trắng Đen Nam Nữ, Giày Thể Thao Af1 Vệt Đen Free Ship",
@@ -93,13 +117,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lpzuvfekt68i74",
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lpzuvi3evh2v5f"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 4,
       "idCategory": 2,
       "nameProduct": "quần jean",
-      "total": 11,
+      "total": 5636,
       "price": 267,
       "purchaseCount": 1832,
       "description": "[Có Sẵn Tại HN] QUẦN JEAN ULZZANG ỐNG RỘNG MÀU LOANG - [Bonbon Order Ulzzang]",
@@ -108,13 +134,15 @@
         "https://down-vn.img.susercontent.com/file/c7fceb75a0a880b69c8709f6e4d731b7",
         "https://down-vn.img.susercontent.com/file/abf4da014e0b822eba8075da601a3a1d"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 5,
       "idCategory": 1,
       "nameProduct": "Giày NIKE",
-      "total": 64,
+      "total": 6483,
       "price": 619,
       "purchaseCount": 1948,
       "description": "Giày Nike_Air Force 1 Mũi Đen Hàng Đẹp,Giày AF1 White Black Hot Trend 2023 Bản Cao Cấp Full Box Bill",
@@ -123,13 +151,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll9esywq5o6uab",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll9esywq72raa8"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 6,
       "idCategory": 2,
       "nameProduct": "quần jean",
-      "total": 43,
+      "total": 8705,
       "price": 331,
       "purchaseCount": 2012,
       "description": "CAROLLA Quần Jean Nam (Quần bò) Form suông ống đứng ống suông xu hướng Hàn Quốc Hot trend MY-123",
@@ -138,13 +168,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltq9lp1yzcwdbd",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpip9wd8g0fpa2"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 7,
       "idCategory": 1,
       "nameProduct": "Giày NIKE",
-      "total": 45,
+      "total": 6357,
       "price": 211,
       "purchaseCount": 1238,
       "description": "Giày Nike_ Air _Force 1LX Tear_Away Xé Rách Vải Hàng Chính Hãng-Thiết Kế 3 Lớp Vải Xé Hàng Chuẩn Trung|Fullbill PK",
@@ -153,13 +185,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmb9odiva2fz22",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-llu78x6mpntr8a"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 8,
       "idCategory": 2,
       "nameProduct": "quần jean",
-      "total": 62,
+      "total": 7476,
       "price": 416,
       "purchaseCount": 1472,
       "description": "Quần jean dài ống rộng phong cách unisex, quần jean cạp cao Hip Hốp_K55",
@@ -168,13 +202,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkow9sl62hzk6a",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkow9sl6f5ka1c "
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 9,
       "idCategory": 1,
       "nameProduct": "Giày NIKE",
-      "total": 34,
+      "total": 7467,
       "price": 670,
       "purchaseCount": 2384,
       "description": "Giày_nikee air force 1 canvas navy, giày thể thao AF1 vải canvas vệt xanh chuẩn Form êm chân bản cao cấp đế air full box",
@@ -183,13 +219,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luj6g9d2b11ued",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luj6g9d2xijp7a"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 10,
       "idCategory": 2,
       "nameProduct": "quần jean",
-      "total": 20,
+      "total": 8424,
       "price": 551,
       "purchaseCount": 1276,
       "description": "Quần JEAN Túi Hộp Cúc Bấm Nam Nữ Chính Hãng Tiệm Nhà SƠN",
@@ -198,13 +236,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvcnuvwrz90kc2",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvczywst7hjh6e"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 11,
       "idCategory": 1,
       "nameProduct": "dép bánh mỳ",
-      "total": 65,
+      "total": 7423,
       "price": 258,
       "purchaseCount": 2631,
       "description": "Dép Đúc răng cưa dép bánh mì nam nữ không thấm nước - hỗ trợ đổi size",
@@ -213,13 +253,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpd72azx3t5a58",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpd72azx57pqfb"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 12,
       "idCategory": 2,
-      "nameProduct": "Áo 12",
-      "total": 99,
+      "nameProduct": "quần áo bộ",
+      "total": 8324,
       "price": 735,
       "purchaseCount": 1736,
       "description": "Bộ Quần Áo Thể Thao Thời Trang Nam Form Trẻ Trung Chất Thun Co Giãn Cao Cấp",
@@ -228,13 +270,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lhf7dit5tdc1c6",
         "https://down-vn.img.susercontent.com/file/bb46785892a5bda97eb6258da5f39f36"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 13,
       "idCategory": 1,
       "nameProduct": "dép bánh mỳ",
-      "total": 93,
+      "total": 2472,
       "price": 249,
       "purchaseCount": 2131,
       "description": "Dễ thương bãi biển của phụ nữ dép capybara bánh mì gấu trong NHÀ EVA dép đi trong nhà",
@@ -243,13 +287,15 @@
         "https://down-vn.img.susercontent.com/file/sg-11134201-7rce7-ltc2xhwaqjsg94",
         "https://down-vn.img.susercontent.com/file/sg-11134201-7rcds-ltc2xj1x1nmza8"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 14,
       "idCategory": 2,
       "nameProduct": "quần áo bộ",
-      "total": 82,
+      "total": 8282,
       "price": 262,
       "purchaseCount": 1265,
       "description": "Bộ quần đùi áo thun unisex nữ tay lỡ form rộng chất cotton su in chữ BTO HALUSA B53",
@@ -258,13 +304,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lldkx013a5yu38",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lldkx013fs8m00"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 15,
       "idCategory": 1,
       "nameProduct": "dép bánh mỳ",
-      "total": 15,
+      "total": 7247,
       "price": 342,
       "purchaseCount": 1364,
       "description": "Dép bánh mì đế dày 3cm chống trượt chống thấm nước họa tiết hoạt hình dễ thương dành cho nữ",
@@ -273,13 +321,15 @@
         "https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lhigb7532fojcb",
         "https://down-vn.img.susercontent.com/file/sg-11134201-7qven-lgd5paspojr4aa"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 16,
       "idCategory": 2,
       "nameProduct": "quần áo bộ",
-      "total": 76,
+      "total": 7283,
       "price": 339,
       "purchaseCount": 2461,
       "description": "Bộ Quần Áo Thể Thao Nam Mùa Hè Unisex, Hình Thêu Sắc Nét, Phong Cách Cao Cấp",
@@ -288,13 +338,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lh3x4v5d0ylua6",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lh3x4v5d56b6a4"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 17,
       "idCategory": 1,
       "nameProduct": "dép bánh mỳ",
-      "total": 25,
+      "total": 6735,
       "price": 321,
       "purchaseCount": 1365,
       "description": "Dép bánh mì tai mèo dễ thương nhẹ mềm mỏng mùa hè 2023 Mã 60",
@@ -303,13 +355,15 @@
         "https://down-vn.img.susercontent.com/file/sg-11134201-23020-2hhzc8dwfinvce",
         "https://down-vn.img.susercontent.com/file/sg-11134201-23020-wz8wo8yvfinvaa"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 18,
       "idCategory": 2,
       "nameProduct": "quần áo bộ",
-      "total": 73,
+      "total": 3727,
       "price": 407,
       "purchaseCount": 1983,
       "description": "Bộ thể thao nam nữ JULIDO áo tay ngắn quần short dáng rộng thời trang Phối Dây Rút bản to Thời Trang Unisex",
@@ -318,13 +372,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwbz0g17tgbded",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwbz0g17w9g918"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 19,
       "idCategory": 1,
       "nameProduct": "dép bánh mỳ",
-      "total": 69,
+      "total": 7846,
       "price": 244,
       "purchaseCount": 1128,
       "description": "Hana dép nữ dép bánh mì dép bánh mì nữ 2023 NEW APR1701",
@@ -333,13 +389,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134201-7qukw-lf3f4pnzj8lzf7",
         "https://down-vn.img.susercontent.com/file/tw-11134201-7qukz-lfatedzaff3jce"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 20,
       "idCategory": 2,
       "nameProduct": "quần áo bộ",
-      "total": 42,
+      "total": 8463,
       "price": 529,
       "purchaseCount": 1641,
       "description": "Bộ Quần Áo Nam Phối Layer Chất vải Tổ Ong Mềm Nhẹ Co Giãn Thoải Mái – MayLinh Shop, Set đồ nam, bộ đồ nam mặc nhà",
@@ -348,13 +406,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lgj4gchtifsaa8",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lgj4gchtv37b69"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 21,
       "idCategory": 1,
       "nameProduct": "Giày Jordan",
-      "total": 40,
+      "total": 6368,
       "price": 274,
       "purchaseCount": 1613,
       "description": "Giày Jordan_Cổ Thấp,Giày_Jordan Low Panda Đế Cao Phong Cách Thời Trang Full Box Bill || BAKANY",
@@ -363,13 +423,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvqwoofwhxtl10",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvqwsbzxo3buf3"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 22,
       "idCategory": 2,
       "nameProduct": "Áo thun",
-      "total": 91,
+      "total": 3577,
       "price": 276,
       "purchaseCount": 2045,
       "description": "LOCAL BRAND Áo thun The Weird Phong Cách Unisex Form Rộng ATK803",
@@ -378,13 +440,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lp8v3zff01238a",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lm4f9vztbgm77e"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 23,
       "idCategory": 1,
       "nameProduct": "Giày Jordan",
-      "total": 87,
+      "total": 4634,
       "price": 531,
       "purchaseCount": 2673,
       "description": "Giày Jordan Low Trắng Đen Cổ Thấp Bản Quản Châu Cao Cấp - Giày thể thao Sneakers AIR JORDAN 1 Low Black and White",
@@ -393,13 +457,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lrpv4deufy6cf4",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lrp9pnx4ymxl84"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 24,
       "idCategory": 2,
       "nameProduct": "Áo thun",
-      "total": 35,
+      "total": 3585,
       "price": 546,
       "purchaseCount": 1983,
       "description": "CHUJIE Áo Thun áo phông Cotton Tay Ngắn Họa Tiết Sọc Đơn Giản Thời Trang Mùa Hè Mới Cho Nữ TXS104 A29J0WB",
@@ -408,13 +474,15 @@
         "https://down-vn.img.susercontent.com/file/sg-11134201-7rbna-lpp7uv8srv0l23",
         "https://down-vn.img.susercontent.com/file/sg-11134201-7rblf-lpp7uvyvsi4l7b"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 25,
       "idCategory": 1,
       "nameProduct": "Giày Jordan",
-      "total": 39,
+      "total": 7475,
       "price": 285,
       "purchaseCount": 2004,
       "description": "Giày Jordan Cổ Cao, Giày Thể Thao Nam Nữ Sneaker Thời Trang Hàng Đẹp Full Box Bill HDL 99",
@@ -423,13 +491,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnxm3alnau7u37",
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnxm3bmtsfl931"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 26,
       "idCategory": 2,
       "nameProduct": "Áo thun",
-      "total": 84,
+      "total": 6357,
       "price": 212,
       "purchaseCount": 2005,
       "description": "Áo thun FAFIC mascot Jersey Ngắn Tay 11 Jersey vải mè lưới xịn mặc thoáng mát GONZ.STUDIO",
@@ -438,13 +508,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lv1uq0ek8dr7fe",
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lv1uq0h24pj0c5"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 27,
       "idCategory": 1,
       "nameProduct": "Giày Jordan",
-      "total": 84,
+      "total": 3576,
       "price": 412,
       "purchaseCount": 2024,
       "description": "Giày Jodan Thấp Đỏ Đen , Giày Sneaker JD 1 Nam Nữ Full Box Bill C235 Camille Sneaker",
@@ -453,13 +525,15 @@
         "https://down-vn.img.susercontent.com/file/sg-11134201-23020-a9x5of2wctnvb2",
         "https://down-vn.img.susercontent.com/file/sg-11134201-23020-h3v1gi2wctnv29"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 28,
       "idCategory": 2,
       "nameProduct": "Áo thun",
-      "total": 88,
+      "total": 5673,
       "price": 370,
       "purchaseCount": 1984,
       "description": "Áo thun cặp thêu chữ BABY LOVE cho nam nữ form rộng chất cotton mỏng nhẹ Gonz.studio",
@@ -468,13 +542,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3wq4il88b",
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3ty8lan7f"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 29,
       "idCategory": 1,
       "nameProduct": "Giày Jordan",
-      "total": 15,
+      "total": 5732,
       "price": 437,
       "purchaseCount": 1975,
       "description": "Giày JORDAN Cổ Cao Nam Nữ, Giày Sneaker JD1 FULL MÀU - UNISEX_Hàng Cao Cấp__XT - Sneacker",
@@ -483,13 +559,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmuecyuqwqu7bf",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmuecyuqy5ende"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 30,
       "idCategory": 2,
       "nameProduct": "Áo thun",
-      "total": 46,
+      "total": 4683,
       "price": 255,
       "purchaseCount": 2183,
       "description": "Áo thun form BOXY Whenever in nổi 3D , vải cotton không xù lông Sgenz.Studio 2024",
@@ -498,13 +576,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-ltgxc1xw2cuk3c",
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-ltgxc1q4dqco70"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 31,
       "idCategory": 1,
       "nameProduct": "dép cross",
-      "total": 55,
+      "total": 5375,
       "price": 500,
       "purchaseCount": 1237,
       "description": "Dép Cross Classic Sandal Crush Clog nữ đế cao 5cm tặng",
@@ -513,13 +593,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-loilmbgoaigj3b",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-loilmbgoeq5vd4"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 32,
       "idCategory": 2,
       "nameProduct": "Quần áo đá bóng",
-      "total": 60,
+      "total": 3573,
       "price": 458,
       "purchaseCount": 2045,
       "description": "[In tên, số áo 4-6 ngày nhận hàng] - Bộ quần áo đá bóng P*S*G mẫu mới màu Đen - Hàng thun lạnh cao cấp",
@@ -528,13 +610,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzvm4jhofc64f",
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzvm4h9rok581"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 33,
       "idCategory": 1,
       "nameProduct": "dép cross",
-      "total": 81,
+      "total": 8464,
       "price": 235,
       "purchaseCount": 1587,
       "description": "Dép cross nam đi mưa cao cấp sục kín mũi, Dép quai hậu siêu êm cao cấp bền đẹp, Dép sandal",
@@ -543,13 +627,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lva21j8alaqi4b",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lva21j8afogqb0"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 34,
       "idCategory": 2,
       "nameProduct": "Quần áo đá bóng",
-      "total": 87,
+      "total": 4674,
       "price": 234,
       "purchaseCount": 2104,
       "description": "Bộ quần áo bóng đá ko logo 3 lá đen - In tên số áo theo yêu cầu - Hàng thun lạnh cao cấp",
@@ -558,13 +644,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzrd5pm99cvad",
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzrd65zlb0g1d"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 35,
       "idCategory": 1,
       "nameProduct": "dép cross",
-      "total": 16,
+      "total": 3573,
       "price": 638,
       "purchaseCount": 1294,
       "description": "Dép cross nữ Dép Bánh Mì Cao Cấp Đế 4.5cm Mềm Mại Chống Trượt Cho Nam Nữ - QUAN JIA",
@@ -573,13 +661,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lkdhdixh85987f",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lj84j1h93q3689"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 36,
       "idCategory": 2,
       "nameProduct": "Quần áo đá bóng",
-      "total": 70,
+      "total": 3775,
       "price": 406,
       "purchaseCount": 2194,
       "description": "[in sau lưng theo yêu cầu] Quần Áo Bóng Đá logo thêu Real Madrid 2024 MÈ HÀN Cao Cấp",
@@ -588,13 +678,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvnaqdquwjnd33",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvnaqdquv52xde"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 37,
       "idCategory": 1,
       "nameProduct": "dép cross",
-      "total": 85,
+      "total": 6446,
       "price": 212,
       "purchaseCount": 1982,
       "description": "Sục Cross Đế độn 3cm Tặng kèm Sticker BearBrick cao su 2D",
@@ -603,13 +695,15 @@
         "https://down-vn.img.susercontent.com/file/d83769381eec8417c116ac725cac046f",
         "https://down-vn.img.susercontent.com/file/0e5814cdbef7439bc6ce7dc0ec048a69"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 38,
       "idCategory": 2,
       "nameProduct": "Quần áo đá bóng",
-      "total": 47,
+      "total": 4847,
       "price": 279,
       "purchaseCount": 1741,
       "description": "[in tên số áo theo yêu cầu] Bộ quần áo bóng đá không logo trắng xanh- hàng thun lạnh loại 1",
@@ -618,13 +712,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lo2153iwp5yy7f",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lo2153iwky9m14"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 39,
       "idCategory": 1,
       "nameProduct": "dép cross",
-      "total": 82,
+      "total": 5789,
       "price": 237,
       "purchaseCount": 1835,
       "description": "CHANGLONG dép cross đế cao dép nữ dép đi biển Chống Trượt Lót êm ái Tự nhiên Siêu nhẹ Cá tính FBT24504WH 19Z240508",
@@ -633,13 +729,15 @@
         "https://down-vn.img.susercontent.com/file/cn-11134207-7r98o-lvikfzeq6okl5f",
         "https://down-vn.img.susercontent.com/file/cn-11134207-7r98o-lvikfzeq2gv954"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 40,
       "idCategory": 2,
       "nameProduct": "Quần áo đá bóng",
-      "total": 12,
+      "total": 6486,
       "price": 345,
       "purchaseCount": 1509,
       "description": "[IN TÊN] Bộ quần áo bóng đá không logo 3 lá trắng hồng mới - In tên số áo theo yêu cầu - Hàng thun lạnh cao cấp",
@@ -648,13 +746,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lldhql65cxqgd1",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lldhql65ecaw2d"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 41,
       "idCategory": 1,
       "nameProduct": "giày da",
-      "total": 96,
+      "total": 8468,
       "price": 198,
       "purchaseCount": 1048,
       "description": "(Oxford) Giày da nam cao cấp. DA BÒ THẬT - ĐẾ PHÍP - BH 12 tháng - Kiểu dáng oxford - Mã CS03",
@@ -663,13 +763,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luskcvamnmzpd6",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luskcvamqg4l01"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 42,
       "idCategory": 2,
       "nameProduct": "áo sơ mi",
-      "total": 97,
+      "total": 4689,
       "price": 193,
       "purchaseCount": 2234,
       "description": "Áo Sơ Mi Ngắn Tay oversize Thời Trang vintage Nhật Bản Dành Cho Nam",
@@ -678,13 +780,15 @@
         "https://down-vn.img.susercontent.com/file/sg-11134301-7rd60-lwqohm8tuxra50",
         "https://down-vn.img.susercontent.com/file/sg-11134301-7rd6u-lwqohgiobfc02f"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 43,
       "idCategory": 1,
       "nameProduct": "giày da",
-      "total": 94,
+      "total": 3579,
       "price": 232,
       "purchaseCount": 2098,
       "description": "Giày Dr.Martens 1641 J1, Giày Đốc Da Nguyên Tấm Đế Kếp Full Size Nam Nữ 36-44",
@@ -693,13 +797,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwjwe65xii8rb9",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwjwe65xjwt79c"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 44,
       "idCategory": 2,
       "nameProduct": "áo sơ mi",
-      "total": 30,
+      "total": 8887,
       "price": 641,
       "purchaseCount": 2874,
       "description": "Haibinzoulu Áo Sơ Mi Ngắn Tay Oversize In Họa Tiết Cá Tính Dành Cho Nam Và Nữ",
@@ -708,13 +814,15 @@
         "https://down-vn.img.susercontent.com/file/20d168ab7ec0d1bf7d0ecc5fbe085c43",
         "https://down-vn.img.susercontent.com/file/3cde7b973e9c05ee37f568facdcaae2d"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 45,
       "idCategory": 1,
       "nameProduct": "giày da",
-      "total": 84,
+      "total": 6578,
       "price": 431,
       "purchaseCount": 2103,
       "description": "Giày da nam trung niên mũi tròn, đế khâu thời thượng - 5N",
@@ -723,13 +831,15 @@
         "https://down-vn.img.susercontent.com/file/5d115c17060ce99e42c876fc23f30a8e",
         "https://down-vn.img.susercontent.com/file/d3c4ed777d4d8d9f49590ab4d8942551"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 46,
       "idCategory": 2,
       "nameProduct": "áo sơ mi",
-      "total": 52,
+      "total": 2476,
       "price": 172,
       "purchaseCount": 1903,
       "description": "Lovito Áo sơ nữ kiểu mi kẻ sọc cài cúc phía trước thường ngày cho nữ LNE24126 (Nhiều màu)",
@@ -738,13 +848,15 @@
         "https://down-vn.img.susercontent.com/file/sg-11134201-7rd3q-lv8l6wzb79287c",
         "https://down-vn.img.susercontent.com/file/sg-11134201-7rd6x-lv8l6z1479fo88"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 47,
       "idCategory": 1,
       "nameProduct": "giày da",
-      "total": 11,
+      "total": 6474,
       "price": 176,
       "purchaseCount": 1984,
       "description": "Giày tây nam da bò cao cấp - đế cao su non đi rất êm và mềm tăng chiều cao 5 đến 6cm khâu đế 2 lớp ( da bò nguyên tấm )",
@@ -753,13 +865,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134201-7qukw-levlfsidxffbb4",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lil03rnka6to54"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     },
     {
       "id": 48,
       "idCategory": 2,
       "nameProduct": "áo sơ mi",
-      "total": 54,
+      "total": 5363,
       "price": 446,
       "purchaseCount": 1714,
       "description": "Áo sơ mi nữ kẻ kèm KHĂN, áo somi over size có thể tháo rời mặc nhiều kiểu Samhyewear",
@@ -768,13 +882,15 @@
         "https://down-vn.img.susercontent.com/file/vn-11134201-23030-csvfimfehnov34",
         "https://down-vn.img.susercontent.com/file/vn-11134201-23030-5ltbapfehnova1"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 49,
       "idCategory": 1,
       "nameProduct": "giày da",
-      "total": 23,
+      "total": 5743,
       "price": 477,
       "purchaseCount": 1983,
       "description": "Giày da nam oxford & derby The Jinx 6 phiên bản INF tăng chiều cao",
@@ -783,13 +899,15 @@
         "https://down-vn.img.susercontent.com/file/sg-11134201-22110-ngonrptqvhjv2a",
         "https://down-vn.img.susercontent.com/file/vn-11134201-23020-6gjlbm0sxonv2d"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": false
     },
     {
       "id": 50,
       "idCategory": 2,
       "nameProduct": "áo sơ mi",
-      "total": 28,
+      "total": 8454,
       "price": 186,
       "purchaseCount": 2345,
       "description": "Áo Sơ Mi Trơn Tay Dài Form Rộng 4 Màu Nam Nữ Unisex",
@@ -798,6 +916,8 @@
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmkcpxdxc3j36b",
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmk2978w74kf0d"
       ],
+      "created_at": "",
+      "updated_at": "",
       "statusProduct": true
     }
   ],

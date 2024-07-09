@@ -1,92 +1,106 @@
+import { useDispatch, useSelector } from "react-redux";
+import { Category } from "../../interface";
+import { useEffect, useState } from "react";
+import { getAllCategory, deleteCategory } from "../../service/product.service";
+import FormAddCategory from "../../components/From/FormAddCategory";
+import FormUpdateCategory from "../../components/From/FormUpdateCategory";
 
 export default function ManagerCategory() {
+  const [showFormAddCategory, setShowFormAddCategory] =
+    useState<boolean>(false);
+  const [showFormUpdateCategory, setShowFormUpdateCategory] =
+    useState<boolean>(false);
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
+    null
+  );
+
+  const listCategory: Category[] = useSelector(
+    (state: any) => state.product.category
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCategory());
+  }, [dispatch]);
+
+  const handleShowAdd = () => {
+    setShowFormAddCategory(true);
+  };
+
+  const closeFromAdd = () => {
+    setShowFormAddCategory(false);
+  };
+
+  const handleUpdate = (category: Category) => {
+    setSelectedCategory(category);
+    setShowFormUpdateCategory(true);
+  };
+
+  const closeFromUpdate = () => {
+    setShowFormUpdateCategory(false);
+    setSelectedCategory(null);
+  };
+
+  const handleDelete = (id: number) => {
+    dispatch(deleteCategory(id));
+  };  
+
   return (
     <>
       <div className="order">
         <div className="head">
-          <h3>Recent Orders</h3>
+          <h3 className="cursor-pointer" onClick={handleShowAdd}>
+            Thêm Danh mục
+          </h3>
           <i className="bx bx-search" />
           <i className="bx bx-filter" />
         </div>
         <table>
           <thead>
             <tr>
-              <th>User</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>Date Order</th>
-              <th>Status</th>
+              <th>STT</th>
+              <th>Loại sản phẩm</th>
+              <th>Mô tả</th>
+              <th>Ngày tạo</th>
+              <th>Chức năng</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>
-                <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-                <p>Thế Minh</p>
-              </td>
-              <td>0364577211</td>
-              <td>theminh2005z@gmail.com</td>
-              <td>01-10-2021</td>
-              <td>
-                <span className="status completed">Completed</span>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>
-                <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-                <p>Thế Minh</p>
-              </td>
-              <td>0364577211</td>
-              <td>theminh2005z@gmail.com</td>
-              <td>01-10-2021</td>
-              <td>
-                <span className="status pending">Pending</span>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>
-                <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-                <p>Thế Minh</p>
-              </td>
-              <td>0364577211</td>
-              <td>theminh2005z@gmail.com</td>
-              <td>01-10-2021</td>
-              <td>
-                <span className="status process">Process</span>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>
-                <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-                <p>Thế Minh</p>
-              </td>
-              <td>0364577211</td>
-              <td>theminh2005z@gmail.com</td>
-              <td>01-10-2021</td>
-              <td>
-                <span className="status pending">Pending</span>
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>
-                <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-                <p>Thế Minh</p>
-              </td>
-              <td>0364577211</td>
-              <td>theminh2005z@gmail.com</td>
-              <td>01-10-2021</td>
-              <td>
-                <span className="status completed">Completed</span>
-              </td>
-            </tr>
+            {listCategory.map((category: Category, index: number) => (
+              <tr
+                className="cursor-pointer"
+                key={index}
+              >
+                <td>{index + 1}</td>
+                <td>{category.name}</td>
+                <td>{category.description}</td>
+                <td>{category.created_at}</td>
+                <td className="flex gap-2">
+                  <button
+                    onClick={() => handleUpdate(category)}
+                    className="button update"
+                  >
+                    Sửa
+                  </button>
+                  <button
+                    onClick={() => handleDelete(category.id)}
+                    className="button delete"
+                  >
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
+      {showFormAddCategory && <FormAddCategory closeFromAdd={closeFromAdd} />}
+      {showFormUpdateCategory && selectedCategory && (
+        <FormUpdateCategory
+          closeFromUpdate={closeFromUpdate}
+          category={selectedCategory}
+        />
+      )}
     </>
   );
 }

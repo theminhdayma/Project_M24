@@ -25,13 +25,13 @@ export default function Product() {
         <nav>
           <div className="filter-sort">
             <select>
-              <option value="all">All</option>
-              <option value="category1">Category 1</option>
-              <option value="category2">Category 2</option>
+              <option value="all">Tất cả sản phẩm</option>
+              <option value="category1">Giày dép</option>
+              <option value="category2">Quần áo</option>
               {/* Add more categories as needed */}
             </select>
             <select>
-              <option value="name">Sort by Name</option>
+              <option value="name">Tất cả các hãng</option>
               <option value="price">Sort by Price</option>
             </select>
           </div>

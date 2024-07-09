@@ -22,12 +22,21 @@ export const register: any = createAsyncThunk(
       password,
       image,
       role,
+      created_at,
+      updated_at,
       status,
     } = newUser;
     const EncryptedPassword = CryptoJS.AES.encrypt(
       password,
       "secret_key"
     ).toString();
+
+    // Lấy thời gian đăng ký 
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Tháng bắt đầu từ 0 nên cần +1
+    const day = String(currentDate.getDate()).padStart(2, "0");
+    const timeRegister = `${day}-${month}-${year}`;
 
     const response = await axios.post("http://localhost:8080/accounts", {
       name,
@@ -38,6 +47,8 @@ export const register: any = createAsyncThunk(
       password: EncryptedPassword,
       image,
       role,
+      created_at: timeRegister,
+      updated_at,
       status,
     });
     return response.data;

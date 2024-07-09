@@ -142,7 +142,7 @@ body {
 	width: calc(48px - (4px * 2));
 	transition: width .3s ease;
 }
-#sidebar .side-menu li a.logout {
+#sidebar .side-menu li .logout {
 	color: var(--red);
 }
 #sidebar .side-menu.top li a:hover {

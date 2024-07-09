@@ -14,6 +14,8 @@ export default function Register() {
     password: "",
     image: "",
     role: 1,
+    created_at: "",
+    updated_at: "",
     status: true,
     confirmPassword: "",
   });
@@ -71,7 +73,6 @@ export default function Register() {
       return;
     }
 
-
     const {
       name,
       age,
@@ -81,6 +82,8 @@ export default function Register() {
       password,
       image,
       role,
+      created_at,
+      updated_at,
       status,
     } = inputValue;
     dispatch(
@@ -93,6 +96,8 @@ export default function Register() {
         password,
         image,
         role,
+        created_at,
+        updated_at,
         status,
       })
     );
@@ -110,6 +115,8 @@ export default function Register() {
       password: "",
       image: "",
       role: 1,
+      created_at: "",
+      updated_at: "",
       status: true,
       confirmPassword: "",
     });
