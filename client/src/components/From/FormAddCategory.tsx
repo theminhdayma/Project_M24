@@ -29,22 +29,22 @@ export default function FormAddCategory({ closeFromAdd }: Props) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     // Không được bỏ trống trường thông tin nào
     if (!inputValue.name || !inputValue.description) {
       setError("Vui lòng điền đầy đủ thông tin.");
       return;
     }
-  
+
     // Không được sử dụng lại tên loại sản phẩm
     const check = await checkNameCategory(inputValue.name);
     if (check) {
       setError("Tên sản phẩm đã có");
       return;
     }
-  
+
     await dispatch(addCategory(inputValue));
-  
+
     //reset lại state lưu trữ thông tin
     setInputValue({
       name: "",
@@ -56,7 +56,6 @@ export default function FormAddCategory({ closeFromAdd }: Props) {
     setError("");
     closeFromAdd();
   };
-  
 
   // Hàm check xem loại sản phẩm đã tồn tại chưa
   const checkNameCategory = async (name: string) => {
@@ -84,7 +83,7 @@ export default function FormAddCategory({ closeFromAdd }: Props) {
           <h4 style={{ fontSize: "24px" }} className="addEmployee_title">
             Thêm loại hàng
           </h4>
-          {/* {error && <span className="text-red-500">{error}</span>} */}
+          {error && <span className="text-red-500">{error}</span>}
           <div style={{ marginTop: "40px" }} className="addEmployee_item">
             <label htmlFor="">Tên loại mặt hàng</label>
             <br />
@@ -95,7 +94,6 @@ export default function FormAddCategory({ closeFromAdd }: Props) {
               onChange={handleChange}
               placeholder="Tên loại sản phẩm"
             />
-            {/* {errors.nameAccount&&<div  className='message_error'>{errors.nameAccount}</div>} */}
           </div>
           <div style={{ marginTop: "40px" }} className="addEmployee_item">
             <label htmlFor="">Mô tả loại sản phẩm</label>
@@ -107,7 +105,6 @@ export default function FormAddCategory({ closeFromAdd }: Props) {
               onChange={handleChange}
               placeholder="Mô tả loại sản phẩm"
             />
-            {/* {errors.nameAccount&&<div  className='message_error'>{errors.nameAccount}</div>} */}
           </div>
           <div className="addEmployee_item">
             <button onClick={closeFromAdd} className="closeEmployee_btn">

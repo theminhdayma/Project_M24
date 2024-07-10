@@ -3,7 +3,7 @@ import { User } from "../../interface";
 import { useEffect, useState } from "react";
 import { block, getAllAccount, unblock } from "../../service/user.service";
 import { getLocal } from "../../store/reducers/Local";
-import FormAddUser from "../../components/From/FormAddUser";
+import FormAddUser from "../From/FormAddUser";
 
 export default function ManagerUser() {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -41,7 +41,13 @@ export default function ManagerUser() {
     <>
       <div className="order">
         <div className="head">
-          <h3 onClick={handleShowFromAdd}>Thêm người dùng</h3>
+          <h3
+            className="cursor-pointer border p-3 bg-blue-500 text-white flex justify-center items-center gap-3"
+            onClick={handleShowFromAdd}
+          >
+            <i className="fa-solid fa-circle-plus"></i>
+            <span>Thêm người dùng</span>
+          </h3>
           <i className="bx bx-search" />
           <i className="bx bx-filter" />
         </div>

@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^42.0.0",
+    "@ckeditor/ckeditor5-react": "^8.0.0",
     "@reduxjs/toolkit": "^2.2.5",
     "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
     "bcryptjs-react": "^2.4.6",
     "boxicons": "^2.1.4",
     "crypto-js": "^4.2.0",
+    "firebase": "^10.12.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",

@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Category } from "../../interface";
 import { useEffect, useState } from "react";
 import { getAllCategory, deleteCategory } from "../../service/product.service";
-import FormAddCategory from "../../components/From/FormAddCategory";
-import FormUpdateCategory from "../../components/From/FormUpdateCategory";
+import FormAddCategory from "../From/FormAddCategory";
+import FormUpdateCategory from "../From/FormUpdateCategory";
 
 export default function ManagerCategory() {
   const [showFormAddCategory, setShowFormAddCategory] =
@@ -43,14 +43,18 @@ export default function ManagerCategory() {
 
   const handleDelete = (id: number) => {
     dispatch(deleteCategory(id));
-  };  
+  };
 
   return (
     <>
       <div className="order">
         <div className="head">
-          <h3 className="cursor-pointer" onClick={handleShowAdd}>
-            Thêm Danh mục
+          <h3
+            className="cursor-pointer border p-3 bg-blue-500 text-white flex justify-center items-center gap-3"
+            onClick={handleShowAdd}
+          >
+            <i className="fa-solid fa-circle-plus"></i>
+            <span>Thêm Danh mục</span>
           </h3>
           <i className="bx bx-search" />
           <i className="bx bx-filter" />
@@ -67,10 +71,7 @@ export default function ManagerCategory() {
           </thead>
           <tbody>
             {listCategory.map((category: Category, index: number) => (
-              <tr
-                className="cursor-pointer"
-                key={index}
-              >
+              <tr className="cursor-pointer" key={index}>
                 <td>{index + 1}</td>
                 <td>{category.name}</td>
                 <td>{category.description}</td>

@@ -192,7 +192,7 @@ export default function Admin() {
           </nav>
           {/* NAVBAR */}
           {/* MAIN */}
-          <main>
+          <main className="mainAdmin"> 
             <div className="head-title">
               <div className="left">
                 <h1>Dashboard</h1>

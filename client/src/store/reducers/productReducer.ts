@@ -1,6 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Category, ProductType } from "../../interface";
-import { getAllCategory, getProducts, updateCategory, deleteCategory, addCategory } from "../../service/product.service";
+import {
+  getAllCategory,
+  getProducts,
+  updateCategory,
+  deleteCategory,
+  addCategory,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+} from "../../service/product.service";
 
 const listProduct: ProductType[] = [];
 const listCategory: Category[] = [];
@@ -24,16 +33,36 @@ const productReducer = createSlice({
         state.category.push(action.payload);
       })
       .addCase(updateCategory.fulfilled, (state, action) => {
-        const index = state.category.findIndex(cat => cat.id === action.payload.id);
+        const index = state.category.findIndex(
+          (cat) => cat.id === action.payload.id
+        );
         if (index !== -1) {
           state.category[index] = action.payload;
         }
       })
       .addCase(deleteCategory.fulfilled, (state, action) => {
-        state.category = state.category.filter(cat => cat.id !== action.payload);
+        state.category = state.category.filter(
+          (cat) => cat.id !== action.payload
+        );
+      })
+      .addCase(addProduct.fulfilled, (state, action) => {
+        state.product.push(action.payload);
+      })
+      .addCase(updateProduct.fulfilled, (state, action) => {
+        const updatedProduct = action.payload;
+        const index = state.product.findIndex(
+          (product) => product.id === updatedProduct.id
+        );
+        if (index !== -1) {
+          state.product[index] = updatedProduct;
+        }
+      })
+      .addCase(deleteProduct.fulfilled, (state, action) => {
+        state.product = state.product.filter(
+          (pro) => pro.id !== action.payload
+        );
       });
   },
 });
-
 
 export default productReducer.reducer;

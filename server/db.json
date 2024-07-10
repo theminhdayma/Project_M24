@@ -67,6 +67,14 @@
       "created_at": "09-07-2024",
       "status": true,
       "id": 3
+    },
+    {
+      "name": "Thắt lưng da",
+      "description": "Tất cả sản phẩm liên quan tới thắt lưng da",
+      "products": [],
+      "created_at": "10-07-2024",
+      "status": true,
+      "id": 4
     }
   ],
   "products": [
@@ -919,6 +927,21 @@
       "created_at": "",
       "updated_at": "",
       "statusProduct": true
+    },
+    {
+      "idCategory": 2,
+      "nameProduct": "quần đùi",
+      "total": "3523",
+      "price": "532",
+      "purchaseCount": 0,
+      "description": "<p>quần đùi này đẹp</p>",
+      "imageProduct": [
+        "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/products%2Fjfghkl%3B.jpg?alt=media&token=edfc2e5c-4e18-4c59-b6fe-63601215b312"
+      ],
+      "created_at": "10-07-2024",
+      "updated_at": "",
+      "statusProduct": true,
+      "id": 51
     }
   ],
   "comments": [

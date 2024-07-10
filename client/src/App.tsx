@@ -9,10 +9,12 @@ import Home from "./pages/user/Home";
 import Product from "./pages/user/Product";
 import ProductDetail from "./pages/user/ProductDetail";
 import Cart from "./pages/user/Cart";
-import ManagerUser from "./pages/admin/ManagerUser";
-import ManagerProduct from "./pages/admin/ManagerProduct";
-import ManagerRevenue from "./pages/admin/ManagerRevenue";
-import ManagerCategory from "./pages/admin/ManagerCategory";
+import ManagerUser from "./components/Admin/ManagerUser";
+import ManagerProduct from "./components/Admin/ManagerProduct";
+import ManagerRevenue from "./components/Admin/ManagerRevenue";
+import ManagerCategory from "./components/Admin/ManagerCategory";
+import FormAddProduct from "./components/From/FromAddProduct";
+import FromUpdateProduct from "./components/From/FromUpdateProduct";
 
 export default function App() {
   return (
@@ -24,10 +26,15 @@ export default function App() {
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/admin" element={<Admin />}>
           <Route index element={<ManagerUser />} />
-          <Route path="product" element={<ManagerProduct />} />
-          <Route path="revenue" element={<ManagerRevenue />} />
+          <Route path="product" element={<ManagerProduct />}></Route>
+          <Route path="revenue" element={<ManagerRevenue />}></Route>
           <Route path="category" element={<ManagerCategory />}></Route>
         </Route>
+        <Route path="/addProduct" element={<FormAddProduct />}></Route>
+        <Route
+          path="/updateProduct/:id"
+          element={<FromUpdateProduct />}
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
       </Routes>
