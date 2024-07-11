@@ -2,10 +2,26 @@ import { useEffect } from "react";
 import "../../style/Admin.css"
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { getLocal } from "../../store/reducers/Local";
-import { useDispatch } from "react-redux";
-import { logout } from "../../service/user.service";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllAccount, logout } from "../../service/user.service";
+import { ProductType, User } from "../../interface";
+import { getProducts } from "../../service/product.service";
 
 export default function Admin() {
+  // Lấy số Product
+  const listProduct: ProductType[] = useSelector(
+    (state: any) => state.product.product
+  );
+
+  // Lấy user
+  const listAccount: User[] = useSelector((state: any) => state.user.user);
+
+
+  useEffect(() => {
+    dispatch(getProducts());
+    dispatch(getAllAccount())
+  }, []);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loggedInUser = getLocal("loggedInUser");
@@ -25,6 +41,11 @@ export default function Admin() {
       });
     }
   };
+
+  // Tính tổng doanh thu từ sản phẩm
+  const totalSales = listProduct.reduce((total, product) => {
+    return total + (product.purchaseCount * product.price);
+  }, 0);
 
   // CÁC CHỨC NĂNG CHUYỂN TAB
   useEffect(() => {
@@ -222,14 +243,14 @@ export default function Admin() {
               <li>
                 <i className="bx bxs-group" />
                 <span className="text">
-                  <h3>2834</h3>
+                  <h3>{listAccount.length}</h3>
                   <p>Visitors</p>
                 </span>
               </li>
               <li>
                 <i className="bx bxs-dollar-circle" />
                 <span className="text">
-                  <h3>$2543</h3>
+                  <h3>{totalSales}</h3>
                   <p>Total Sales</p>
                 </span>
               </li>

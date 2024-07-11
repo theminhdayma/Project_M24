@@ -9,6 +9,7 @@ import {
   addProduct,
   updateProduct,
   deleteProduct,
+  getProductById,
 } from "../../service/product.service";
 
 const listProduct: ProductType[] = [];
@@ -25,6 +26,15 @@ const productReducer = createSlice({
     builder
       .addCase(getProducts.fulfilled, (state, action) => {
         state.product = action.payload;
+      })
+      .addCase(getProductById.fulfilled, (state, action) => {
+        const product = action.payload;
+        const index = state.product.findIndex((prod) => prod.id === product.id);
+        if (index !== -1) {
+          state.product[index] = product;
+        } else {
+          state.product.push(product);
+        }
       })
       .addCase(getAllCategory.fulfilled, (state, action) => {
         state.category = action.payload;

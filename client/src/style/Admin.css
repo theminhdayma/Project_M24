@@ -774,7 +774,7 @@ body {
           }
 
 		  .product_input_number {
-			width: 1060px;
+			width: 505px;
             height: 40px;
             border-radius: 2px;
             border: 1px solid #6c798f52;
@@ -985,3 +985,5 @@ body {
   .mainAdmin {
 	background: var(--light);
   }
+
+  

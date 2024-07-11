@@ -45,7 +45,7 @@
   ],
   "category": [
     {
-      "name": "Giày dép đây",
+      "name": "Giày dép",
       "description": "Tất cả các sản phẩm liên quan tới giày dép ",
       "products": [],
       "created_at": "01-01-2024",
@@ -59,29 +59,14 @@
       "products": [],
       "created_at": "01-01-2024",
       "status": true
-    },
-    {
-      "name": "Mũ",
-      "description": "Tất cả sản phẩm liên quan tới mũ",
-      "products": [],
-      "created_at": "09-07-2024",
-      "status": true,
-      "id": 3
-    },
-    {
-      "name": "Thắt lưng da",
-      "description": "Tất cả sản phẩm liên quan tới thắt lưng da",
-      "products": [],
-      "created_at": "10-07-2024",
-      "status": true,
-      "id": 4
     }
   ],
   "products": [
     {
       "id": 1,
       "idCategory": 1,
-      "nameProduct": "Giày NIKE",
+      "brand": "Giày NIKE",
+      "name": "Giày NIKE_AF1",
       "total": 6513,
       "price": 578,
       "purchaseCount": 1129,
@@ -98,7 +83,8 @@
     {
       "id": 2,
       "idCategory": 2,
-      "nameProduct": "quần jean",
+      "brand": "quần jean",
+      "name": "Quần Jeans Ống Suông",
       "total": 7634,
       "price": 332,
       "purchaseCount": 2703,
@@ -115,7 +101,8 @@
     {
       "id": 3,
       "idCategory": 1,
-      "nameProduct": "Giày NIKE",
+      "brand": "Giày NIKE",
+      "name": "Giày NIKE_AF1 Black White",
       "total": 3643,
       "price": 136,
       "purchaseCount": 1562,
@@ -132,7 +119,8 @@
     {
       "id": 4,
       "idCategory": 2,
-      "nameProduct": "quần jean",
+      "brand": "quần jean",
+      "name": "QUẦN JEAN ULZZANG ỐNG RỘNG",
       "total": 5636,
       "price": 267,
       "purchaseCount": 1832,
@@ -149,7 +137,8 @@
     {
       "id": 5,
       "idCategory": 1,
-      "nameProduct": "Giày NIKE",
+      "brand": "Giày NIKE",
+      "name": "Giày Nike_Air Force",
       "total": 6483,
       "price": 619,
       "purchaseCount": 1948,
@@ -166,7 +155,8 @@
     {
       "id": 6,
       "idCategory": 2,
-      "nameProduct": "quần jean",
+      "brand": "quần jean",
+      "name": "CAROLLA Quần Jean Nam",
       "total": 8705,
       "price": 331,
       "purchaseCount": 2012,
@@ -183,7 +173,8 @@
     {
       "id": 7,
       "idCategory": 1,
-      "nameProduct": "Giày NIKE",
+      "brand": "Giày NIKE",
+      "name": "Giày Nike_ Air _Force 1LX",
       "total": 6357,
       "price": 211,
       "purchaseCount": 1238,
@@ -200,7 +191,8 @@
     {
       "id": 8,
       "idCategory": 2,
-      "nameProduct": "quần jean",
+      "brand": "quần jean",
+      "name": "Quần jean dài ống rộng",
       "total": 7476,
       "price": 416,
       "purchaseCount": 1472,
@@ -217,7 +209,8 @@
     {
       "id": 9,
       "idCategory": 1,
-      "nameProduct": "Giày NIKE",
+      "brand": "Giày NIKE",
+      "name": "Giày_nikee air force",
       "total": 7467,
       "price": 670,
       "purchaseCount": 2384,
@@ -234,7 +227,8 @@
     {
       "id": 10,
       "idCategory": 2,
-      "nameProduct": "quần jean",
+      "brand": "quần jean",
+      "name": "Quần JEAN Túi Hộp",
       "total": 8424,
       "price": 551,
       "purchaseCount": 1276,
@@ -251,7 +245,8 @@
     {
       "id": 11,
       "idCategory": 1,
-      "nameProduct": "dép bánh mỳ",
+      "brand": "dép bánh mỳ",
+      "name": "Dép Đúc răng cưa dép bánh mì",
       "total": 7423,
       "price": 258,
       "purchaseCount": 2631,
@@ -268,7 +263,8 @@
     {
       "id": 12,
       "idCategory": 2,
-      "nameProduct": "quần áo bộ",
+      "brand": "quần áo bộ",
+      "name": "Bộ Quần Áo Thể Thao",
       "total": 8324,
       "price": 735,
       "purchaseCount": 1736,
@@ -285,7 +281,8 @@
     {
       "id": 13,
       "idCategory": 1,
-      "nameProduct": "dép bánh mỳ",
+      "brand": "dép bánh mỳ",
+      "name": "dép capybara bánh mì gấu",
       "total": 2472,
       "price": 249,
       "purchaseCount": 2131,
@@ -302,7 +299,8 @@
     {
       "id": 14,
       "idCategory": 2,
-      "nameProduct": "quần áo bộ",
+      "brand": "quần áo bộ",
+      "name": "Bộ quần đùi áo thun unisex",
       "total": 8282,
       "price": 262,
       "purchaseCount": 1265,
@@ -319,7 +317,8 @@
     {
       "id": 15,
       "idCategory": 1,
-      "nameProduct": "dép bánh mỳ",
+      "brand": "dép bánh mỳ",
+      "name": "Dép bánh mì đế dày",
       "total": 7247,
       "price": 342,
       "purchaseCount": 1364,
@@ -336,7 +335,8 @@
     {
       "id": 16,
       "idCategory": 2,
-      "nameProduct": "quần áo bộ",
+      "brand": "quần áo bộ",
+      "name": "Bộ Quần Áo Thể Thao Nam",
       "total": 7283,
       "price": 339,
       "purchaseCount": 2461,
@@ -353,7 +353,8 @@
     {
       "id": 17,
       "idCategory": 1,
-      "nameProduct": "dép bánh mỳ",
+      "brand": "dép bánh mỳ",
+      "name": "Dép bánh mì tai mèo",
       "total": 6735,
       "price": 321,
       "purchaseCount": 1365,
@@ -370,7 +371,8 @@
     {
       "id": 18,
       "idCategory": 2,
-      "nameProduct": "quần áo bộ",
+      "brand": "quần áo bộ",
+      "name": "Bộ thể thao nam nữ JULIDO",
       "total": 3727,
       "price": 407,
       "purchaseCount": 1983,
@@ -387,7 +389,8 @@
     {
       "id": 19,
       "idCategory": 1,
-      "nameProduct": "dép bánh mỳ",
+      "brand": "dép bánh mỳ",
+      "name": "NEW APR1701",
       "total": 7846,
       "price": 244,
       "purchaseCount": 1128,
@@ -404,7 +407,8 @@
     {
       "id": 20,
       "idCategory": 2,
-      "nameProduct": "quần áo bộ",
+      "brand": "quần áo bộ",
+      "name": "Bộ Quần Áo Nam Phối Layer",
       "total": 8463,
       "price": 529,
       "purchaseCount": 1641,
@@ -421,7 +425,8 @@
     {
       "id": 21,
       "idCategory": 1,
-      "nameProduct": "Giày Jordan",
+      "brand": "Giày Jordan",
+      "name": "Giày Jordan_Cổ Thấp",
       "total": 6368,
       "price": 274,
       "purchaseCount": 1613,
@@ -438,7 +443,8 @@
     {
       "id": 22,
       "idCategory": 2,
-      "nameProduct": "Áo thun",
+      "brand": "Áo thun",
+      "name": "LOCAL BRAND",
       "total": 3577,
       "price": 276,
       "purchaseCount": 2045,
@@ -455,7 +461,8 @@
     {
       "id": 23,
       "idCategory": 1,
-      "nameProduct": "Giày Jordan",
+      "brand": "Giày Jordan",
+      "name": "Giày Jordan Low",
       "total": 4634,
       "price": 531,
       "purchaseCount": 2673,
@@ -472,7 +479,8 @@
     {
       "id": 24,
       "idCategory": 2,
-      "nameProduct": "Áo thun",
+      "brand": "Áo thun",
+      "name": "CHUJIE Áo Thun",
       "total": 3585,
       "price": 546,
       "purchaseCount": 1983,
@@ -489,7 +497,8 @@
     {
       "id": 25,
       "idCategory": 1,
-      "nameProduct": "Giày Jordan",
+      "brand": "Giày Jordan",
+      "name": "Giày Jordan Cổ Cao",
       "total": 7475,
       "price": 285,
       "purchaseCount": 2004,
@@ -506,7 +515,8 @@
     {
       "id": 26,
       "idCategory": 2,
-      "nameProduct": "Áo thun",
+      "brand": "Áo thun",
+      "name": "Áo thun FAFIC mascot Jersey",
       "total": 6357,
       "price": 212,
       "purchaseCount": 2005,
@@ -523,7 +533,8 @@
     {
       "id": 27,
       "idCategory": 1,
-      "nameProduct": "Giày Jordan",
+      "brand": "Giày Jordan",
+      "name": "Giày Jodan Thấp Đỏ Đen",
       "total": 3576,
       "price": 412,
       "purchaseCount": 2024,
@@ -540,7 +551,8 @@
     {
       "id": 28,
       "idCategory": 2,
-      "nameProduct": "Áo thun",
+      "brand": "Áo thun",
+      "name": "Áo thun cặp thêu",
       "total": 5673,
       "price": 370,
       "purchaseCount": 1984,
@@ -557,7 +569,8 @@
     {
       "id": 29,
       "idCategory": 1,
-      "nameProduct": "Giày Jordan",
+      "brand": "Giày Jordan",
+      "name": "Giày JORDAN Cổ Cao",
       "total": 5732,
       "price": 437,
       "purchaseCount": 1975,
@@ -574,7 +587,8 @@
     {
       "id": 30,
       "idCategory": 2,
-      "nameProduct": "Áo thun",
+      "brand": "Áo thun",
+      "name": "Áo thun form BOXY Whenever",
       "total": 4683,
       "price": 255,
       "purchaseCount": 2183,
@@ -591,7 +605,8 @@
     {
       "id": 31,
       "idCategory": 1,
-      "nameProduct": "dép cross",
+      "brand": "dép cross",
+      "name": "Dép Cross Classic Sandal Crush Clog",
       "total": 5375,
       "price": 500,
       "purchaseCount": 1237,
@@ -608,7 +623,8 @@
     {
       "id": 32,
       "idCategory": 2,
-      "nameProduct": "Quần áo đá bóng",
+      "brand": "Quần áo đá bóng",
+      "name": "quần áo đá bóng P*S*G",
       "total": 3573,
       "price": 458,
       "purchaseCount": 2045,
@@ -625,7 +641,8 @@
     {
       "id": 33,
       "idCategory": 1,
-      "nameProduct": "dép cross",
+      "brand": "dép cross",
+      "name": "Dép cross nam",
       "total": 8464,
       "price": 235,
       "purchaseCount": 1587,
@@ -642,7 +659,8 @@
     {
       "id": 34,
       "idCategory": 2,
-      "nameProduct": "Quần áo đá bóng",
+      "brand": "Quần áo đá bóng",
+      "name": "Bộ quần áo bóng đá",
       "total": 4674,
       "price": 234,
       "purchaseCount": 2104,
@@ -659,7 +677,8 @@
     {
       "id": 35,
       "idCategory": 1,
-      "nameProduct": "dép cross",
+      "brand": "dép cross",
+      "name": "Dép cross nữ",
       "total": 3573,
       "price": 638,
       "purchaseCount": 1294,
@@ -676,7 +695,8 @@
     {
       "id": 36,
       "idCategory": 2,
-      "nameProduct": "Quần áo đá bóng",
+      "brand": "Quần áo đá bóng",
+      "name": "Quần Áo Bóng Đá",
       "total": 3775,
       "price": 406,
       "purchaseCount": 2194,
@@ -693,7 +713,8 @@
     {
       "id": 37,
       "idCategory": 1,
-      "nameProduct": "dép cross",
+      "brand": "dép cross",
+      "name": "Sục Cross Đế độn",
       "total": 6446,
       "price": 212,
       "purchaseCount": 1982,
@@ -710,7 +731,8 @@
     {
       "id": 38,
       "idCategory": 2,
-      "nameProduct": "Quần áo đá bóng",
+      "brand": "Quần áo đá bóng",
+      "name": "Bộ quần áo bóng đá",
       "total": 4847,
       "price": 279,
       "purchaseCount": 1741,
@@ -727,7 +749,8 @@
     {
       "id": 39,
       "idCategory": 1,
-      "nameProduct": "dép cross",
+      "brand": "dép cross",
+      "name": "CHANGLONG dép cross",
       "total": 5789,
       "price": 237,
       "purchaseCount": 1835,
@@ -744,7 +767,8 @@
     {
       "id": 40,
       "idCategory": 2,
-      "nameProduct": "Quần áo đá bóng",
+      "brand": "Quần áo đá bóng",
+      "name": "Bộ quần áo bóng đá",
       "total": 6486,
       "price": 345,
       "purchaseCount": 1509,
@@ -761,7 +785,8 @@
     {
       "id": 41,
       "idCategory": 1,
-      "nameProduct": "giày da",
+      "brand": "giày da",
+      "name": "(Oxford) Giày da nam",
       "total": 8468,
       "price": 198,
       "purchaseCount": 1048,
@@ -778,7 +803,8 @@
     {
       "id": 42,
       "idCategory": 2,
-      "nameProduct": "áo sơ mi",
+      "brand": "áo sơ mi",
+      "name": "Áo Sơ Mi Ngắn Tay",
       "total": 4689,
       "price": 193,
       "purchaseCount": 2234,
@@ -795,7 +821,8 @@
     {
       "id": 43,
       "idCategory": 1,
-      "nameProduct": "giày da",
+      "brand": "giày da",
+      "name": "Giày Dr.Martens 1641 J1",
       "total": 3579,
       "price": 232,
       "purchaseCount": 2098,
@@ -812,7 +839,8 @@
     {
       "id": 44,
       "idCategory": 2,
-      "nameProduct": "áo sơ mi",
+      "brand": "áo sơ mi",
+      "name": "Áo Sơ Mi Ngắn Tay",
       "total": 8887,
       "price": 641,
       "purchaseCount": 2874,
@@ -829,7 +857,8 @@
     {
       "id": 45,
       "idCategory": 1,
-      "nameProduct": "giày da",
+      "brand": "giày da",
+      "name": "Giày da nam trung niên",
       "total": 6578,
       "price": 431,
       "purchaseCount": 2103,
@@ -846,7 +875,8 @@
     {
       "id": 46,
       "idCategory": 2,
-      "nameProduct": "áo sơ mi",
+      "brand": "áo sơ mi",
+      "name": "Lovito Áo sơ nữ",
       "total": 2476,
       "price": 172,
       "purchaseCount": 1903,
@@ -863,7 +893,8 @@
     {
       "id": 47,
       "idCategory": 1,
-      "nameProduct": "giày da",
+      "brand": "giày da",
+      "name": "iày tây nam da bò",
       "total": 6474,
       "price": 176,
       "purchaseCount": 1984,
@@ -880,7 +911,8 @@
     {
       "id": 48,
       "idCategory": 2,
-      "nameProduct": "áo sơ mi",
+      "brand": "áo sơ mi",
+      "name": "Áo sơ mi nữ kẻ kèm KHĂN",
       "total": 5363,
       "price": 446,
       "purchaseCount": 1714,
@@ -897,7 +929,8 @@
     {
       "id": 49,
       "idCategory": 1,
-      "nameProduct": "giày da",
+      "brand": "giày da",
+      "name": "Giày da nam oxford & derby",
       "total": 5743,
       "price": 477,
       "purchaseCount": 1983,
@@ -914,7 +947,8 @@
     {
       "id": 50,
       "idCategory": 2,
-      "nameProduct": "áo sơ mi",
+      "brand": "áo sơ mi",
+      "name": "Áo Sơ Mi Trơn Tay Dài",
       "total": 8454,
       "price": 186,
       "purchaseCount": 2345,
@@ -927,21 +961,6 @@
       "created_at": "",
       "updated_at": "",
       "statusProduct": true
-    },
-    {
-      "idCategory": 2,
-      "nameProduct": "quần đùi",
-      "total": "3523",
-      "price": "532",
-      "purchaseCount": 0,
-      "description": "<p>quần đùi này đẹp</p>",
-      "imageProduct": [
-        "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/products%2Fjfghkl%3B.jpg?alt=media&token=edfc2e5c-4e18-4c59-b6fe-63601215b312"
-      ],
-      "created_at": "10-07-2024",
-      "updated_at": "",
-      "statusProduct": true,
-      "id": 51
     }
   ],
   "comments": [

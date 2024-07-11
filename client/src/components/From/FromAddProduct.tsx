@@ -2,17 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { Category } from "../../interface";
-import { getAllCategory, addProduct } from "../../service/product.service";
+import { Category, ProductType } from "../../interface";
+import {
+  getAllCategory,
+  addProduct,
+  getProducts,
+} from "../../service/product.service";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 
 export default function FormAddProduct() {
-  // State lữu trữ thông tin sản phẩm cần thêm
   const [inputValue, setInputValue] = useState({
     idCategory: -1,
-    nameProduct: "",
+    brand: "",
+    name: "",
     total: 0,
     price: 0,
     purchaseCount: 0,
@@ -23,26 +27,26 @@ export default function FormAddProduct() {
     statusProduct: true,
   });
 
-  // state lưu trữ mảng ảnh cần thêm
   const [imageFiles, setImageFiles] = useState<File[]>([]);
-
-  // Loading state
   const [loading, setLoading] = useState(false);
-  // Hiển thị lỗi
   const [errors, setErrors] = useState<string[]>([]);
 
-  // Lấy category
   const listCategory: Category[] = useSelector(
     (state: any) => state.product.category
   );
+
+  const listProduct: ProductType[] = useSelector(
+    (state: any) => state.product.product
+  );
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getAllCategory());
+    dispatch(getProducts());
   }, [dispatch]);
 
-  // Lấy value của các ô input
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -53,7 +57,6 @@ export default function FormAddProduct() {
     }));
   };
 
-  // Lấy các ảnh từ
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newFilesArray = Array.from(e.target.files);
@@ -71,7 +74,6 @@ export default function FormAddProduct() {
         uploadTask.on(
           "state_changed",
           (snapshot) => {
-            // Optional: progress function
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log(`Upload is ${progress}% done`);
@@ -96,15 +98,12 @@ export default function FormAddProduct() {
     const newErrors: string[] = [];
     if (inputValue.idCategory === -1)
       newErrors.push("Loại sản phẩm không được bỏ trống.");
-    if (!inputValue.nameProduct)
-      newErrors.push("Tên sản phẩm không được bỏ trống.");
+    if (!inputValue.name) newErrors.push("Tên sản phẩm không được bỏ trống.");
     if (inputValue.total <= 0)
       newErrors.push("Số lượng sản phẩm phải lớn hơn 0.");
     if (inputValue.price <= 0) newErrors.push("Giá sản phẩm phải lớn hơn 0.");
     if (!inputValue.description)
       newErrors.push("Mô tả sản phẩm không được bỏ trống.");
-    if (imageFiles.length === 0)
-      newErrors.push("Phải chọn ít nhất một hình ảnh sản phẩm.");
     setErrors(newErrors);
     return newErrors.length === 0;
   };
@@ -119,7 +118,8 @@ export default function FormAddProduct() {
       navigate("/admin/product");
       setInputValue({
         idCategory: -1,
-        nameProduct: "",
+        brand: "",
+        name: "",
         total: 0,
         price: 0,
         purchaseCount: 0,
@@ -135,6 +135,11 @@ export default function FormAddProduct() {
       console.error("Error uploading images:", error);
     }
   };
+
+  // Lọc các hãng trùng lặp
+  const uniqueBrands = listProduct
+    .map((product) => product.brand)
+    .filter((value, index, self) => self.indexOf(value) === index);
 
   return (
     <div className="products_adminActions_part">
@@ -156,10 +161,10 @@ export default function FormAddProduct() {
           </div>
           <input
             type="text"
-            name="nameProduct"
+            name="name"
             className="product_input"
             placeholder="Nhập tên sản phẩm"
-            value={inputValue.nameProduct}
+            value={inputValue.name}
             onChange={handleChange}
           />
         </div>
@@ -184,6 +189,26 @@ export default function FormAddProduct() {
           </div>
           <div className="product_item">
             <div className="product_label">
+              <h4>Hãng sản phẩm</h4>
+            </div>
+            <select
+              name="brand"
+              className="product_input"
+              value={inputValue.brand}
+              onChange={handleChange}
+            >
+              <option value="">Chọn hãng sản phẩm</option>
+              {uniqueBrands.map((brand, index) => (
+                <option key={index} value={brand}>
+                  {brand}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="product_item_flex">
+          <div className="product_item">
+            <div className="product_label">
               <h4>Số lượng sản phẩm</h4>
             </div>
             <input
@@ -195,8 +220,6 @@ export default function FormAddProduct() {
               onChange={handleChange}
             />
           </div>
-        </div>
-        <div className="product_item_flex">
           <div className="product_item">
             <div className="product_label">
               <h4>Giá sản phẩm</h4>
@@ -236,7 +259,7 @@ export default function FormAddProduct() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M18.5 0A1.5 1.5 0 0120 1.5V12c-.49-.07-1.01-.07-1.5 0V1.5H2v12.65l3.395-3.408a.75.75 0 01.958-.087l.104.087L7.89 12.18l3.687-5.21a.75.75 0 01.96-.086l.103.087 3.391 3.405c.81.813.433 2.28-.398 3.07A5.235 5.235 0 0014.053 18H2a1.5 1.5 0 01-1.5-1.5v-15A1.5 1.5 0 012 0h16.5z"></path>
-                <path d="M6.5 4.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM18.5 14.25a.75.75 0 011.5 0v2.25h2.25a.75.75 0 010 1.5H20v2.25a.75.75 0 01-1.5 0V18h-2.25a.75.75 0 010-1.5h2.25v-2.25z"></path>
+                <path d="M6.5 10.5a1 1 0 011-1h8a1 1 0 110 2h-8a1 1 0 01-1-1z"></path>
               </svg>
             </div>
             <label htmlFor="fileinput" className="uploadImage_content">

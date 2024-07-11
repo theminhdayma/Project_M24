@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Category, ProductType } from "../../interface";
-import { getAllCategory, updateProduct } from "../../service/product.service";
+import {
+  getAllCategory,
+  getProducts,
+  updateProduct,
+} from "../../service/product.service";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../config/firebase";
 import { useNavigate, useParams } from "react-router-dom";
@@ -20,6 +24,10 @@ export default function FromUpdateProduct() {
     )
   );
 
+  const listProduct: ProductType[] = useSelector(
+    (state: any) => state.product.product
+  );
+
   const listCategory: Category[] = useSelector(
     (state: any) => state.product.category
   );
@@ -28,11 +36,13 @@ export default function FromUpdateProduct() {
 
   useEffect(() => {
     dispatch(getAllCategory());
+    dispatch(getProducts());
   }, [dispatch]);
 
   const [inputValue, setInputValue] = useState<ProductType>({
     idCategory: productToUpdate.idCategory,
-    nameProduct: productToUpdate.nameProduct,
+    brand: productToUpdate.brand,
+    name: productToUpdate.name,
     total: productToUpdate.total,
     price: productToUpdate.price,
     purchaseCount: productToUpdate.purchaseCount,
@@ -47,7 +57,8 @@ export default function FromUpdateProduct() {
   useEffect(() => {
     setInputValue({
       idCategory: productToUpdate.idCategory,
-      nameProduct: productToUpdate.nameProduct,
+      brand: productToUpdate.brand,
+      name: productToUpdate.name,
       total: productToUpdate.total,
       price: productToUpdate.price,
       purchaseCount: productToUpdate.purchaseCount,
@@ -111,15 +122,12 @@ export default function FromUpdateProduct() {
     const newErrors: string[] = [];
     if (inputValue.idCategory === -1)
       newErrors.push("Loại sản phẩm không được bỏ trống.");
-    if (!inputValue.nameProduct)
-      newErrors.push("Tên sản phẩm không được bỏ trống.");
+    if (!inputValue.name) newErrors.push("Tên sản phẩm không được bỏ trống.");
     if (inputValue.total <= 0)
       newErrors.push("Số lượng sản phẩm phải lớn hơn 0.");
     if (inputValue.price <= 0) newErrors.push("Giá sản phẩm phải lớn hơn 0.");
     if (!inputValue.description)
       newErrors.push("Mô tả sản phẩm không được bỏ trống.");
-    if (imageFiles.length === 0)
-      newErrors.push("Phải chọn ít nhất một hình ảnh sản phẩm.");
     setErrors(newErrors);
     return newErrors.length === 0;
   };
@@ -136,6 +144,11 @@ export default function FromUpdateProduct() {
       console.error("Error updating product:", error);
     }
   };
+
+  // Lọc các hãng trùng lặp
+  const uniqueBrands = listProduct
+    .map((product) => product.brand)
+    .filter((value, index, self) => self.indexOf(value) === index);
 
   return (
     <div className="products_adminActions_part">
@@ -157,10 +170,10 @@ export default function FromUpdateProduct() {
           </div>
           <input
             type="text"
-            name="nameProduct"
+            name="name"
             className="product_input"
             placeholder="Nhập tên sản phẩm"
-            value={inputValue.nameProduct}
+            value={inputValue.name}
             onChange={handleChange}
           />
         </div>
@@ -185,6 +198,26 @@ export default function FromUpdateProduct() {
           </div>
           <div className="product_item">
             <div className="product_label">
+              <h4>Hãng sản phẩm</h4>
+            </div>
+            <select
+              name="brand"
+              className="product_input"
+              value={inputValue.brand}
+              onChange={handleChange}
+            >
+              <option value="">Chọn hãng sản phẩm</option>
+              {uniqueBrands.map((brand, index) => (
+                <option key={index} value={brand}>
+                  {brand}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="product_item_flex">
+          <div className="product_item">
+            <div className="product_label">
               <h4>Số lượng sản phẩm</h4>
             </div>
             <input
@@ -196,8 +229,6 @@ export default function FromUpdateProduct() {
               onChange={handleChange}
             />
           </div>
-        </div>
-        <div className="product_item_flex">
           <div className="product_item">
             <div className="product_label">
               <h4>Giá sản phẩm</h4>
@@ -261,7 +292,7 @@ export default function FromUpdateProduct() {
         </div>
         <div className="footer_addProducts">
           <button type="submit" className="submit_form" disabled={loading}>
-            {loading ? "Đang cập nhật..." : "Cập nhật sản phẩm"}
+            {loading ? "Đang tải..." : "Tạo sản phẩm"}
           </button>
         </div>
       </form>

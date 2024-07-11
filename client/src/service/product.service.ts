@@ -70,7 +70,8 @@ export const addProduct: any = createAsyncThunk(
   async (newProduct: any) => {
     const {
       idCategory,
-      nameProduct,
+      brand,
+      name,
       total,
       price,
       purchaseCount,
@@ -89,7 +90,8 @@ export const addProduct: any = createAsyncThunk(
 
     const res = await axios.post("http://localhost:8080/products", {
       idCategory: Number(idCategory),
-      nameProduct,
+      brand,
+      name,
       total,
       price,
       purchaseCount,
@@ -122,3 +124,11 @@ export const deleteProduct: any = createAsyncThunk(
     return id;
   }
 )
+
+export const getProductById: any = createAsyncThunk(
+  "product/getProductById",
+  async (id: number) => {
+    const res = await axios.get(`http://localhost:8080/products/${id}`);
+    return res.data;
+  }
+);

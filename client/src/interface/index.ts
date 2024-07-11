@@ -17,8 +17,8 @@ export interface User {
 export interface Category {
     id: number,
     name: string,
-    description: string
     products: []
+    description: string
     created_at: string
     status: boolean
 }
@@ -26,7 +26,8 @@ export interface Category {
 export interface ProductType {
     id: number,
     idCategory: number
-    nameProduct: string,
+    brand: string
+    name: string,
     total: number,
     price: number
     purchaseCount: number

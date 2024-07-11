@@ -2,21 +2,31 @@ import HeaderUser from "../../components/User/HeaderUser";
 import FooterUser from "../../components/User/FooterUser";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { ProductType } from "../../interface";
+import { Category, ProductType } from "../../interface";
 import { useEffect } from "react";
-import { getProducts } from "../../service/product.service";
+import { getAllCategory, getProducts } from "../../service/product.service";
 
 export default function Product() {
   // Lấy dữ liệu về product
   const listProduct: ProductType[] = useSelector(
     (state: any) => state.product.product
   );
+  // Lấy dữ liệu về category
+  const listCategory: Category[] = useSelector(
+    (state: any) => state.product.category
+  );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProducts());
+    dispatch(getAllCategory());
   }, []);
+
+  // Lọc các hãng trùng lặp
+  const uniqueBrands = listProduct
+    .map((product) => product.brand)
+    .filter((value, index, self) => self.indexOf(value) === index);
 
   return (
     <>
@@ -25,14 +35,18 @@ export default function Product() {
         <nav>
           <div className="filter-sort">
             <select>
-              <option value="all">Tất cả sản phẩm</option>
-              <option value="category1">Giày dép</option>
-              <option value="category2">Quần áo</option>
-              {/* Add more categories as needed */}
+              {listCategory.map((category: Category, index: number) => (
+                <option key={index} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
             </select>
             <select>
-              <option value="name">Tất cả các hãng</option>
-              <option value="price">Sort by Price</option>
+              {uniqueBrands.map((brand, index) => (
+                <option key={index} value={brand}>
+                  {brand}
+                </option>
+              ))}
             </select>
           </div>
         </nav>
@@ -42,12 +56,9 @@ export default function Product() {
             <div className="product-grid">
               {listProduct.map((product: ProductType, index: number) => (
                 <div key={index} className="product">
-                  <Link to={"/product-detail"}>
-                    <img
-                      src={product.imageProduct[0]}
-                      alt={product.nameProduct}
-                    />
-                    <h3>{product.nameProduct}</h3>
+                  <Link to={`/product-detail/${product.id}`}>
+                    <img src={product.imageProduct[0]} alt={product.name} />
+                    <h3>{product.name}</h3>
                     <p>{product.price} USD</p>
                   </Link>
                 </div>

@@ -46,8 +46,8 @@ export default function ManagerProduct() {
           <thead>
             <tr>
               <th>STT</th>
-              <th className="w-[700px] pr-2 pl-2">Tên sản phẩm</th>
-              <th>Loại hàng</th>
+              <th>Tên sản phẩm</th>
+              <th>Hãng</th>
               <th>Số lượng</th>
               <th>Giá(USD)</th>
               <th>Lượt mua</th>
@@ -58,16 +58,24 @@ export default function ManagerProduct() {
             {listProduct.map((product: ProductType, index: number) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td>
-                  <span className="w-[700px] pl-6">{product.description}</span>
-                </td>
-                <td>{product.nameProduct}</td>
+                <td>{product.name}</td>
+                <td>{product.brand}</td>
                 <td>{product.total}</td>
                 <td>{product.price}</td>
                 <td>{product.purchaseCount}</td>
                 <td className="flex gap-2">
-                  <button className="button update" onClick={() => handleEdit(product.id)}>Sửa</button>
-                  <button className="button delete" onClick={() => handleDelete(product.id)}>Xóa</button>
+                  <button
+                    className="button update"
+                    onClick={() => handleEdit(product.id)}
+                  >
+                    Sửa
+                  </button>
+                  <button
+                    className="button delete"
+                    onClick={() => handleDelete(product.id)}
+                  >
+                    Xóa
+                  </button>
                 </td>
               </tr>
             ))}
