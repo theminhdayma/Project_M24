@@ -41,6 +41,20 @@
       "updated_at": "",
       "status": true,
       "id": 5
+    },
+    {
+      "name": "Dũng",
+      "age": 0,
+      "address": "",
+      "numberPhone": "",
+      "email": "dung@gmail.com",
+      "password": "U2FsdGVkX1/kb49cvV/G80b2R4EHtv6AF0U0FuJJA/0=",
+      "image": "",
+      "role": 1,
+      "created_at": "12-07-2024",
+      "updated_at": "",
+      "status": true,
+      "id": 6
     }
   ],
   "category": [
@@ -67,7 +81,7 @@
       "idCategory": 1,
       "brand": "Giày NIKE",
       "name": "Giày NIKE_AF1",
-      "total": 6513,
+      "total": 5999,
       "price": 578,
       "purchaseCount": 1129,
       "description": "Giày NIKE_AF1 Trắng Bản Cao Cấp, Giày Nike_AIR_FORCE_1 Thời Trang Nam Nữ (CÓ HỖ TRỢ ĐỔI SIZE) || BAKANY",
@@ -78,7 +92,8 @@
       ],
       "created_at": "",
       "updated_at": "",
-      "statusProduct": true
+      "statusProduct": true,
+      "status": true
     },
     {
       "id": 2,
@@ -121,7 +136,7 @@
       "idCategory": 2,
       "brand": "quần jean",
       "name": "QUẦN JEAN ULZZANG ỐNG RỘNG",
-      "total": 5636,
+      "total": 5606,
       "price": 267,
       "purchaseCount": 1832,
       "description": "[Có Sẵn Tại HN] QUẦN JEAN ULZZANG ỐNG RỘNG MÀU LOANG - [Bonbon Order Ulzzang]",
@@ -961,6 +976,82 @@
       "created_at": "",
       "updated_at": "",
       "statusProduct": true
+    },
+    {
+      "idCategory": 2,
+      "brand": "quần áo bộ",
+      "name": "Quần đùi nam",
+      "total": "7652",
+      "price": "134",
+      "purchaseCount": 0,
+      "description": "<p>Sản Phẩm này hay</p>",
+      "imageProduct": [],
+      "created_at": "12-07-2024",
+      "updated_at": "",
+      "statusProduct": true,
+      "id": 51
+    }
+  ],
+  "cart": [
+    {
+      "idUser": 1,
+      "idProduct": 5,
+      "brand": "Giày NIKE",
+      "name": "Giày Nike_Air Force",
+      "price": 619,
+      "quantity": 1,
+      "image": [
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll9esywq2v1y91",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll9esywq5o6uab",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll9esywq72raa8"
+      ],
+      "status": false,
+      "id": 2
+    },
+    {
+      "idUser": 1,
+      "idProduct": 10,
+      "brand": "quần jean",
+      "name": "Quần JEAN Túi Hộp",
+      "price": 551,
+      "quantity": 1,
+      "image": [
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvcnuvwrxug49b",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvcnuvwrz90kc2",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvczywst7hjh6e"
+      ],
+      "status": false,
+      "id": 3
+    },
+    {
+      "idUser": 1,
+      "idProduct": 28,
+      "brand": "Áo thun",
+      "name": "Áo thun cặp thêu",
+      "price": 370,
+      "quantity": 1,
+      "image": [
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3t49t013f",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3wq4il88b",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3ty8lan7f"
+      ],
+      "status": false,
+      "id": 4
+    },
+    {
+      "idUser": 1,
+      "idProduct": 15,
+      "brand": "dép bánh mỳ",
+      "name": "Dép bánh mì đế dày",
+      "price": 342,
+      "quantity": 1,
+      "image": [
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7qve4-lgg1bx8cbz7kc3",
+        "https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lhigb7532fojcb",
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7qven-lgd5paspojr4aa"
+      ],
+      "status": false,
+      "id": 7
     }
   ],
   "comments": [

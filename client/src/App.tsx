@@ -23,7 +23,7 @@ export default function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/product" element={<Product />}></Route>
         <Route path="/product-detail/:id" element={<ProductDetail />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/cart/:id" element={<Cart />}></Route>
         <Route path="/admin" element={<Admin />}>
           <Route index element={<ManagerUser />} />
           <Route path="product" element={<ManagerProduct />}></Route>

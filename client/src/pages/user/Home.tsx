@@ -1,8 +1,32 @@
 import HeaderUser from "../../components/User/HeaderUser";
 import FooterUser from "../../components/User/FooterUser";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllCategory, getProducts } from "../../service/product.service";
+import { Category, ProductType } from "../../interface";
 
 export default function Home() {
+  // Lấy dữ liệu về product
+  const listProduct: ProductType[] = useSelector(
+    (state: any) => state.product.product
+  );
+  // Lấy dữ liệu về category
+  const listCategory: Category[] = useSelector(
+    (state: any) => state.product.category
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+    dispatch(getAllCategory());
+  }, []);
+
+  const topSellingProducts = listProduct
+    .slice()
+    .sort((a: any, b: any) => b.purchaseCount - a.purchaseCount)
+    .slice(0, 10);
 
   return (
     <div className="bg-white">
@@ -12,36 +36,36 @@ export default function Home() {
           <div className="container">
             <h2>Welcome to My Shop</h2>
             <p>Your one-stop shop for all your needs.</p>
-            <Link to={"/product"} className="cta-button">
+            <Link to={"/product"} className="shop_now">
               Shop Now
             </Link>
           </div>
         </section>
         <section className="featured-products">
-          <div className="container">
-            <h2>Featured Products</h2>
+          <div className="container flex flex-col gap-4">
+            <div className="w-[80%] flex justify-between">
+              <h2 className="text-orange-600 text-2xl">Sản phẩm bán chạy</h2>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="">Danh mục sản phẩm</label>
+                <select className="border border-gray-400 p-1">
+                  {listCategory.map((category: Category, index: number) => (
+                    <option key={index} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
             <div className="product-grid">
-              <div className="product">
-                <Link to={"/product-detail"}>
-                  <img src="images/product1.jpg" alt="Product 1" />
-                  <h3>Product 1</h3>
-                  <p>$10.00</p>
-                </Link>
-              </div>
-              <div className="product">
-                <Link to={"/product-detail"}>
-                  <img src="images/product2.jpg" alt="Product 2" />
-                  <h3>Product 2</h3>
-                  <p>$20.00</p>
-                </Link>
-              </div>
-              <div className="product">
-                <Link to={"/product-detail"}>
-                  <img src="images/product3.jpg" alt="Product 3" />
-                  <h3>Product 3</h3>
-                  <p>$30.00</p>
-                </Link>
-              </div>
+              {topSellingProducts.map((product: any) => (
+                <div key={product.id} className="product">
+                  <Link to={`/product-detail/${product.id}`}>
+                    <img src={product.imageProduct[0]} alt={product.name} />
+                    <h3>{product.name}</h3>
+                    <p>${product.price}</p>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
           <div className="container-body">

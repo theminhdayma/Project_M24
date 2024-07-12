@@ -16,6 +16,9 @@ body {
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 /* Header styles */
@@ -90,11 +93,11 @@ nav ul li a:hover {
 }
 
 .cart-details {
+    width: 400px;
     display: none;
     position: absolute;
     top: 100%;
     right: 0;
-    width: 300px;
     background: #fff;
     color: #333;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -116,6 +119,7 @@ nav ul li a:hover {
 }
 
 .cart-item {
+    width: 350px;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -126,6 +130,10 @@ nav ul li a:hover {
 .cart-item img {
     width: 50px;
     height: auto;
+}
+
+.cart-item p {
+    font-size: 12px;
 }
 
 .remove-btn {
@@ -144,6 +152,9 @@ nav ul li a:hover {
 .cart-summary {
     padding: 1rem;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .cart-summary p {
@@ -258,6 +269,19 @@ nav ul li a:hover {
     animation: fadeInUp 1s ease-out;
 }
 
+.shop_now {
+    margin-left: 600px;
+    width: 140px;
+    background: #ff4081;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    animation: fadeInUp 1s ease-out;
+}
+
 .cta-button:hover {
     background: #ff79a8;
 }
@@ -274,7 +298,8 @@ nav ul li a:hover {
 }
 
 .filter-sort {
-    height: 500px;
+  margin-top: 80px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -611,11 +636,8 @@ footer {
     background-color: #f8f8f8;
   }
   
-  .product-detail .container {
+  .product-detail .container-detail {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -624,11 +646,31 @@ footer {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+
+  .product-detail .product-image {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   
   .product-detail .product-image img {
-    max-width: 100%;
+    max-width: 500px;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-detail .product-image .list-img {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .product-detail .product-image .list-img img {
+    width: 140px;
   }
   
   .product-detail .product-info {
@@ -637,14 +679,15 @@ footer {
   }
   
   .product-detail .product-info h2 {
-    font-size: 2em;
+    font-size: 28px;
+    font-weight: 600;
     margin-bottom: 10px;
     color: #333;
   }
   
   .product-detail .product-info p {
     font-size: 1.2em;
-    color: #666;
+    color: #000000;
     margin-bottom: 15px;
   }
   
@@ -653,11 +696,51 @@ footer {
     color: #e91e63;
     margin-bottom: 20px;
   }
+
+  .product-detail .product-info #product-description {
+    font-size: 26px;
+    color: rgb(255, 187, 0);
+  }
+
+  .product-detail .product-info .listStar {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .product-detail .product-info .listStar .stars {
+    font-size: 30px;
+    color: rgb(255, 204, 0);
+  }
   
-  .product-detail .product-info .cta-button {
+  .product-detail .product-info .button-list {
+    width: 100%;
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .product-detail .product-info .button-list .add-button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .product-detail .product-info .button-list .buy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 600;
     color: #fff;
     background-color: #e91e63;
     border: none;
@@ -666,7 +749,7 @@ footer {
     transition: background-color 0.3s;
   }
   
-  .product-detail .product-info .cta-button:hover {
+  .product-detail .product-info .button-list .add-button:hover {
     background-color: #d81b60;
   }
   

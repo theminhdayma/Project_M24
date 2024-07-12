@@ -1,20 +1,27 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { User } from "../../interface";
+import { useDispatch, useSelector } from "react-redux";
+import { CartDetail, User } from "../../interface";
 import { useEffect, useState } from "react";
 import { logout } from "../../service/user.service";
 import { getLocal } from "../../store/reducers/Local";
+import { getCart } from "../../service/cart.service";
 
 export default function HeaderUser() {
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
   const dispatch = useDispatch();
+  const cart = useSelector((state: any) => state.cart.cartDetail);
 
   useEffect(() => {
+    dispatch(getCart());
     const user = getLocal("loggedInUser");
     if (user) {
       setLoggedInUser(user);
     }
   }, []);
+
+  const cartLoggedUser = cart
+    .filter((cartItem: any) => cartItem.idUser === loggedInUser?.id)
+    .slice(0, 4);
 
   const handleLogout = () => {
     if (loggedInUser) {
@@ -102,52 +109,65 @@ export default function HeaderUser() {
               <Link to={"/login"}>Đăng nhập</Link>
             </div>
           )}
-        </div>
-        <div className="search-bar">
-          <form action="search_results.html" method="get">
-            <input type="text" name="query" placeholder="Search products..." />
-            <button type="submit">Search</button>
-          </form>
           <div className="cart-container">
-            <Link to={"/cart"} className="cart-icon">
+            <Link to={`/cart/${loggedInUser?.id}`} className="cart-icon">
               <i className="fa-solid fa-cart-shopping" />
             </Link>
             <div className="cart-details">
               <ul>
-                <li>
-                  <Link to={"/product-detail"}>
-                    <div className="cart-item">
-                      <img src="images/product1.jpg" alt="Product 1" />
-                      <div>
-                        <p>Product 1</p>
-                        <p>$10.00</p>
-                      </div>
-                      <button className="remove-btn">Remove</button>
-                    </div>
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/product-detail"}>
-                    <div className="cart-item">
-                      <img src="images/product2.jpg" alt="Product 2" />
-                      <div>
-                        <p>Product 2</p>
-                        <p>$20.00</p>
-                      </div>
-                      <button className="remove-btn">Remove</button>
-                    </div>
-                  </Link>
-                </li>
+                {cartLoggedUser.length > 0 ? (
+                  cartLoggedUser.map((cartItem: CartDetail, index: number) => (
+                    <li key={index}>
+                      <Link to={`/product-detail/${cartItem.idProduct}`}>
+                        <div className="cart-item">
+                          <img
+                            src={cartItem.image[0]}
+                            alt={cartItem.name}
+                            className="w-16 h-16 object-cover rounded-full"
+                          />
+                          <div className="w-[150px]">
+                            <p>{cartItem.name}</p>
+                            <p>{cartItem.price} USD</p>
+                          </div>
+                          <p>{cartItem.quantity} sản phẩm</p>
+                        </div>
+                      </Link>
+                    </li>
+                  ))
+                ) : (
+                  <li>
+                    <h3>Chưa có sản phẩm nào trong giỏ hàng</h3>
+                  </li>
+                )}
               </ul>
               <div className="cart-summary">
-                <p>Total: $30.00</p>
-                <Link to={"/product"} className="checkout-btn">
+                {loggedInUser ? (
+                  <p className="text-2xl">
+                    {/* Total:{" "}
+                    {cart.reduce(
+                      (acc: number, item: any) =>
+                        acc + item.price * item.quantity,
+                      0
+                    )}{" "}
+                    USD */}
+                    {cart.length} sản phẩm
+                  </p>
+                ) : (
+                  ""
+                )}
+                <Link to={`/cart/${loggedInUser?.id}`} className="checkout-btn">
                   View Cart
                 </Link>
               </div>
             </div>
           </div>
         </div>
+        {/* <div className="search-bar">
+          <form action="search_results.html" method="get">
+            <input type="text" name="query" placeholder="Search products..." />
+            <button type="submit">Search</button>
+          </form>
+        </div> */}
       </div>
     </header>
   );

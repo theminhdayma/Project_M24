@@ -4,11 +4,12 @@ import { ProductType } from "../interface";
 
 export const getProducts: any = createAsyncThunk(
   "product/getProducts",
-  async () => {
-    const res = await axios.get("http://localhost:8080/products");
+  async ({ page, limit }: { page: number; limit: number }) => {
+    const res = await axios.get(`http://localhost:8080/products?page=${page}&limit=${limit}`);
     return res.data;
   }
 );
+
 
 export const getAllCategory: any = createAsyncThunk(
   "category/getAllCategory",

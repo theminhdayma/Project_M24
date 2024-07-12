@@ -38,7 +38,7 @@ export interface ProductType {
     statusProduct: boolean
 }
 
-export interface Orders {
+export interface Cart {
     id: number,
     idUser: number,
     idProduct: number
@@ -52,12 +52,16 @@ export interface Orders {
     status: boolean
 }
 
-export interface OrderDetails {
+export interface CartDetail {
     id: number,
+    idUser: number
     idProduct: number
+    brand: string
     name: string
     price: number
     quantity: number
+    image: []
+    status: boolean
 }
 
 export interface Comment {
