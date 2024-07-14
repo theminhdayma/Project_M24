@@ -4,12 +4,19 @@ import { useDispatch } from "react-redux";
 import { register } from "../../service/user.service";
 import { User } from "../../interface";
 export default function Register() {
+  const [checkEmail, setCheckEmail] = useState<boolean>(false);
+  const [checkUseEmail, setCheckUseEmail] = useState<boolean>(false);
+  const [checkHollow, setCheckHollow] = useState<boolean>(false);
+  const [checkPassword, setCheckPassword] = useState<boolean>(false);
+  const [checkComfimPassword, setCheckComfimPassword] =
+    useState<boolean>(false);
+
   // State chứa thông tin đăng ký
   const [inputValue, setInputValue] = useState({
     name: "",
     age: 0,
-    address: "",
-    numberPhone: "",
+    address: "chưa có",
+    numberPhone: "chưa có",
     email: "",
     password: "",
     image: "",
@@ -19,7 +26,6 @@ export default function Register() {
     status: true,
     confirmPassword: "",
   });
-  const [error, setError] = useState<string>("");
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,33 +50,43 @@ export default function Register() {
       !inputValue.password ||
       !inputValue.confirmPassword
     ) {
-      setError("Vui lòng điền đầy đủ thông tin.");
+      setCheckHollow(true);
       return;
+    } else {
+      setCheckHollow(false);
     }
 
     // Email phải đúng định dạng
     if (!validateEmail(inputValue.email)) {
-      setError("Email không đúng định dạng.");
+      setCheckEmail(true);
       return;
+    } else {
+      setCheckEmail(false);
     }
 
     // Mật khẩu phải đủ 8 ký tự trở lên
     if (inputValue.password.length < 8) {
-      setError("Mật khẩu phải từ 8 ký tự trở lên.");
+      setCheckPassword(true);
       return;
+    } else {
+      setCheckPassword(false);
     }
 
     // confirm mật khẩu phải trùng khớp
     if (inputValue.password !== inputValue.confirmPassword) {
-      setError("Mật khẩu xác nhận không khớp.");
+      setCheckComfimPassword(true);
       return;
+    } else {
+      setCheckComfimPassword(false);
     }
 
     // Không được sử dụng lại email
     const existingUser = await checkExistingUser(inputValue.email);
     if (existingUser) {
-      setError("Email đã được sử dụng.");
+      setCheckUseEmail(true);
       return;
+    } else {
+      setCheckUseEmail(false);
     }
 
     const {
@@ -109,8 +125,8 @@ export default function Register() {
     setInputValue({
       name: "",
       age: 0,
-      address: "",
-      numberPhone: "",
+      address: "chưa có",
+      numberPhone: "chưa có",
       email: "",
       password: "",
       image: "",
@@ -120,7 +136,12 @@ export default function Register() {
       status: true,
       confirmPassword: "",
     });
-    setError("");
+    setCheckComfimPassword(false);
+    setCheckEmail(false);
+    setCheckHollow(false);
+    setCheckPassword(false);
+    setCheckUseEmail(false);
+    swal("Đăng ký thành công", "", "success");
   };
 
   // Email phải đúng định dạng
@@ -140,7 +161,7 @@ export default function Register() {
         return null;
       }
     } catch (error) {
-      console.error("Error checking existing user:", error);
+      console.error("Lỗi:", error);
       return null;
     }
   };
@@ -152,8 +173,10 @@ export default function Register() {
           <i className="bx bx-user-circle" />
           <h2>Đăng Ký</h2>
         </div>
+        {checkHollow && (
+          <p className="text-red-700">Vui lòng điền đầy đủ thông tin</p>
+        )}
         <form onSubmit={handleSubmit}>
-          {error && <p className="text-red-700">{error}</p>}
           <div className="input_box">
             <span>NameUser</span>
             <div className="icon">
@@ -180,6 +203,12 @@ export default function Register() {
                 placeholder="Enter Email"
               />
             </div>
+            {checkUseEmail && (
+              <p className="text-red-700">Email đã được sử dụng</p>
+            )}
+            {checkEmail && (
+              <p className="text-red-700">Email không đúng định dạng</p>
+            )}
           </div>
           <div className="input_box">
             <span>Password</span>
@@ -193,6 +222,9 @@ export default function Register() {
                 placeholder="Enter Password"
               />
             </div>
+            {checkPassword && (
+              <p className="text-red-700">Mật khẩu phải đủ 8 ký tự trở lên</p>
+            )}
           </div>
           <div className="input_box">
             <span>Confirm Password</span>
@@ -206,6 +238,9 @@ export default function Register() {
                 placeholder="Enter Confirm Password"
               />
             </div>
+            {checkComfimPassword && (
+              <p className="text-red-700">Xác nhận mật khẩu không chính xác</p>
+            )}
           </div>
 
           <button type="submit">Đăng Ký</button>

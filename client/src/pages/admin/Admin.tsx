@@ -1,25 +1,19 @@
 import { useEffect } from "react";
-import "../../style/Admin.css"
+import "../../style/Admin.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { getLocal } from "../../store/reducers/Local";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllAccount, logout } from "../../service/user.service";
-import { ProductType, User } from "../../interface";
-import { getProducts } from "../../service/product.service";
+import { User } from "../../interface";
+import Swal from "sweetalert2";
 
 export default function Admin() {
-  // Lấy số Product
-  const listProduct: ProductType[] = useSelector(
-    (state: any) => state.product.product
-  );
-
   // Lấy user
   const listAccount: User[] = useSelector((state: any) => state.user.user);
-
+  console.log(listAccount);
 
   useEffect(() => {
-    dispatch(getProducts());
-    dispatch(getAllAccount())
+    dispatch(getAllAccount());
   }, []);
 
   const navigate = useNavigate();
@@ -36,16 +30,24 @@ export default function Admin() {
   //Đăng xuất
   const handleLogout = () => {
     if (loggedInUser) {
-      dispatch(logout(loggedInUser.id)).then(() => {
-        navigate("/")
+      Swal.fire({
+        title: "Bạn có chắc chắn muốn đăng xuất không ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Đăng xuất",
+        cancelButtonText: "Hủy",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(logout(loggedInUser.id)).then(() => {
+            navigate("/");
+          });
+          Swal.fire("", "Đăng xuất thành công", "success");
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          Swal.fire("", "Hủy đăng xuất", "error");
+        }
       });
     }
   };
-
-  // Tính tổng doanh thu từ sản phẩm
-  const totalSales = listProduct.reduce((total, product) => {
-    return total + (product.purchaseCount * product.price);
-  }, 0);
 
   // CÁC CHỨC NĂNG CHUYỂN TAB
   useEffect(() => {
@@ -74,52 +76,34 @@ export default function Admin() {
       sidebar.classList.toggle("hide");
     });
 
-    const searchButton = document.querySelector<HTMLButtonElement>(
-      "#content nav form .form-input button"
-    )!;
-    const searchButtonIcon = document.querySelector<HTMLSpanElement>(
-      "#content nav form .form-input button .bx"
-    )!;
     const searchForm =
       document.querySelector<HTMLFormElement>("#content nav form")!;
-
-    searchButton.addEventListener("click", function (e) {
-      if (window.innerWidth < 576) {
-        e.preventDefault();
-        searchForm.classList.toggle("show");
-        if (searchForm.classList.contains("show")) {
-          searchButtonIcon.classList.replace("bx-search", "bx-x");
-        } else {
-          searchButtonIcon.classList.replace("bx-x", "bx-search");
-        }
-      }
-    });
 
     if (window.innerWidth < 768) {
       sidebar.classList.add("hide");
     } else if (window.innerWidth > 576) {
-      searchButtonIcon.classList.replace("bx-x", "bx-search");
+      // searchButtonIcon.classList.replace("bx-x", "bx-search");
       searchForm.classList.remove("show");
     }
 
     window.addEventListener("resize", function () {
       if (this.innerWidth > 576) {
-        searchButtonIcon.classList.replace("bx-x", "bx-search");
+        // searchButtonIcon.classList.replace("bx-x", "bx-search");
         searchForm.classList.remove("show");
       }
     });
 
-    const switchMode = document.getElementById(
-      "switch-mode"
-    ) as HTMLInputElement;
+    // const switchMode = document.getElementById(
+    //   "switch-mode"
+    // ) as HTMLInputElement;
 
-    switchMode.addEventListener("change", function () {
-      if (this.checked) {
-        document.body.classList.add("dark");
-      } else {
-        document.body.classList.remove("dark");
-      }
-    });
+    // switchMode.addEventListener("change", function () {
+    //   if (this.checked) {
+    //     document.body.classList.add("dark");
+    //   } else {
+    //     document.body.classList.remove("dark");
+    //   }
+    // });
 
     return () => {
       // Cleanup listeners if needed
@@ -127,9 +111,9 @@ export default function Admin() {
         item.removeEventListener("click", () => {});
       });
       menuBar.removeEventListener("click", () => {});
-      searchButton.removeEventListener("click", () => {});
+      // searchButton.removeEventListener("click", () => {});
       window.removeEventListener("resize", () => {});
-      switchMode.removeEventListener("change", () => {});
+      // switchMode.removeEventListener("change", () => {});
     };
   }, []);
   //CÁC CHỨC NĂNG CHUYỂN TAB
@@ -139,10 +123,10 @@ export default function Admin() {
       <div className="body">
         {/* SIDEBAR */}
         <section id="sidebar">
-          <a href="#" className="brand">
+          <Link to={"/admin"} className="brand">
             <i className="bx bxs-smile" />
             <span className="text">AdminHub</span>
-          </a>
+          </Link>
           <ul className="side-menu top">
             <li className="active">
               <Link to={"/admin"}>
@@ -190,71 +174,30 @@ export default function Admin() {
           {/* NAVBAR */}
           <nav>
             <i className="bx bx-menu" />
-            <a href="#" className="nav-link">
-              Categories
-            </a>
-            <form action="#">
-              <div className="form-input">
-                <input type="search" placeholder="Search..." />
-                <button type="submit" className="search-btn">
-                  <i className="bx bx-search" />
-                </button>
-              </div>
-            </form>
-            <input type="checkbox" id="switch-mode" />
-            <label htmlFor="switch-mode" className="switch-mode" />
-            <a href="#" className="notification">
-              <i className="bx bxs-bell" />
-              <span className="num">8</span>
-            </a>
-            <a href="#" className="profile">
-              <img src="https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9" />
-            </a>
+            <form></form>
+            <Link
+              to={`/profile/${loggedInUser.id}`}
+              className="mr-7 flex justify-center items-center gap-2"
+            >
+              <p>{loggedInUser.name}</p>
+              {loggedInUser.image === "" ? (
+                <img
+                  className="w-9 h-9 object-cover rounded-full"
+                  src="https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"
+                  alt={loggedInUser.name}
+                />
+              ) : (
+                <img
+                  className="w-9 h-9 object-cover rounded-full"
+                  src={loggedInUser.image}
+                  alt={loggedInUser.name}
+                />
+              )}
+            </Link>
           </nav>
           {/* NAVBAR */}
           {/* MAIN */}
-          <main className="mainAdmin"> 
-            <div className="head-title">
-              <div className="left">
-                <h1>Dashboard</h1>
-                <ul className="breadcrumb">
-                  <li>
-                    <a href="#">Dashboard</a>
-                  </li>
-                  <li>
-                    <i className="bx bx-chevron-right" />
-                  </li>
-                  <li>
-                    <a className="active" href="#">
-                      Home
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <ul className="box-info">
-              <li>
-                <i className="bx bxs-calendar-check" />
-                <span className="text">
-                  <h3>1020</h3>
-                  <p>Order</p>
-                </span>
-              </li>
-              <li>
-                <i className="bx bxs-group" />
-                <span className="text">
-                  <h3>{listAccount.length}</h3>
-                  <p>Visitors</p>
-                </span>
-              </li>
-              <li>
-                <i className="bx bxs-dollar-circle" />
-                <span className="text">
-                  <h3>{totalSales}</h3>
-                  <p>Total Sales</p>
-                </span>
-              </li>
-            </ul>
+          <main>
             <div className="table-data">
               <Outlet />
             </div>

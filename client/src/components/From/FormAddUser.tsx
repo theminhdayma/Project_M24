@@ -11,8 +11,8 @@ export default function FormAddUser({ closeFromAdd }: Props) {
   const [inputValue, setInputValue] = useState({
     name: "",
     age: 0,
-    address: "",
-    numberPhone: "",
+    address: "chưa có",
+    numberPhone: "chưa có",
     email: "",
     password: "",
     image: "",
@@ -101,8 +101,8 @@ export default function FormAddUser({ closeFromAdd }: Props) {
     setInputValue({
       name: "",
       age: 0,
-      address: "",
-      numberPhone: "",
+      address: "chưa có",
+      numberPhone: "chưa có",
       email: "",
       password: "",
       image: "",
@@ -112,6 +112,7 @@ export default function FormAddUser({ closeFromAdd }: Props) {
     });
     setError("");
     closeFromAdd();
+    swal("Thêm thành công", "", "success");
   };
 
   // Email phải đúng định dạng

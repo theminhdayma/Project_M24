@@ -10,6 +10,7 @@ import {
   updateProduct,
   deleteProduct,
   getProductById,
+  getProduct,
 } from "../../service/product.service";
 
 const listProduct: ProductType[] = [];
@@ -24,6 +25,9 @@ const productReducer = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(getProduct.fulfilled, (state, action) => {
+        state.product = action.payload;
+      })
       .addCase(getProducts.fulfilled, (state, action) => {
         state.product = action.payload;
       })
@@ -51,8 +55,14 @@ const productReducer = createSlice({
         }
       })
       .addCase(deleteCategory.fulfilled, (state, action) => {
+        const categoryId = action.payload;
+        // Xóa category
         state.category = state.category.filter(
-          (cat) => cat.id !== action.payload
+          (cat) => cat.id !== categoryId
+        );
+        // Xóa các sản phẩm liên quan
+        state.product = state.product.filter(
+          (prod) => prod.idCategory !== categoryId
         );
       })
       .addCase(addProduct.fulfilled, (state, action) => {

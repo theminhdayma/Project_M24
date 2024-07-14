@@ -267,7 +267,7 @@ body {
 	justify-content: center;
 	align-items: center;
 }
-#content nav .profile img {
+#content nav img {
 	width: 36px;
 	height: 36px;
 	object-fit: cover;
@@ -400,9 +400,6 @@ body {
 }
 
 
-
-
-
 #content main .table-data {
 	display: flex;
 	flex-wrap: wrap;
@@ -420,11 +417,11 @@ body {
 #content main .table-data .head {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	grid-gap: 16px;
 	margin-bottom: 24px;
 }
 #content main .table-data .head h3 {
-	margin-right: auto;
 	font-size: 24px;
 	font-weight: 600;
 }

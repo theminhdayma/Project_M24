@@ -8,7 +8,7 @@
       "numberPhone": "0364577211",
       "email": "theminh2005z@gmail.com",
       "password": "U2FsdGVkX182CPR30wxRjVPU9ibgJUvvscpAm5ihRv8=",
-      "image": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9",
+      "image": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/products%2F12f9e75d-6463-4e70-ae18-b2175df207a8.jpg?alt=media&token=3c7dc62f-1096-46ac-ab0f-2cc6b0f8b45a",
       "role": 0,
       "created_at": "01-01-2024",
       "updated_at": "",
@@ -21,7 +21,7 @@
       "numberPhone": "0987654321",
       "email": "minhsam2807@gmail.com",
       "password": "U2FsdGVkX182CPR30wxRjVPU9ibgJUvvscpAm5ihRv8=",
-      "image": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/7b42ef2c-5724-4e1c-abe2-a4017fc4ec1a.jpg?alt=media&token=fce0967e-11f4-4d4e-9dfd-cdc4e91759e9",
+      "image": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/products%2F12f9e75d-6463-4e70-ae18-b2175df207a8.jpg?alt=media&token=3c7dc62f-1096-46ac-ab0f-2cc6b0f8b45a",
       "role": 0,
       "created_at": "01-01-2024",
       "updated_at": "",
@@ -29,24 +29,10 @@
       "id": 2
     },
     {
-      "name": "2",
-      "age": 0,
-      "address": "",
-      "numberPhone": "",
-      "email": "2@gmail.com",
-      "password": "U2FsdGVkX1/Rhg2F2ROgXmP8aGYDMnqQyRZRh4Izl+k=",
-      "image": "",
-      "role": 1,
-      "created_at": "08-07-2024",
-      "updated_at": "",
-      "status": true,
-      "id": 5
-    },
-    {
       "name": "Dũng",
       "age": 0,
-      "address": "",
-      "numberPhone": "",
+      "address": "chưa có",
+      "numberPhone": "chưa có",
       "email": "dung@gmail.com",
       "password": "U2FsdGVkX1/kb49cvV/G80b2R4EHtv6AF0U0FuJJA/0=",
       "image": "",
@@ -55,6 +41,74 @@
       "updated_at": "",
       "status": true,
       "id": 6
+    },
+    {
+      "name": "Quang",
+      "age": 0,
+      "address": "chưa có",
+      "numberPhone": "chưa có",
+      "email": "quang@gmail.com",
+      "password": "U2FsdGVkX1/yftVbAiZZ1DAikmDggkCZFBRDVpahbN0=",
+      "image": "",
+      "role": 1,
+      "created_at": "13-07-2024",
+      "updated_at": "",
+      "status": true,
+      "id": 7
+    },
+    {
+      "name": "Thế Minh",
+      "age": 0,
+      "address": "chưa có",
+      "numberPhone": "chưa có",
+      "email": "minhdeptrai@gmail.com",
+      "password": "U2FsdGVkX19SY6YuwCu6LMlZDm96X/+bGLxNLkaLaRo=",
+      "image": "",
+      "role": 1,
+      "created_at": "13-07-2024",
+      "updated_at": "",
+      "status": true,
+      "id": 8
+    },
+    {
+      "name": "Vỹ",
+      "age": 0,
+      "address": "chưa có",
+      "numberPhone": "chưa có",
+      "email": "minhvy@gmail.com",
+      "password": "U2FsdGVkX19YQPsfNdNpu/pihSBqZDEuQuDVCqhibAc=",
+      "image": "",
+      "role": 1,
+      "created_at": "14-07-2024",
+      "status": false,
+      "id": 9
+    },
+    {
+      "name": "Bình",
+      "age": 0,
+      "address": "chưa có",
+      "numberPhone": "chưa có",
+      "email": "binh@gmail.com",
+      "password": "U2FsdGVkX19r5/H+xbM1UkCnLHOMtJYPimdPzjG/xFo=",
+      "image": "",
+      "role": 1,
+      "created_at": "14-07-2024",
+      "status": true,
+      "id": 10
+    },
+    {
+      "name": "Nghĩa",
+      "age": 0,
+      "address": "chưa có",
+      "numberPhone": "chưa có",
+      "email": "nghia@gmail.com",
+      "password": "U2FsdGVkX1/vPOdxrI/46p8PoSBvyO55He+6cdskiV0=",
+      "image": "",
+      "role": 1,
+      "created_at": "14-07-2024",
+      "updated_at": "",
+      "status": true,
+      "id": 11
     }
   ],
   "category": [
@@ -81,9 +135,9 @@
       "idCategory": 1,
       "brand": "Giày NIKE",
       "name": "Giày NIKE_AF1",
-      "total": 5999,
+      "total": 4568,
       "price": 578,
-      "purchaseCount": 1129,
+      "purchaseCount": 1480,
       "description": "Giày NIKE_AF1 Trắng Bản Cao Cấp, Giày Nike_AIR_FORCE_1 Thời Trang Nam Nữ (CÓ HỖ TRỢ ĐỔI SIZE) || BAKANY",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwlcekuq9e57ca",
@@ -100,9 +154,9 @@
       "idCategory": 2,
       "brand": "quần jean",
       "name": "Quần Jeans Ống Suông",
-      "total": 7634,
+      "total": 7625,
       "price": 332,
-      "purchaseCount": 2703,
+      "purchaseCount": 2712,
       "description": "Quần Jeans Ống Suông thêu Chữ Gối phối dây tua, quần bò Jeans ống rộng Nam Nữ unisex",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvblhvjpteg456",
@@ -118,9 +172,9 @@
       "idCategory": 1,
       "brand": "Giày NIKE",
       "name": "Giày NIKE_AF1 Black White",
-      "total": 3643,
+      "total": 3640,
       "price": 136,
-      "purchaseCount": 1562,
+      "purchaseCount": 1565,
       "description": "Giày NIKE_AF1 Black White Trắng Đen Nam Nữ, Giày Thể Thao Af1 Vệt Đen Free Ship",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lpzuve84jayf61",
@@ -136,9 +190,9 @@
       "idCategory": 2,
       "brand": "quần jean",
       "name": "QUẦN JEAN ULZZANG ỐNG RỘNG",
-      "total": 5606,
+      "total": 5601,
       "price": 267,
-      "purchaseCount": 1832,
+      "purchaseCount": 1837,
       "description": "[Có Sẵn Tại HN] QUẦN JEAN ULZZANG ỐNG RỘNG MÀU LOANG - [Bonbon Order Ulzzang]",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/21891ba05f0057401841dc7a08f8cbc0",
@@ -154,9 +208,9 @@
       "idCategory": 1,
       "brand": "Giày NIKE",
       "name": "Giày Nike_Air Force",
-      "total": 6483,
+      "total": 6479,
       "price": 619,
-      "purchaseCount": 1948,
+      "purchaseCount": 1952,
       "description": "Giày Nike_Air Force 1 Mũi Đen Hàng Đẹp,Giày AF1 White Black Hot Trend 2023 Bản Cao Cấp Full Box Bill",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll9esywq2v1y91",
@@ -172,9 +226,9 @@
       "idCategory": 2,
       "brand": "quần jean",
       "name": "CAROLLA Quần Jean Nam",
-      "total": 8705,
+      "total": 8701,
       "price": 331,
-      "purchaseCount": 2012,
+      "purchaseCount": 2016,
       "description": "CAROLLA Quần Jean Nam (Quần bò) Form suông ống đứng ống suông xu hướng Hàn Quốc Hot trend MY-123",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lu0e09k594bjc6",
@@ -190,9 +244,9 @@
       "idCategory": 1,
       "brand": "Giày NIKE",
       "name": "Giày Nike_ Air _Force 1LX",
-      "total": 6357,
+      "total": 6356,
       "price": 211,
-      "purchaseCount": 1238,
+      "purchaseCount": 1239,
       "description": "Giày Nike_ Air _Force 1LX Tear_Away Xé Rách Vải Hàng Chính Hãng-Thiết Kế 3 Lớp Vải Xé Hàng Chuẩn Trung|Fullbill PK",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-llu78x6mlg4f5c",
@@ -208,9 +262,9 @@
       "idCategory": 2,
       "brand": "quần jean",
       "name": "Quần jean dài ống rộng",
-      "total": 7476,
+      "total": 7472,
       "price": 416,
-      "purchaseCount": 1472,
+      "purchaseCount": 1476,
       "description": "Quần jean dài ống rộng phong cách unisex, quần jean cạp cao Hip Hốp_K55",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lio3jnbc5y3692",
@@ -244,9 +298,9 @@
       "idCategory": 2,
       "brand": "quần jean",
       "name": "Quần JEAN Túi Hộp",
-      "total": 8424,
+      "total": 8421,
       "price": 551,
-      "purchaseCount": 1276,
+      "purchaseCount": 1279,
       "description": "Quần JEAN Túi Hộp Cúc Bấm Nam Nữ Chính Hãng Tiệm Nhà SƠN",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvcnuvwrxug49b",
@@ -478,9 +532,9 @@
       "idCategory": 1,
       "brand": "Giày Jordan",
       "name": "Giày Jordan Low",
-      "total": 4634,
+      "total": 4632,
       "price": 531,
-      "purchaseCount": 2673,
+      "purchaseCount": 2675,
       "description": "Giày Jordan Low Trắng Đen Cổ Thấp Bản Quản Châu Cao Cấp - Giày thể thao Sneakers AIR JORDAN 1 Low Black and White",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lrqw44583jd067",
@@ -550,9 +604,9 @@
       "idCategory": 1,
       "brand": "Giày Jordan",
       "name": "Giày Jodan Thấp Đỏ Đen",
-      "total": 3576,
+      "total": 3575,
       "price": 412,
-      "purchaseCount": 2024,
+      "purchaseCount": 2025,
       "description": "Giày Jodan Thấp Đỏ Đen , Giày Sneaker JD 1 Nam Nữ Full Box Bill C235 Camille Sneaker",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/sg-11134201-23020-col97c2wctnve6",
@@ -676,9 +730,9 @@
       "idCategory": 2,
       "brand": "Quần áo đá bóng",
       "name": "Bộ quần áo bóng đá",
-      "total": 4674,
+      "total": 4673,
       "price": 234,
-      "purchaseCount": 2104,
+      "purchaseCount": 2105,
       "description": "Bộ quần áo bóng đá ko logo 3 lá đen - In tên số áo theo yêu cầu - Hàng thun lạnh cao cấp",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzrd6hx3uec4f",
@@ -712,9 +766,9 @@
       "idCategory": 2,
       "brand": "Quần áo đá bóng",
       "name": "Quần Áo Bóng Đá",
-      "total": 3775,
+      "total": 3773,
       "price": 406,
-      "purchaseCount": 2194,
+      "purchaseCount": 2196,
       "description": "[in sau lưng theo yêu cầu] Quần Áo Bóng Đá logo thêu Real Madrid 2024 MÈ HÀN Cao Cấp",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/sg-11134201-7rbko-lldtp2825z8s47",
@@ -784,9 +838,9 @@
       "idCategory": 2,
       "brand": "Quần áo đá bóng",
       "name": "Bộ quần áo bóng đá",
-      "total": 6486,
+      "total": 6485,
       "price": 345,
-      "purchaseCount": 1509,
+      "purchaseCount": 1510,
       "description": "[IN TÊN] Bộ quần áo bóng đá không logo 3 lá trắng hồng mới - In tên số áo theo yêu cầu - Hàng thun lạnh cao cấp",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lldhql65bj60ff",
@@ -928,9 +982,9 @@
       "idCategory": 2,
       "brand": "áo sơ mi",
       "name": "Áo sơ mi nữ kẻ kèm KHĂN",
-      "total": 5363,
+      "total": 5362,
       "price": 446,
-      "purchaseCount": 1714,
+      "purchaseCount": 1715,
       "description": "Áo sơ mi nữ kẻ kèm KHĂN, áo somi over size có thể tháo rời mặc nhiều kiểu Samhyewear",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134201-23030-csvfimfehnov34",
@@ -946,9 +1000,9 @@
       "idCategory": 1,
       "brand": "giày da",
       "name": "Giày da nam oxford & derby",
-      "total": 5743,
+      "total": 5741,
       "price": 477,
-      "purchaseCount": 1983,
+      "purchaseCount": 1985,
       "description": "Giày da nam oxford & derby The Jinx 6 phiên bản INF tăng chiều cao",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lug0dmi0gnc50f",
@@ -964,9 +1018,9 @@
       "idCategory": 2,
       "brand": "áo sơ mi",
       "name": "Áo Sơ Mi Trơn Tay Dài",
-      "total": 8454,
+      "total": 8447,
       "price": 186,
-      "purchaseCount": 2345,
+      "purchaseCount": 2353,
       "description": "Áo Sơ Mi Trơn Tay Dài Form Rộng 4 Màu Nam Nữ Unisex",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqprdtzqtqdub2",
@@ -978,15 +1032,17 @@
       "statusProduct": true
     },
     {
-      "idCategory": 2,
-      "brand": "quần áo bộ",
-      "name": "Quần đùi nam",
-      "total": "7652",
+      "idCategory": 1,
+      "brand": "dép bánh mỳ",
+      "name": "Mũ",
+      "total": "5324",
       "price": "134",
       "purchaseCount": 0,
-      "description": "<p>Sản Phẩm này hay</p>",
-      "imageProduct": [],
-      "created_at": "12-07-2024",
+      "description": "<p>regfd</p>",
+      "imageProduct": [
+        "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/products%2F24d21186-b562-40ea-9454-4f1cd2932d9e.jpg?alt=media&token=49409849-1b1b-4067-b04f-9fa203718d7e"
+      ],
+      "created_at": "14-07-2024",
       "updated_at": "",
       "statusProduct": true,
       "id": 51
@@ -994,64 +1050,235 @@
   ],
   "cart": [
     {
-      "idUser": 1,
-      "idProduct": 5,
-      "brand": "Giày NIKE",
-      "name": "Giày Nike_Air Force",
-      "price": 619,
+      "idUser": 6,
+      "idProduct": 3,
       "quantity": 1,
-      "image": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll9esywq2v1y91",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll9esywq5o6uab",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll9esywq72raa8"
-      ],
-      "status": false,
+      "price": 136,
+      "id": 2
+    },
+    {
+      "idUser": 10,
+      "idProduct": 2,
+      "quantity": 2,
+      "price": 332,
+      "id": 7
+    },
+    {
+      "idUser": 1,
+      "idProduct": 4,
+      "quantity": 1,
+      "price": 267,
+      "id": 8
+    }
+  ],
+  "history": [
+    {
+      "idUser": 1,
+      "idProduct": 50,
+      "quantity": 2,
+      "price": 372,
+      "created_at": "14-07-2024",
+      "id": 1
+    },
+    {
+      "idUser": 1,
+      "idProduct": 6,
+      "quantity": 1,
+      "price": 331,
+      "created_at": "14-07-2024",
       "id": 2
     },
     {
       "idUser": 1,
-      "idProduct": 10,
-      "brand": "quần jean",
-      "name": "Quần JEAN Túi Hộp",
-      "price": 551,
+      "idProduct": 4,
       "quantity": 1,
-      "image": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvcnuvwrxug49b",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvcnuvwrz90kc2",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvczywst7hjh6e"
-      ],
-      "status": false,
+      "price": 267,
+      "created_at": "14-07-2024",
       "id": 3
     },
     {
       "idUser": 1,
-      "idProduct": 28,
-      "brand": "Áo thun",
-      "name": "Áo thun cặp thêu",
-      "price": 370,
+      "idProduct": 7,
       "quantity": 1,
-      "image": [
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3t49t013f",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3wq4il88b",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3ty8lan7f"
-      ],
-      "status": false,
+      "price": 211,
+      "created_at": "14-07-2024",
       "id": 4
     },
     {
       "idUser": 1,
-      "idProduct": 15,
-      "brand": "dép bánh mỳ",
-      "name": "Dép bánh mì đế dày",
-      "price": 342,
+      "idProduct": 1,
       "quantity": 1,
-      "image": [
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7qve4-lgg1bx8cbz7kc3",
-        "https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lhigb7532fojcb",
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7qven-lgd5paspojr4aa"
-      ],
-      "status": false,
+      "price": 578,
+      "created_at": "14-07-2024",
+      "id": 5
+    },
+    {
+      "idUser": 1,
+      "idProduct": 2,
+      "quantity": 1,
+      "price": 332,
+      "created_at": "14-07-2024",
+      "id": 6
+    },
+    {
+      "idUser": 1,
+      "idProduct": 3,
+      "quantity": 1,
+      "price": 136,
+      "created_at": "14-07-2024",
       "id": 7
+    },
+    {
+      "idUser": 1,
+      "idProduct": 4,
+      "quantity": 2,
+      "price": 534,
+      "created_at": "14-07-2024",
+      "id": 8
+    },
+    {
+      "idUser": 1,
+      "idProduct": 2,
+      "quantity": 2,
+      "price": 664,
+      "created_at": "14-07-2024",
+      "id": 9
+    },
+    {
+      "idUser": 10,
+      "idProduct": 23,
+      "quantity": 2,
+      "price": 1062,
+      "created_at": "14-07-2024",
+      "id": 10
+    },
+    {
+      "idUser": 10,
+      "idProduct": 27,
+      "quantity": 1,
+      "price": 412,
+      "created_at": "14-07-2024",
+      "id": 11
+    },
+    {
+      "idUser": 10,
+      "idProduct": 8,
+      "quantity": 1,
+      "price": 416,
+      "created_at": "14-07-2024",
+      "id": 12
+    },
+    {
+      "idUser": 10,
+      "idProduct": 2,
+      "quantity": 2,
+      "price": 664,
+      "created_at": "14-07-2024",
+      "id": 13
+    },
+    {
+      "idUser": 10,
+      "idProduct": 2,
+      "quantity": 2,
+      "price": 664,
+      "created_at": "14-07-2024",
+      "id": 14
+    },
+    {
+      "idUser": 1,
+      "idProduct": 36,
+      "quantity": 2,
+      "price": 812,
+      "created_at": "14-07-2024",
+      "id": 15
+    },
+    {
+      "idUser": 1,
+      "idProduct": 40,
+      "quantity": 1,
+      "price": 345,
+      "created_at": "14-07-2024",
+      "id": 16
+    },
+    {
+      "idUser": 1,
+      "idProduct": 34,
+      "quantity": 1,
+      "price": 234,
+      "created_at": "14-07-2024",
+      "id": 17
+    },
+    {
+      "idUser": 1,
+      "idProduct": 1,
+      "quantity": 1,
+      "price": 578,
+      "created_at": "14-07-2024",
+      "id": 18
+    },
+    {
+      "idUser": 1,
+      "idProduct": 10,
+      "quantity": 1,
+      "price": 551,
+      "created_at": "14-07-2024",
+      "id": 19
+    },
+    {
+      "idUser": 1,
+      "idProduct": 2,
+      "quantity": 1,
+      "price": 332,
+      "created_at": "14-07-2024",
+      "id": 20
+    },
+    {
+      "idUser": 1,
+      "idProduct": 8,
+      "quantity": 1,
+      "price": 416,
+      "created_at": "14-07-2024",
+      "id": 21
+    },
+    {
+      "idUser": 6,
+      "idProduct": 10,
+      "quantity": 1,
+      "price": 551,
+      "created_at": "14-07-2024",
+      "id": 22
+    },
+    {
+      "idUser": 1,
+      "idProduct": 10,
+      "quantity": 1,
+      "price": 551,
+      "created_at": "15-07-2024",
+      "id": 23
+    },
+    {
+      "idUser": 1,
+      "idProduct": 8,
+      "quantity": 1,
+      "price": 416,
+      "created_at": "15-07-2024",
+      "id": 24
+    },
+    {
+      "idUser": 1,
+      "idProduct": 4,
+      "quantity": 1,
+      "price": 267,
+      "created_at": "15-07-2024",
+      "id": 25
+    },
+    {
+      "idUser": 1,
+      "idProduct": 3,
+      "quantity": 2,
+      "price": 272,
+      "created_at": "15-07-2024",
+      "id": 26
     }
   ],
   "comments": [

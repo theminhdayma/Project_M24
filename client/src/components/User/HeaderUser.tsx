@@ -1,32 +1,69 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { CartDetail, User } from "../../interface";
+import { CartDetail, ProductType, User } from "../../interface";
 import { useEffect, useState } from "react";
 import { logout } from "../../service/user.service";
 import { getLocal } from "../../store/reducers/Local";
-import { getCart } from "../../service/cart.service";
+import { getProduct } from "../../service/product.service";
+import { loadCart } from "../../service/cart.service";
+import Swal from "sweetalert2";
 
 export default function HeaderUser() {
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector((state: any) => state.cart.cartDetail);
 
+  const listProduct: ProductType[] = useSelector(
+    (state: any) => state.product.product
+  );
+
+  const cartUser: CartDetail[] = cart.filter(
+    (item: CartDetail) => item.idUser === loggedInUser?.id
+  );
+
+  // Danh sách sản phẩm trong giỏ hàng
+  const listCart: any[] = [];
+  cartUser.forEach((cartItem: CartDetail) => {
+    const product = listProduct.find(
+      (productItem: ProductType) => productItem.id === cartItem.idProduct
+    );
+    if (product) {
+      listCart.push(product);
+    }
+  });
+
   useEffect(() => {
-    dispatch(getCart());
+    dispatch(getProduct());
+    dispatch(loadCart());
     const user = getLocal("loggedInUser");
     if (user) {
       setLoggedInUser(user);
     }
   }, []);
 
-  const cartLoggedUser = cart
+  const cartLoggedUser = cartUser
     .filter((cartItem: any) => cartItem.idUser === loggedInUser?.id)
     .slice(0, 4);
 
   const handleLogout = () => {
     if (loggedInUser) {
-      dispatch(logout(loggedInUser.id)).then(() => {
-        setLoggedInUser(null);
+      Swal.fire({
+        title: "Bạn có chắc chắn muốn đăng xuất không ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Đăng xuất",
+        cancelButtonText: "Hủy",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(logout(loggedInUser.id)).then(() => {
+            setLoggedInUser(null);
+            navigate("/");
+          });
+          Swal.fire("", "Đăng xuất thành công", "success");
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          Swal.fire("", "Hủy đăng xuất", "error");
+        }
       });
     }
   };
@@ -77,7 +114,7 @@ export default function HeaderUser() {
           {loggedInUser ? (
             <div className="flex flex-col justify-center items-center gap-2">
               <Link
-                to={"/product"}
+                to={`/profile/${loggedInUser.id}`}
                 className="flex gap-2 justify-center items-center"
               >
                 {loggedInUser.image === "" ? (
@@ -113,27 +150,34 @@ export default function HeaderUser() {
             <Link to={`/cart/${loggedInUser?.id}`} className="cart-icon">
               <i className="fa-solid fa-cart-shopping" />
             </Link>
+            {/* hover cart  */}
             <div className="cart-details">
               <ul>
                 {cartLoggedUser.length > 0 ? (
-                  cartLoggedUser.map((cartItem: CartDetail, index: number) => (
-                    <li key={index}>
-                      <Link to={`/product-detail/${cartItem.idProduct}`}>
-                        <div className="cart-item">
-                          <img
-                            src={cartItem.image[0]}
-                            alt={cartItem.name}
-                            className="w-16 h-16 object-cover rounded-full"
-                          />
-                          <div className="w-[150px]">
-                            <p>{cartItem.name}</p>
-                            <p>{cartItem.price} USD</p>
+                  cartLoggedUser.map((item: any) => {
+                    const product = listProduct.find(
+                      (prod: ProductType) => prod.id === item.idProduct
+                    );
+                    if (!product) return null;
+                    return (
+                      <li key={item.id}>
+                        <Link to={`/product-detail/${item.idProduct}`}>
+                          <div className="cart-item">
+                            <img
+                              src={product.imageProduct[0]}
+                              alt={product.name}
+                              className="w-16 h-16 object-cover rounded-full"
+                            />
+                            <div className="w-[150px]">
+                              <p>{product.name}</p>
+                              <p>{product.price} USD</p>
+                            </div>
+                            <p>{item.quantity} sản phẩm</p>
                           </div>
-                          <p>{cartItem.quantity} sản phẩm</p>
-                        </div>
-                      </Link>
-                    </li>
-                  ))
+                        </Link>
+                      </li>
+                    );
+                  })
                 ) : (
                   <li>
                     <h3>Chưa có sản phẩm nào trong giỏ hàng</h3>
@@ -142,16 +186,7 @@ export default function HeaderUser() {
               </ul>
               <div className="cart-summary">
                 {loggedInUser ? (
-                  <p className="text-2xl">
-                    {/* Total:{" "}
-                    {cart.reduce(
-                      (acc: number, item: any) =>
-                        acc + item.price * item.quantity,
-                      0
-                    )}{" "}
-                    USD */}
-                    {cart.length} sản phẩm
-                  </p>
+                  <p className="text-2xl">{cartUser.length} sản phẩm</p>
                 ) : (
                   ""
                 )}
@@ -160,14 +195,9 @@ export default function HeaderUser() {
                 </Link>
               </div>
             </div>
+            {/* hover cart  */}
           </div>
         </div>
-        {/* <div className="search-bar">
-          <form action="search_results.html" method="get">
-            <input type="text" name="query" placeholder="Search products..." />
-            <button type="submit">Search</button>
-          </form>
-        </div> */}
       </div>
     </header>
   );

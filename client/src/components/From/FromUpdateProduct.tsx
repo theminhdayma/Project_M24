@@ -140,6 +140,7 @@ export default function FromUpdateProduct() {
       const updatedProduct = { ...inputValue, imageProduct: imageUrls };
       await dispatch(updateProduct(updatedProduct));
       navigate("/admin/product");
+      swal("Chỉnh sửa thành công", "", "success");
     } catch (error) {
       console.error("Error updating product:", error);
     }

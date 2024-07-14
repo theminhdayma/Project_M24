@@ -51,6 +51,7 @@ export default function FormUpdateCategory({ closeFromUpdate, category }: Props)
     dispatch(updateCategory(inputValue));
     setError("");
     closeFromUpdate();
+    swal("Chỉnh sửa thành công", "", "success");
   };
 
   return (

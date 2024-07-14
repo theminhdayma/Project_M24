@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProductType } from "../../interface";
 import { deleteProduct, getProducts } from "../../service/product.service";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 export default function ManagerProduct() {
   const dispatch = useDispatch();
@@ -11,29 +12,37 @@ export default function ManagerProduct() {
     (state: any) => state.product.product
   );
 
-  // State cho phân trang
+  // State for pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(5); // Số lượng sản phẩm trên mỗi trang
+  const [productsPerPage, setProductsPerPage] = useState(5);
+
+  // State for search
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     dispatch(getProducts({ page: currentPage, limit: productsPerPage }));
   }, [dispatch, currentPage, productsPerPage]);
 
-  // Lấy sản phẩm hiện tại trên trang
+  // Filter products based on search term
+  const filteredProducts = listProduct.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Get current products
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = listProduct.slice(
+  const currentProducts = filteredProducts.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
 
-  // Thay đổi trang
+  // Change page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  // Thay đổi số bản ghi trên mỗi trang
+  // Change products per page
   const handlePerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setProductsPerPage(Number(e.target.value));
-    setCurrentPage(1); // Reset lại trang về trang đầu tiên khi thay đổi số bản ghi trên mỗi trang
+    setCurrentPage(1);
   };
 
   const handleClick = () => {
@@ -45,13 +54,44 @@ export default function ManagerProduct() {
   };
 
   const handleDelete = (id: number) => {
-    dispatch(deleteProduct(id));
+    Swal.fire({
+      title: 'Bạn có chắc chắn muốn xóa sản phẩm này không',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Xóa',
+      cancelButtonText: 'Hủy'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(deleteProduct(id));
+        Swal.fire(
+          'Deleted!',
+          'Đã xóa thành công',
+          'success'
+        );
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Hủy xóa sản phẩm',
+          'error'
+        );
+      }
+    });
   };
 
   return (
     <>
       <div className="order">
         <div className="head">
+          <div className="flex justify-center items-center gap-5">
+            <input
+              type="text"
+              placeholder="Tìm kiếm sản phẩm..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="border p-2"
+            />
+            <i className="bx bx-search" />
+          </div>
           <h3
             className="cursor-pointer border p-3 bg-blue-500 text-white flex justify-center items-center gap-3"
             onClick={handleClick}
@@ -59,8 +99,6 @@ export default function ManagerProduct() {
             <i className="fa-solid fa-circle-plus"></i>
             <span>Thêm sản phẩm</span>
           </h3>
-          <i className="bx bx-search" />
-          <i className="bx bx-filter" />
         </div>
         <table>
           <thead>
@@ -77,7 +115,7 @@ export default function ManagerProduct() {
           <tbody className="overflow-y-auto max-h-[400px]">
             {currentProducts.map((product: ProductType, index: number) => (
               <tr key={index}>
-                <td>{product.id}</td>
+                <td>{indexOfFirstProduct + index + 1}</td> {/* Correct STT */}
                 <td>{product.name}</td>
                 <td>{product.brand}</td>
                 <td>{product.total}</td>
@@ -101,7 +139,7 @@ export default function ManagerProduct() {
             ))}
           </tbody>
         </table>
-        {/* Phân trang */}
+        {/* Pagination */}
         <div className="w-full p-3 flex justify-end items-center gap-2">
           <div>
             <select
@@ -117,9 +155,9 @@ export default function ManagerProduct() {
               <option value="20">20 bản ghi</option>
             </select>
           </div>
-          <div  className="flex gap-2">
+          <div className="flex gap-2">
             {Array.from(
-              Array(Math.ceil(listProduct.length / productsPerPage)).keys()
+              Array(Math.ceil(filteredProducts.length / productsPerPage)).keys()
             ).map((number, index) => (
               <button
                 key={index}

@@ -12,6 +12,7 @@ export default function Product() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedBrand, setSelectedBrand] = useState<string>("");
   const [selectedPriceRange, setSelectedPriceRange] = useState<string>("");
+  const [searchKeyword, setSearchKeyword] = useState<string>("");
 
   // State for pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,7 +32,7 @@ export default function Product() {
     dispatch(getAllCategory());
   }, [dispatch, currentPage, productsPerPage]);
 
-  // Filtered products based on selected category, brand, and price range
+  // Filtered products based on selected category, brand, price range, and search keyword
   const filteredProducts = listProduct.filter((product: ProductType) => {
     const filterByCategory =
       selectedCategory === "" ||
@@ -45,7 +46,11 @@ export default function Product() {
       filterByPrice = product.price >= minPrice && product.price <= maxPrice;
     }
 
-    return filterByCategory && filterByBrand && filterByPrice;
+    const filterBySearchKeyword =
+      searchKeyword === "" ||
+      product.name.toLowerCase().includes(searchKeyword.toLowerCase());
+
+    return filterByCategory && filterByBrand && filterByPrice && filterBySearchKeyword;
   });
 
   // Calculate current products based on pagination
@@ -83,8 +88,18 @@ export default function Product() {
     setCurrentPage(1); // Reset to first page when changing price range
   };
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchKeyword(e.target.value);
+    setCurrentPage(1); // Reset to first page when changing search keyword
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setCurrentPage(1); // Reset to first page when submitting search
+  };
+
   return (
-    <>
+    <div className="mt-[120px]">
       <HeaderUser />
       <main className="main">
         <nav>
@@ -131,11 +146,13 @@ export default function Product() {
           <div className="container">
             <h2>Các Loại Sản Phẩm</h2>
             <div className="search-bar">
-              <form>
+              <form onSubmit={handleSearchSubmit}>
                 <input
                   type="text"
                   name="query"
-                  placeholder="Search products..."
+                  placeholder="Tìm kiếm sản phẩm..."
+                  value={searchKeyword}
+                  onChange={handleSearchChange}
                 />
                 <button type="submit">Search</button>
               </form>
@@ -188,6 +205,6 @@ export default function Product() {
         </section>
       </main>
       <FooterUser />
-    </>
+    </div>
   );
 }

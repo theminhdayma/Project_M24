@@ -55,6 +55,7 @@ export default function FormAddCategory({ closeFromAdd }: Props) {
     });
     setError("");
     closeFromAdd();
+    swal("Thêm thành công", "", "success");
   };
 
   // Hàm check xem loại sản phẩm đã tồn tại chưa

@@ -1,4 +1,4 @@
-import { login, logout, getAllAccount, register, block, unblock } from "../../service/user.service";
+import { login, logout, getAllAccount, register, block, unblock, searchUserByName } from "../../service/user.service";
 import { User } from "../../interface";
 import { createSlice } from "@reduxjs/toolkit";
 import { deleteLocal, saveLocal } from "./Local";
@@ -47,6 +47,9 @@ const userReducer = createSlice({
         if (index !== -1) {
           state.user[index] = action.payload;
         }
+      })
+      .addCase(searchUserByName.fulfilled, (state: any, action: any) => {
+        state.user = action.payload;
       });
   },
 });

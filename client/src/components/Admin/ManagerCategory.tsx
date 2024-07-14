@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getAllCategory, deleteCategory } from "../../service/product.service";
 import FormAddCategory from "../From/FormAddCategory";
 import FormUpdateCategory from "../From/FormUpdateCategory";
+import Swal from 'sweetalert2';
 
 export default function ManagerCategory() {
   const [showFormAddCategory, setShowFormAddCategory] =
@@ -42,13 +43,36 @@ export default function ManagerCategory() {
   };
 
   const handleDelete = (id: number) => {
-    dispatch(deleteCategory(id));
+    Swal.fire({
+      title: 'Bạn có chắc chắn muốn xóa danh mục này không',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Xóa',
+      cancelButtonText: 'Hủy'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(deleteCategory(id));
+        Swal.fire(
+          'Deleted!',
+          'Đã xóa danh mục',
+          'success'
+        );
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Hủy xóa danh mục',
+          'error'
+        );
+      }
+    });
   };
 
   return (
     <>
       <div className="order">
         <div className="head">
+          <i className="bx bx-search" />
+          <i className="bx bx-filter" />
           <h3
             className="cursor-pointer border p-3 bg-blue-500 text-white flex justify-center items-center gap-3"
             onClick={handleShowAdd}
@@ -56,8 +80,6 @@ export default function ManagerCategory() {
             <i className="fa-solid fa-circle-plus"></i>
             <span>Thêm Danh mục</span>
           </h3>
-          <i className="bx bx-search" />
-          <i className="bx bx-filter" />
         </div>
         <table>
           <thead>

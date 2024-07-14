@@ -6,7 +6,7 @@ import { Category, ProductType } from "../../interface";
 import {
   getAllCategory,
   addProduct,
-  getProducts,
+  getProduct,
 } from "../../service/product.service";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../config/firebase";
@@ -44,7 +44,7 @@ export default function FormAddProduct() {
 
   useEffect(() => {
     dispatch(getAllCategory());
-    dispatch(getProducts());
+    dispatch(getProduct());
   }, [dispatch]);
 
   const handleChange = (
@@ -63,7 +63,7 @@ export default function FormAddProduct() {
       setImageFiles((prevFiles) => [...prevFiles, ...newFilesArray]);
     }
   };
-
+  
   const handleUploadImages = async () => {
     setLoading(true);
     const promises = imageFiles.map((file) => {
@@ -131,6 +131,7 @@ export default function FormAddProduct() {
       });
       setImageFiles([]);
       setErrors([]);
+      swal("Thêm thành công", "", "success");
     } catch (error) {
       console.error("Error uploading images:", error);
     }
@@ -143,6 +144,8 @@ export default function FormAddProduct() {
 
   return (
     <div className="products_adminActions_part">
+      {/* <button onClick={handleUploadImagess}>jgfsdhbcx,jn</button>
+      <img src="0735e1565b79e033290e93f9e08c243e" alt="" /> */}
       <h3 className="create_product">Tạo sản phẩm</h3>
       <form className="allInforproduct_form" onSubmit={handleSubmit}>
         <h4 className="allinfor_product_title">Thông tin chung</h4>

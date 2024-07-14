@@ -87,3 +87,11 @@ export const unblock: any = createAsyncThunk(
     return response.data;
   }
 );
+
+export const searchUserByName: any = createAsyncThunk(
+  "user/searchUserByName",
+  async (name: string) => {
+    const response = await axios.get(`http://localhost:8080/accounts?name_like=${name}&_sort=id&_order=desc`);
+    return response.data;
+  }
+);

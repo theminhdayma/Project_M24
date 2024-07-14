@@ -1,98 +1,105 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import HeaderUser from "../../components/User/HeaderUser";
 import FooterUser from "../../components/User/FooterUser";
-import { getProductById } from "../../service/product.service";
-import { addToCart, buyProduct } from "../../service/cart.service";
-import { User } from "../../interface";
+import { getProduct, getProductById } from "../../service/product.service";
+import { addHistory, addToCart, buyProduct } from "../../service/cart.service";
+import { ProductType, User } from "../../interface";
 import { getLocal } from "../../store/reducers/Local";
 import swal from "sweetalert";
 
 export default function ProductDetail() {
   const [inputValue, setInputValue] = useState<number>(1);
   const { id } = useParams();
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
+    dispatch(getProduct());
     if (id) {
       dispatch(getProductById(id));
     }
   }, [id, dispatch]);
 
-  const product = useSelector((state: any) =>
-    state.product.product.find((prod: any) => prod.id === Number(id))
+  const listProduct: ProductType[] = useSelector(
+    (state: any) => state.product.product
   );
+
+  const product: any = listProduct.find((prod: any) => prod.id === Number(id));
+  const relateProduct = listProduct.filter((pro) => {
+    return pro.brand === product?.brand && pro.id !== product.id;
+  });
+  console.log(relateProduct);
 
   const user: User = getLocal("loggedInUser");
 
   const handleAddToCart = () => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
     if (inputValue > product.total) {
       swal("Không đủ sản phẩm", "", "error");
       setInputValue(1);
       return;
     }
-    if (!user) {
-      navigate("/login");
-      return;
-    }
+
     if (product) {
       const cartItem = {
         idUser: user.id,
         idProduct: product.id,
-        brand: product.brand,
-        name: product.name,
-        price: product.price,
         quantity: inputValue,
-        image: product.imageProduct,
-        status: false,
+        price: product.price * inputValue,
       };
-      swal({
-        title: "Thêm Thành Công !!!",
-        text: `Đã thêm thành công ${product.name}`,
-        icon: "success",
-        button: "Aww yiss!",
-      });
+      swal("Thêm thành công", "", "success");
       dispatch(addToCart(cartItem));
       setInputValue(1);
     }
   };
 
   const handleBuyProduct = () => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
     if (inputValue > product.total) {
       swal("Không đủ sản phẩm", "", "error");
       setInputValue(1);
       return;
     }
-    if (!user) {
-      navigate("/login");
-      return;
-    }
+
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const day = String(currentDate.getDate()).padStart(2, "0");
+    const timeCreate = `${day}-${month}-${year}`;
+
     if (product) {
-      const cartItem = {
+      const historyItem = {
         idUser: user.id,
         idProduct: product.id,
-        brand: product.brand,
-        name: product.name,
-        price: product.price,
         quantity: inputValue,
-        image: product.imageProduct,
-        status: true,
+        price: product.price * inputValue,
+        created_at: timeCreate,
       };
-      swal({
-        title: "Thêm Thành Công !!!",
-        text: `Đã thêm thành công ${product.name}`,
-        icon: "success",
-        button: "Aww yiss!",
-      });
+      swal("Mua thành công", "", "success");
+
+      // Tính toán số lượng sản phẩm còn lại và số lần mua mới
+      const newTotal = product.total - inputValue;
+      const newPurchaseCount = product.purchaseCount + inputValue;
+
+      // Gọi action buyProduct để cập nhật thông tin sản phẩm
       dispatch(
         buyProduct({
-          productId: cartItem.idProduct,
-          newTotal: product.total - inputValue,
+          id: product.id,
+          totalBuy: newTotal,
+          purchaseCount: newPurchaseCount,
         })
       );
+      dispatch(addHistory(historyItem));
       setInputValue(1);
     }
   };
@@ -102,7 +109,7 @@ export default function ProductDetail() {
   }
 
   return (
-    <>
+    <div className="mt-[120px]">
       <HeaderUser />
       <main>
         <section className="product-detail">
@@ -161,14 +168,30 @@ export default function ProductDetail() {
                 >
                   Thêm vào giỏ hàng
                 </button>
-                <button onClick={handleBuyProduct} className="buy-button">Mua hàng</button>
+                <button onClick={handleBuyProduct} className="buy-button">
+                  Mua hàng
+                </button>
               </div>
             </div>
           </div>
         </section>
+        <section className="mt-10 flex flex-col gap-10">
+          <h1 className="w-full text-center text-3xl font-semibold">Gợi Ý Sản Phẩm</h1>
+          <hr />
+          <div className="widthImage product-grid">
+            {relateProduct.map((product: ProductType) => (
+              <div key={product.id} className="product product1">
+                <Link to={`/product-detail/${product.id}`}>
+                  <img src={product.imageProduct[0]} alt={product.name} />
+                  <h3>{product.name}</h3>
+                  <p>{product.price} USD</p>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
       <FooterUser />
-    </>
+    </div>
   );
 }
-

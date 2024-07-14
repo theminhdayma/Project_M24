@@ -2,6 +2,14 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { ProductType } from "../interface";
 
+export const getProduct: any = createAsyncThunk(
+  "product/getAllProducts",
+  async () => {
+    const res = await axios.get(`http://localhost:8080/products`);
+    return res.data;
+  }
+);
+
 export const getProducts: any = createAsyncThunk(
   "product/getProducts",
   async ({ page, limit }: { page: number; limit: number }) => {
@@ -63,6 +71,7 @@ export const deleteCategory: any = createAsyncThunk(
     return id;
   }
 );
+
 
 // Product
 

@@ -23,10 +23,15 @@ body {
 
 /* Header styles */
 header {
+    position: fixed;
+    top: 0px; 
+    left: 0; 
+    width: 100%;
     padding: 10px;
     background: #333;
     color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .container-header {
@@ -328,6 +333,11 @@ nav ul li a:hover {
   color: #333;
 }
 
+.widthImage {
+    margin-left: 80px;
+    width: 90%;
+}
+
 .product-grid {
   display: flex;
   flex-wrap: wrap;
@@ -345,6 +355,10 @@ nav ul li a:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeIn 0.5s ease-in-out;
 }
+
+  .product1 {
+    width: calc(25% - 1rem);
+  }
 
 .product:hover {
   transform: scale(1.05);
@@ -751,5 +765,233 @@ footer {
   
   .product-detail .product-info .button-list .add-button:hover {
     background-color: #d81b60;
+  }
+
+  /* Banner  */
+
+  .banner {
+    margin-top: 120px;
+}
+
+.banner-container {
+    position: relative;
+}
+
+.banner-container-img {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.banner-btn i {
+    font-size: 3rem;
+    color: white;
+    opacity: 0.3;
+}
+
+.banner-btn:hover i {
+    opacity: 1;
+}
+
+.banner-btn-left {
+    left: 0;
+}
+
+.banner-btn-right {
+    right: 0;
+}
+
+.banner-img {
+    order: 2;
+}
+
+.banner-active {
+    order: 0;
+}
+
+
+/* Section */
+
+.section {
+    margin-top: 30px;
+}
+
+.section-list {}
+
+.section-list-link {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.section-list-link::before {
+    content: '';
+    width: 90%;
+    height: 80%;
+    border: 2px solid white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    z-index: 1;
+}
+
+.section-list-link p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 1000;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.section-list-link-img {
+    transition: transform 0.3s;
+}
+
+.section-list:hover .section-list-link-img {
+    transform: scale(1.2);
+}
+  
+/* From mua sản phẩm  */
+
+.body-buy {
+    margin-top: 200px;
+    margin-left: 150px;
+    width: 80%;
+    padding: 10px;
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #fff;
+    background-repeat: no-repeat;
+  }
+
+  .card {
+    margin: 40px 0px;
+    padding: 40px 50px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 1px 5px 10px 1px rgba(0,0,0,0.2);
+  }
+  
+  input, textarea {
+    background-color: #F3E5F5;
+    padding: 8px 15px 8px 15px;
+    width: 100%;
+    border-radius: 5px !important;
+    box-sizing: border-box;
+    border: 1px solid #F3E5F5;
+    font-size: 15px !important;
+    color: #000 !important;
+    font-weight: 300;
+  }
+  
+  input:focus, textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #9FA8DA;
+    outline-width: 0;
+    font-weight: 400;
+  }
+  
+  button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+  
+  .pay {
+    width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #673AB7;
+    margin: 10px 20px 10px 0px;
+    cursor: pointer;
+    box-shadow: 1px 5px 10px 1px rgba(0,0,0,0.2);
+  }
+  
+  .gray {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
+    color: #E0E0E0;
+  }
+  
+  .gray .pay {
+    box-shadow: none;
+  }
+  
+  #tax {
+    border-top: 1px lightgray solid;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  
+  .btn-blue {
+    border: none;
+    border-radius: 10px;
+    background-color: #673AB7;
+    color: #fff;
+    padding: 8px 15px;
+    margin: 20px 0px;
+    cursor: pointer;
+  }
+  
+  .btn-blue:hover {
+    background-color: #311B92;
+    color: #fff;
+    
+  }
+  
+  #checkout {
+    float: left;
+  }
+  
+  #check-amt {
+    float: right;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .book, .book-img {
+        width: 100px;
+        height: 150px;
+    }
+  
+    .card {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+  
+    .mob-text {
+        font-size: 13px;
+    }
+  
+    .pad-left { 
+        padding-left: 20px;
+    }
   }
   
