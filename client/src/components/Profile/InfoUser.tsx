@@ -1,18 +1,175 @@
 import { useEffect, useState } from "react";
 import { User } from "../../interface";
-import { getLocal } from "../../store/reducers/Local";
+import { getLocal, saveLocal } from "../../store/reducers/Local";
+import Swal from "sweetalert2";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import axios from "axios";
+import { storage } from "../../config/firebase";
+import FromUpdateUser from "../From/FromUpdateUser";
+import CryptoJS from "crypto-js";
 
 export default function InfoUser() {
+  const [showFromUpdateUser, setShowFromUpdateUser] = useState<boolean>(false);
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const user = getLocal("loggedInUser");
     setLoggedInUser(user);
   }, []);
 
+  const handleChangeAvt = () => {
+    Swal.fire({
+      title: "Chọn ảnh",
+      input: "file",
+      inputAttributes: {
+        accept: "avatars/*",
+        "aria-label": "Upload your profile picture",
+      },
+    }).then((result) => {
+      if (result.isConfirmed && result.value) {
+        const file = result.value as File;
+        const storageRef = ref(storage, `avatars/${file.name}`);
+
+        setLoading(true);
+
+        uploadBytes(storageRef, file)
+          .then((snapshot) => {
+            getDownloadURL(snapshot.ref).then((downloadURL) => {
+              if (loggedInUser) {
+                const updatedUser = { ...loggedInUser, image: downloadURL };
+                saveLocal("loggedInUser", updatedUser);
+                axios
+                  .put(
+                    `http://localhost:8080/accounts/${loggedInUser.id}`,
+                    updatedUser
+                  )
+                  .then(() => {
+                    setLoggedInUser(updatedUser);
+                    setLoading(false);
+                    Swal.fire({
+                      title: "Ảnh của bạn",
+                      imageUrl: downloadURL,
+                      imageAlt: "Ảnh đã tải lên",
+                    });
+                  })
+                  .catch((error) => {
+                    console.error("Error updating avatar URL:", error);
+                    setLoading(false);
+                    Swal.fire("Error", "Failed to update avatar URL", "error");
+                  });
+              }
+            });
+          })
+          .catch((error) => {
+            console.error("Error uploading avatar:", error);
+            setLoading(false);
+            Swal.fire("Error", "Failed to upload avatar", "error");
+          });
+      }
+    });
+  };
+
+  const close = () => {
+    setShowFromUpdateUser(false);
+  };
+
+  const handleChangePassword = () => {
+    Swal.fire({
+      title: "Nhập mật khẩu hiện tại",
+      input: "password",
+      inputAttributes: {
+        autocapitalize: "off",
+        autocorrect: "off",
+      },
+      showCancelButton: true,
+      confirmButtonText: "Tiếp tục",
+      showLoaderOnConfirm: true,
+      preConfirm: (currentPassword) => {
+        const bytes = CryptoJS.AES.decrypt(loggedInUser?.password || "", "secret_key");
+        const decryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
+        console.log(decryptedPassword);
+        
+        if (currentPassword !== decryptedPassword) {
+          Swal.showValidationMessage("Mật khẩu hiện tại không chính xác");
+        }
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Nhập mật khẩu mới",
+          input: "password",
+          inputAttributes: {
+            autocapitalize: "off",
+            autocorrect: "off",
+            minlength: "8",
+          },
+          showCancelButton: true,
+          confirmButtonText: "Đổi mật khẩu",
+          showLoaderOnConfirm: true,
+          preConfirm: (newPassword) => {
+            if (newPassword.length < 8) {
+              Swal.showValidationMessage("Mật khẩu phải có ít nhất 8 ký tự");
+            }
+            return newPassword;
+          },
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: "Xác nhận mật khẩu mới",
+              input: "password",
+              inputAttributes: {
+                autocapitalize: "off",
+                autocorrect: "off",
+              },
+              showCancelButton: true,
+              confirmButtonText: "Xác nhận",
+              showLoaderOnConfirm: true,
+              preConfirm: (confirmPassword) => {
+                if (confirmPassword !== result.value) {
+                  Swal.showValidationMessage("Mật khẩu xác nhận không khớp");
+                }
+                return confirmPassword;
+              },
+            }).then((result) => {
+              if (result.isConfirmed) {
+                const encryptedPassword = CryptoJS.AES.encrypt(result.value, "secret_key").toString();
+                if (loggedInUser) {
+                  const updatedUser = { ...loggedInUser, password: encryptedPassword };
+                  saveLocal("loggedInUser", updatedUser);
+                  axios
+                    .put(
+                      `http://localhost:8080/accounts/${loggedInUser.id}`,
+                      updatedUser
+                    )
+                    .then(() => {
+                      setLoggedInUser(updatedUser);
+                      setLoading(false);
+                      Swal.fire({
+                        title: "Thành công!",
+                        text: "Mật khẩu đã được thay đổi thành công.",
+                        icon: "success",
+                      });
+                    })
+                    .catch((error) => {
+                      console.error("Error updating password:", error);
+                      setLoading(false);
+                      Swal.fire("Error", "Failed to update password", "error");
+                    });
+                }
+              }
+            });
+          }
+        });
+      }
+    });
+  };
+  
+
   return (
     <>
       <div className="private-info" id="profileContent">
+        {loading && <div className="spinner"></div>}
         {loggedInUser && (
           <>
             <div className="image-container">
@@ -52,6 +209,7 @@ export default function InfoUser() {
               </h3>
               <div className="button-choose">
                 <button
+                  onClick={handleChangeAvt}
                   style={{
                     fontSize: "14px",
                     padding: "10px 20px",
@@ -64,6 +222,7 @@ export default function InfoUser() {
                   Thay đổi ảnh
                 </button>
                 <button
+                  onClick={() => setShowFromUpdateUser(true)}
                   style={{
                     padding: "10px 20px",
                     border: "transparent",
@@ -74,6 +233,7 @@ export default function InfoUser() {
                   Đổi thông tin
                 </button>
                 <button
+                  onClick={handleChangePassword}
                   style={{
                     padding: "10px 20px",
                     border: "transparent",
@@ -120,6 +280,9 @@ export default function InfoUser() {
           </>
         )}
       </div>
+      {showFromUpdateUser && (
+        <FromUpdateUser close={close} user={loggedInUser} />
+      )}
     </>
   );
 }

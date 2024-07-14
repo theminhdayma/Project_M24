@@ -1,8 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import CryptoJS from "crypto-js";
+import { User } from "../interface";
 
 export const getAllAccount: any = createAsyncThunk(
+  "user/getAllAccount",
+  async () => {
+    const res = await axios.get("http://localhost:8080/accounts");
+    return res.data;
+  }
+);
+
+export const getUser: any = createAsyncThunk(
   "user/getAllAccount",
   async () => {
     const res = await axios.get("http://localhost:8080/accounts");
@@ -93,5 +102,17 @@ export const searchUserByName: any = createAsyncThunk(
   async (name: string) => {
     const response = await axios.get(`http://localhost:8080/accounts?name_like=${name}&_sort=id&_order=desc`);
     return response.data;
+  }
+);
+
+export const updateUser: any = createAsyncThunk(
+  "user/updateUser",
+  async (updatedUser: User, { rejectWithValue }) => {
+    try {
+      const response = await axios.put(`http://localhost:8080/accounts/${updatedUser.id}`, updatedUser);
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );

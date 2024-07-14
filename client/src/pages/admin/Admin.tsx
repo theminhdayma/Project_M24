@@ -3,17 +3,34 @@ import "../../style/Admin.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { getLocal } from "../../store/reducers/Local";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllAccount, logout } from "../../service/user.service";
-import { User } from "../../interface";
+import { getUser, logout } from "../../service/user.service";
+import { ProductType, User } from "../../interface";
 import Swal from "sweetalert2";
+import { getProduct } from "../../service/product.service";
 
 export default function Admin() {
   // Lấy user
   const listAccount: User[] = useSelector((state: any) => state.user.user);
-  console.log(listAccount);
+  // Lấy số đơn hàng
+  const listOder: ProductType[] = useSelector(
+    (state: any) => state.product.product
+  );
+  // Tính tổng đơn hàng
+  const totalPurchaseCount = listOder.reduce(
+    (total, product) => total + product.purchaseCount,
+    0
+  );
+
+  // Tính tổng số tiền
+  const totalMoney = listOder.reduce(
+    (total, product) => total + product.price * product.purchaseCount,
+    0
+  );
+  
 
   useEffect(() => {
-    dispatch(getAllAccount());
+    dispatch(getProduct());
+    dispatch(getUser());
   }, []);
 
   const navigate = useNavigate();
@@ -92,19 +109,6 @@ export default function Admin() {
         searchForm.classList.remove("show");
       }
     });
-
-    // const switchMode = document.getElementById(
-    //   "switch-mode"
-    // ) as HTMLInputElement;
-
-    // switchMode.addEventListener("change", function () {
-    //   if (this.checked) {
-    //     document.body.classList.add("dark");
-    //   } else {
-    //     document.body.classList.remove("dark");
-    //   }
-    // });
-
     return () => {
       // Cleanup listeners if needed
       allSideMenu.forEach((item) => {
@@ -198,6 +202,34 @@ export default function Admin() {
           {/* NAVBAR */}
           {/* MAIN */}
           <main>
+            <div className="head-title">
+              <div className="left">
+                <h1>Dashboard</h1>
+              </div>
+            </div>
+            <ul className="box-info">
+              <li>
+                <i className="bx bxs-calendar-check" />
+                <span className="text">
+                  <h3>{totalPurchaseCount}</h3>
+                  <p>Order</p>
+                </span>
+              </li>
+              <li>
+                <i className="bx bxs-group" />
+                <span className="text">
+                  <h3>{listAccount.length}</h3>
+                  <p>Visitors</p>
+                </span>
+              </li>
+              <li>
+                <i className="bx bxs-dollar-circle" />
+                <span className="text">
+                  <h3>{totalMoney} USD</h3>
+                  <p>Total Sales</p>
+                </span>
+              </li>
+            </ul>
             <div className="table-data">
               <Outlet />
             </div>

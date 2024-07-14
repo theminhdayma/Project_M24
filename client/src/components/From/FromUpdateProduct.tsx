@@ -293,7 +293,7 @@ export default function FromUpdateProduct() {
         </div>
         <div className="footer_addProducts">
           <button type="submit" className="submit_form" disabled={loading}>
-            {loading ? "Đang tải..." : "Tạo sản phẩm"}
+            {loading ? "Đang tải..." : "Chỉnh sửa sản phẩm"}
           </button>
         </div>
       </form>

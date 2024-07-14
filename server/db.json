@@ -2,13 +2,13 @@
   "accounts": [
     {
       "id": 1,
-      "name": "Thế Minh",
+      "name": "theminhdayma",
       "age": 19,
       "address": "Hà Nội",
       "numberPhone": "0364577211",
       "email": "theminh2005z@gmail.com",
-      "password": "U2FsdGVkX182CPR30wxRjVPU9ibgJUvvscpAm5ihRv8=",
-      "image": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/products%2F12f9e75d-6463-4e70-ae18-b2175df207a8.jpg?alt=media&token=3c7dc62f-1096-46ac-ab0f-2cc6b0f8b45a",
+      "password": "U2FsdGVkX18r4MmeINTZrGtoShVPUMg7X/0BHd+xSeY=",
+      "image": "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/avatars%2F31642e1e-c1f4-4ed0-b3d8-6d9d50e2c0b2.jpg?alt=media&token=e236a0aa-2b78-4f70-b1ca-778a35a30b23",
       "role": 0,
       "created_at": "01-01-2024",
       "updated_at": "",
@@ -172,9 +172,9 @@
       "idCategory": 1,
       "brand": "Giày NIKE",
       "name": "Giày NIKE_AF1 Black White",
-      "total": 3640,
+      "total": 3638,
       "price": 136,
-      "purchaseCount": 1565,
+      "purchaseCount": 1567,
       "description": "Giày NIKE_AF1 Black White Trắng Đen Nam Nữ, Giày Thể Thao Af1 Vệt Đen Free Ship",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lpzuve84jayf61",
@@ -244,9 +244,9 @@
       "idCategory": 1,
       "brand": "Giày NIKE",
       "name": "Giày Nike_ Air _Force 1LX",
-      "total": 6356,
+      "total": 6355,
       "price": 211,
-      "purchaseCount": 1239,
+      "purchaseCount": 1240,
       "description": "Giày Nike_ Air _Force 1LX Tear_Away Xé Rách Vải Hàng Chính Hãng-Thiết Kế 3 Lớp Vải Xé Hàng Chuẩn Trung|Fullbill PK",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-llu78x6mlg4f5c",
@@ -1030,22 +1030,6 @@
       "created_at": "",
       "updated_at": "",
       "statusProduct": true
-    },
-    {
-      "idCategory": 1,
-      "brand": "dép bánh mỳ",
-      "name": "Mũ",
-      "total": "5324",
-      "price": "134",
-      "purchaseCount": 0,
-      "description": "<p>regfd</p>",
-      "imageProduct": [
-        "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/products%2F24d21186-b562-40ea-9454-4f1cd2932d9e.jpg?alt=media&token=49409849-1b1b-4067-b04f-9fa203718d7e"
-      ],
-      "created_at": "14-07-2024",
-      "updated_at": "",
-      "statusProduct": true,
-      "id": 51
     }
   ],
   "cart": [
@@ -1065,9 +1049,9 @@
     },
     {
       "idUser": 1,
-      "idProduct": 4,
+      "idProduct": 1,
       "quantity": 1,
-      "price": 267,
+      "price": 578,
       "id": 8
     }
   ],
@@ -1279,6 +1263,30 @@
       "price": 272,
       "created_at": "15-07-2024",
       "id": 26
+    },
+    {
+      "idUser": 1,
+      "idProduct": 3,
+      "quantity": 1,
+      "price": 136,
+      "created_at": "15-07-2024",
+      "id": 27
+    },
+    {
+      "idUser": 1,
+      "idProduct": 3,
+      "quantity": 1,
+      "price": 136,
+      "created_at": "15-07-2024",
+      "id": 28
+    },
+    {
+      "idUser": 1,
+      "idProduct": 7,
+      "quantity": 1,
+      "price": 211,
+      "created_at": "15-07-2024",
+      "id": 29
     }
   ],
   "comments": [
