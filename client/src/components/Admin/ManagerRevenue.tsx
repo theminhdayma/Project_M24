@@ -37,12 +37,12 @@ export default function ManagerRevenue() {
 
   const handleSearchNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchName(e.target.value);
-    setCurrentPage(1); // Reset page when search name changes
+    setCurrentPage(1); 
   };
 
   const handleFilterTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterType(e.target.value);
-    setCurrentPage(1); // Reset page when filter type changes
+    setCurrentPage(1); 
   };
 
   const indexOfLastOrder = currentPage * ordersPerPage;
@@ -51,11 +51,11 @@ export default function ManagerRevenue() {
   const combinedOrders = [
     ...listHistory.map((historyItem: any) => ({
       ...historyItem,
-      inCart: false, // Flag for history items
+      inCart: false,
     })),
     ...listCart.map((cartItem: any) => ({
       ...cartItem,
-      inCart: true, // Flag for cart items
+      inCart: true,
     })),
   ];
 

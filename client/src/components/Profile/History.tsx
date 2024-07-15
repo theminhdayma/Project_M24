@@ -7,6 +7,7 @@ import { getProduct } from "../../service/product.service";
 import { getAllAccount } from "../../service/user.service";
 
 export default function History() {
+    const [showOlderDetail, setShowOlderDetail] = useState<boolean>(false)
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [ordersPerPage, setOrdersPerPage] = useState(5);

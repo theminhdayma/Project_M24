@@ -15,6 +15,7 @@ export default function ManagerUser() {
   const [name, setName] = useState<string>("");
   const [showAddForm, setShowAddForm] = useState(false);
   const [statusFilter, setStatusFilter] = useState<string>("");
+  const [sortOrder, setSortOrder] = useState<string>(""); // Add state for sorting
   const listAccount: User[] = useSelector((state: any) => state.user.user);
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
@@ -32,17 +33,26 @@ export default function ManagerUser() {
     (account) => account.id !== loggedInUser.id
   );
 
-  // Filter users based on search term and status
-  const filteredUsers = listUser.filter((user) => {
-    const matchesName = user.name.toLowerCase().includes(name.toLowerCase());
-    const matchesStatus =
-      statusFilter === ""
-        ? true
-        : statusFilter === "active"
-        ? user.status === true
-        : user.status === false;
-    return matchesName && matchesStatus;
-  });
+  // Filter users based on search term, status, and sort order
+  const filteredUsers = listUser
+    .filter((user) => {
+      const matchesName = user.name.toLowerCase().includes(name.toLowerCase());
+      const matchesStatus =
+        statusFilter === ""
+          ? true
+          : statusFilter === "active"
+          ? user.status === true
+          : user.status === false;
+      return matchesName && matchesStatus;
+    })
+    .sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a.name.localeCompare(b.name);
+      } else if (sortOrder === "desc") {
+        return b.name.localeCompare(a.name);
+      }
+      return 0;
+    });
 
   // Get current users
   const indexOfLastUser = currentPage * usersPerPage;
@@ -109,6 +119,16 @@ export default function ManagerUser() {
     <>
       <div className="order">
         <div className="head">
+          <select
+            name="sortOrder"
+            id="sortOrder"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option value="">Sắp xếp theo tên</option>
+            <option value="asc">Tăng dần</option>
+            <option value="desc">Giảm dần</option>
+          </select>
           <select
             name="statusFilter"
             id="statusFilter"
@@ -235,27 +255,27 @@ export default function ManagerUser() {
               <option value="5">5 bản ghi</option>
               <option value="10">10 bản ghi</option>
               <option value="15">15 bản ghi</option>
-              <option value="20">20 bản ghi</option>
             </select>
           </div>
-          <div className="flex gap-2">
+          <div>
             {Array.from(
-              Array(Math.ceil(filteredUsers.length / usersPerPage)).keys()
-            ).map((number, index) => (
-              <button
-                key={index}
-                className={`border border-gray-950 p-1 ${
-                  currentPage === number + 1 ? "bg-gray-200" : ""
-                }`}
-                onClick={() => paginate(number + 1)}
-              >
-                {number + 1}
-              </button>
-            ))}
+              { length: Math.ceil(filteredUsers.length / usersPerPage) },
+              (_, index) => (
+                <button
+                  key={index}
+                  className={`border border-gray-800 ${
+                    index + 1 === currentPage ? "bg-black text-white" : ""
+                  }`}
+                  onClick={() => paginate(index + 1)}
+                >
+                  {index + 1}
+                </button>
+              )
+            )}
           </div>
         </div>
       </div>
-      {showAddForm && <FormAddUser closeFromAdd={closeFromAdd} />}
+      {showAddForm && (<FormAddUser closeFromAdd={closeFromAdd} />)}
     </>
   );
 }

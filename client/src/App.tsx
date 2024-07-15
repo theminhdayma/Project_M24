@@ -20,6 +20,7 @@ import Profile from "./pages/Profile/Profile";
 import InfoUser from "./components/Profile/InfoUser";
 import History from "./components/Profile/History";
 import BuyProduct from "./components/User/BuyProduct";
+import OlderDetail from "./components/From/OlderDetail";
 
 export default function App() {
   return (
@@ -48,8 +49,9 @@ export default function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/profile/:id" element={<Profile />}>
           <Route index element={<InfoUser />}></Route>
-          <Route path="history" element={<History />}></Route>
+          <Route path="history/" element={<History />}></Route>
         </Route>
+        <Route path="olderDetail" element={<OlderDetail />}></Route>
         <Route path="*" element={<h1>NOT FOUND</h1>}></Route>
       </Routes>
     </div>

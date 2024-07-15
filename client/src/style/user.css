@@ -1015,3 +1015,45 @@ footer {
     }
   }
   
+  /* From xem chi tiết đơn hàng  */
+
+  .order-detail {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .order-detail .user-name,
+  .order-detail .product-info h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .order-detail .product-info p {
+    margin: 5px 0;
+  }
+  
+  .order-detail .product-info .product-description {
+    margin-top: 15px;
+    color: #555;
+  }
+  
+  .order-detail .user-name {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .order-detail .product-info h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .order-detail .product-info .product-quantity {
+    color: #777;
+  }
