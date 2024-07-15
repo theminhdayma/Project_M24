@@ -7,7 +7,7 @@ import { saveLocal } from "../../store/reducers/Local";
 
 interface Props {
   close: () => void;
-  user: User | null
+  user: User | null;
 }
 
 export default function FromUpdateUser({ close, user }: Props) {
@@ -36,8 +36,13 @@ export default function FromUpdateUser({ close, user }: Props) {
       return;
     }
 
+    if (inputValue.numberPhone.length !== 10) {
+      setError("Số điện thoại phải đủ 10 số");
+      return;
+    }
+
     const updatedUser = { ...user, ...inputValue };
-    
+
     dispatch(updateUser(updatedUser))
       .unwrap()
       .then(() => {
