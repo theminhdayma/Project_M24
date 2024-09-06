@@ -275,7 +275,7 @@ export default function ManagerUser() {
           </div>
         </div>
       </div>
-      {showAddForm && (<FormAddUser closeFromAdd={closeFromAdd} />)}
+      {showAddForm && <FormAddUser closeFromAdd={closeFromAdd} />}
     </>
   );
 }

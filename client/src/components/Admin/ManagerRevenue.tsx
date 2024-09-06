@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getHistory, loadCart } from "../../service/cart.service";
+import {
+  deleteOrder,
+  getHistory,
+  loadCart,
+  updateOrderStatus,
+} from "../../service/cart.service";
 import { CartDetail, ProductType, User } from "../../interface";
 import { getProduct } from "../../service/product.service";
 import { getAllAccount } from "../../service/user.service";
@@ -37,12 +42,12 @@ export default function ManagerRevenue() {
 
   const handleSearchNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchName(e.target.value);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const handleFilterTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterType(e.target.value);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const indexOfLastOrder = currentPage * ordersPerPage;
@@ -77,7 +82,6 @@ export default function ManagerRevenue() {
       !buyer.name.toLowerCase().includes(searchName.toLowerCase())
     )
       return false;
-
     return true;
   });
 
@@ -85,6 +89,19 @@ export default function ManagerRevenue() {
     indexOfFirstOrder,
     indexOfLastOrder
   );
+
+  const handleOk = (id: number) => {
+    dispatch(updateOrderStatus({ id, status: true }));
+    swal("Duyệt đơn hàng thành công", "", "success");
+  };
+
+  const handleNo = (id: number) => {
+    dispatch(deleteOrder(id)).then(() => {
+      dispatch(getHistory({ page: currentPage, limit: ordersPerPage }));
+    });
+
+    swal("Đã hủy bán sản phẩm", "", "success");
+  };
 
   return (
     <>
@@ -151,9 +168,28 @@ export default function ManagerRevenue() {
                     {item.inCart === true ? (
                       ""
                     ) : (
-                      <button className="border bg-red-600 text-white p-2">
-                        xem chi tiết
-                      </button>
+                      <div>
+                        {item.status === true ? (
+                          <div className="p-1 bg-yellow-500 text-white rounded-2xl flex justify-center items-center">
+                            Sản phẩm đã được duyệt
+                          </div>
+                        ) : (
+                          <div className="flex justify-center items-center gap-4">
+                            <button
+                              onClick={() => handleOk(item.id)}
+                              className="border rounded-2xl bg-green-600 text-white p-2"
+                            >
+                              Xác nhận
+                            </button>
+                            <button
+                              onClick={() => handleNo(item.id)}
+                              className="border rounded-2xl bg-red-600 text-white p-2"
+                            >
+                              Hủy bán
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     )}
                   </td>
                 </tr>

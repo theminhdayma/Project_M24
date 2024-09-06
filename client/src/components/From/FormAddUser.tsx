@@ -143,9 +143,11 @@ export default function FormAddUser({ closeFromAdd }: Props) {
           <div className="closeEmployee_form">
             <i onClick={closeFromAdd} className="fa-solid fa-xmark"></i>
           </div>
-          <h4 style={{fontSize: "24px"}} className="addEmployee_title">Thêm người dùng</h4>
+          <h4 style={{ fontSize: "24px" }} className="addEmployee_title">
+            Thêm người dùng
+          </h4>
           {error && <span className="text-red-500">{error}</span>}
-          <div style={{marginTop: "40px"}} className="addEmployee_item">
+          <div style={{ marginTop: "40px" }} className="addEmployee_item">
             <label htmlFor="">Tên tài khoản</label>
             <br />
             <input

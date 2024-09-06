@@ -10,6 +10,7 @@ import {
   loadCart,
   updatedQuantityCart,
   loadHistory,
+  updateOrderStatus,
 } from "../../service/cart.service";
 
 const listCartDetail: CartDetail[] = [];
@@ -81,6 +82,15 @@ const cartReducer = createSlice({
         );
         if (index !== -1) {
           state.cartDetail[index].quantity = updatedCartItem.quantity;
+        }
+      })
+      .addCase(updateOrderStatus.fulfilled, (state, action) => {
+        const updatedOrder = action.payload;
+        const index = state.history.findIndex(
+          (order) => order.id === updatedOrder.id
+        );
+        if (index !== -1) {
+          state.history[index].status = updatedOrder.status;
         }
       });
   },

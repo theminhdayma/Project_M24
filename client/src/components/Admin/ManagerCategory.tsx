@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getAllCategory, deleteCategory } from "../../service/product.service";
 import FormAddCategory from "../From/FormAddCategory";
 import FormUpdateCategory from "../From/FormUpdateCategory";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 export default function ManagerCategory() {
   const [showFormAddCategory, setShowFormAddCategory] =
@@ -44,25 +44,17 @@ export default function ManagerCategory() {
 
   const handleDelete = (id: number) => {
     Swal.fire({
-      title: 'Bạn có chắc chắn muốn xóa danh mục này không',
-      icon: 'warning',
+      title: "Bạn có chắc chắn muốn xóa danh mục này không",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonText: 'Xóa',
-      cancelButtonText: 'Hủy'
+      confirmButtonText: "Xóa",
+      cancelButtonText: "Hủy",
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteCategory(id));
-        Swal.fire(
-          'Deleted!',
-          'Đã xóa danh mục',
-          'success'
-        );
+        Swal.fire("Deleted!", "Đã xóa danh mục", "success");
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          'Cancelled',
-          'Hủy xóa danh mục',
-          'error'
-        );
+        Swal.fire("Cancelled", "Hủy xóa danh mục", "error");
       }
     });
   };

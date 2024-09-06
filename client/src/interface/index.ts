@@ -44,6 +44,7 @@ export interface History {
   quantity: number;
   price: number;
   created_at: string;
+  status: boolean;
 }
 
 export interface CartDetail {

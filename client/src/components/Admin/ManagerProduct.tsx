@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProductType } from "../../interface";
 import { deleteProduct, getProducts } from "../../service/product.service";
 import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 export default function ManagerProduct() {
   const dispatch = useDispatch();
@@ -55,25 +55,17 @@ export default function ManagerProduct() {
 
   const handleDelete = (id: number) => {
     Swal.fire({
-      title: 'Bạn có chắc chắn muốn xóa sản phẩm này không',
-      icon: 'warning',
+      title: "Bạn có chắc chắn muốn xóa sản phẩm này không",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonText: 'Xóa',
-      cancelButtonText: 'Hủy'
+      confirmButtonText: "Xóa",
+      cancelButtonText: "Hủy",
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteProduct(id));
-        Swal.fire(
-          'Deleted!',
-          'Đã xóa thành công',
-          'success'
-        );
+        Swal.fire("Deleted!", "Đã xóa thành công", "success");
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          'Cancelled',
-          'Hủy xóa sản phẩm',
-          'error'
-        );
+        Swal.fire("Cancelled", "Hủy xóa sản phẩm", "error");
       }
     });
   };

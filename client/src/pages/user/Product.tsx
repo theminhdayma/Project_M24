@@ -50,7 +50,12 @@ export default function Product() {
       searchKeyword === "" ||
       product.name.toLowerCase().includes(searchKeyword.toLowerCase());
 
-    return filterByCategory && filterByBrand && filterByPrice && filterBySearchKeyword;
+    return (
+      filterByCategory &&
+      filterByBrand &&
+      filterByPrice &&
+      filterBySearchKeyword
+    );
   });
 
   // Calculate current products based on pagination
@@ -75,27 +80,27 @@ export default function Product() {
 
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCategory(e.target.value);
-    setCurrentPage(1); // Reset to first page when changing category
+    setCurrentPage(1);
   };
 
   const handleBrandChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedBrand(e.target.value);
-    setCurrentPage(1); // Reset to first page when changing brand
+    setCurrentPage(1);
   };
 
   const handlePriceRangeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedPriceRange(e.target.value);
-    setCurrentPage(1); // Reset to first page when changing price range
+    setCurrentPage(1);
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchKeyword(e.target.value);
-    setCurrentPage(1); // Reset to first page when changing search keyword
+    setCurrentPage(1);
   };
 
   const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setCurrentPage(1); // Reset to first page when submitting search
+    setCurrentPage(1);
   };
 
   return (

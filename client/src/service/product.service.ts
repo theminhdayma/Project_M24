@@ -13,11 +13,12 @@ export const getProduct: any = createAsyncThunk(
 export const getProducts: any = createAsyncThunk(
   "product/getProducts",
   async ({ page, limit }: { page: number; limit: number }) => {
-    const res = await axios.get(`http://localhost:8080/products?page=${page}&limit=${limit}`);
+    const res = await axios.get(
+      `http://localhost:8080/products?page=${page}&limit=${limit}`
+    );
     return res.data;
   }
 );
-
 
 export const getAllCategory: any = createAsyncThunk(
   "category/getAllCategory",
@@ -71,7 +72,6 @@ export const deleteCategory: any = createAsyncThunk(
     return id;
   }
 );
-
 
 // Product
 
@@ -133,7 +133,7 @@ export const deleteProduct: any = createAsyncThunk(
     await axios.delete(`http://localhost:8080/products/${id}`);
     return id;
   }
-)
+);
 
 export const getProductById: any = createAsyncThunk(
   "product/getProductById",

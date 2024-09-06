@@ -63,7 +63,7 @@ export default function FormAddProduct() {
       setImageFiles((prevFiles) => [...prevFiles, ...newFilesArray]);
     }
   };
-  
+
   const handleUploadImages = async () => {
     setLoading(true);
     const promises = imageFiles.map((file) => {

@@ -69,7 +69,9 @@ export default function BuyProduct() {
                       />
                     </div>
                     <div className="form-group col-md-6">
-                      <label className="form-control-label">Số điện thoại</label>
+                      <label className="form-control-label">
+                        Số điện thoại
+                      </label>
                       <input
                         type="text"
                         id="cnum"
@@ -80,9 +82,7 @@ export default function BuyProduct() {
                   </div>
                   <div className="row px-2">
                     <div className="form-group col-md-6">
-                      <label className="form-control-label">
-                        Số thẻ
-                      </label>
+                      <label className="form-control-label">Số thẻ</label>
                       <input
                         type="text"
                         id="exp"

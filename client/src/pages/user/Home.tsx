@@ -56,7 +56,9 @@ export default function Home() {
     .sort((a: any, b: any) => b.purchaseCount - a.purchaseCount)
     .slice(0, 10);
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const selectedCategoryId = event.target.value;
     navigate(`/product?category=${selectedCategoryId}`);
   };
@@ -100,7 +102,10 @@ export default function Home() {
               <h2 className="text-orange-600 text-2xl">Sản phẩm bán chạy</h2>
               <div className="flex flex-col gap-2">
                 <label htmlFor="">Danh mục sản phẩm</label>
-                <select className="border border-gray-400 p-1" onChange={handleCategoryChange}>
+                <select
+                  className="border border-gray-400 p-1"
+                  onChange={handleCategoryChange}
+                >
                   <option value="">Chọn danh mục</option>
                   {listCategory.map((category: Category, index: number) => (
                     <option key={index} value={category.id}>

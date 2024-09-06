@@ -11,13 +11,10 @@ export const getAllAccount: any = createAsyncThunk(
   }
 );
 
-export const getUser: any = createAsyncThunk(
-  "user/getAllAccount",
-  async () => {
-    const res = await axios.get("http://localhost:8080/accounts");
-    return res.data;
-  }
-);
+export const getUser: any = createAsyncThunk("user/getAllAccount", async () => {
+  const res = await axios.get("http://localhost:8080/accounts");
+  return res.data;
+});
 
 export const register: any = createAsyncThunk(
   "user/registerUser",
@@ -40,7 +37,7 @@ export const register: any = createAsyncThunk(
       "secret_key"
     ).toString();
 
-    // Lấy thời gian đăng ký 
+    // Lấy thời gian đăng ký
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Tháng bắt đầu từ 0 nên cần +1
@@ -100,7 +97,9 @@ export const unblock: any = createAsyncThunk(
 export const searchUserByName: any = createAsyncThunk(
   "user/searchUserByName",
   async (name: string) => {
-    const response = await axios.get(`http://localhost:8080/accounts?name_like=${name}&_sort=id&_order=desc`);
+    const response = await axios.get(
+      `http://localhost:8080/accounts?name_like=${name}&_sort=id&_order=desc`
+    );
     return response.data;
   }
 );
@@ -109,7 +108,10 @@ export const updateUser: any = createAsyncThunk(
   "user/updateUser",
   async (updatedUser: User, { rejectWithValue }) => {
     try {
-      const response = await axios.put(`http://localhost:8080/accounts/${updatedUser.id}`, updatedUser);
+      const response = await axios.put(
+        `http://localhost:8080/accounts/${updatedUser.id}`,
+        updatedUser
+      );
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data);

@@ -165,6 +165,7 @@ export default function Cart() {
           quantity: cartItem.quantity,
           price: product.price * cartItem.quantity,
           created_at: timeCreate,
+          status: false,
         };
 
         const newTotal = product.total - cartItem.quantity;
@@ -175,6 +176,7 @@ export default function Cart() {
             id: product.id,
             totalBuy: newTotal,
             purchaseCount: newPurchaseCount,
+            status: false,
           })
         );
         dispatch(addHistory(historyItem));
@@ -195,6 +197,7 @@ export default function Cart() {
       const cartItem = cartUser.find(
         (item: any) => item.idProduct === productId
       );
+      console.log(cartItem);
 
       if (cartItem) {
         const product = listProduct.find(

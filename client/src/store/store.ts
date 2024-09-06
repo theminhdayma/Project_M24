@@ -4,11 +4,11 @@ import userReducer from "./reducers/userReducer";
 import cartReducer from "./reducers/cartReducer";
 
 const store = configureStore({
-    reducer: {
-        product: productReducer,
-        user: userReducer,
-        cart: cartReducer
-    }
+  reducer: {
+    product: productReducer,
+    user: userReducer,
+    cart: cartReducer,
+  },
 });
 
 export default store;

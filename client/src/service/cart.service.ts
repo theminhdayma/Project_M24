@@ -21,7 +21,9 @@ export const getCart: any = createAsyncThunk(
 export const loadHistory: any = createAsyncThunk(
   "history/loadHistory",
   async (idUser: number) => {
-    const res = await axios.get(`http://localhost:8080/history?idUser=${idUser}`);
+    const res = await axios.get(
+      `http://localhost:8080/history?idUser=${idUser}`
+    );
     return res.data;
   }
 );
@@ -98,15 +100,36 @@ export const buyProduct: any = createAsyncThunk(
     id,
     totalBuy,
     purchaseCount,
+    status,
   }: {
     id: number;
     totalBuy: number;
     purchaseCount: number;
+    status: boolean;
   }) => {
     const res = await axios.patch(`http://localhost:8080/products/${id}`, {
       total: totalBuy,
       purchaseCount,
+      status,
     });
+    return res.data;
+  }
+);
+
+export const updateOrderStatus: any = createAsyncThunk(
+  "cart/updateOrderStatus",
+  async ({ id, status }: { id: number; status: boolean }) => {
+    const res = await axios.patch(`http://localhost:8080/history/${id}`, {
+      status: status,
+    });
+    return res.data;
+  }
+);
+
+export const deleteOrder: any = createAsyncThunk(
+  "cart/deleteOrder",
+  async (id: number) => {
+    const res = await axios.delete(`http://localhost:8080/history/${id}`);
     return res.data;
   }
 );

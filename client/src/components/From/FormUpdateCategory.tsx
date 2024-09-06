@@ -8,7 +8,10 @@ interface Props {
   category: Category;
 }
 
-export default function FormUpdateCategory({ closeFromUpdate, category }: Props) {
+export default function FormUpdateCategory({
+  closeFromUpdate,
+  category,
+}: Props) {
   const [inputValue, setInputValue] = useState({
     id: category.id,
     name: category.name,

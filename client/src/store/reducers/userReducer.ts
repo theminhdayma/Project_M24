@@ -1,4 +1,14 @@
-import { login, logout, getAllAccount, register, block, unblock, searchUserByName, updateUser, getUser } from "../../service/user.service";
+import {
+  login,
+  logout,
+  getAllAccount,
+  register,
+  block,
+  unblock,
+  searchUserByName,
+  updateUser,
+  getUser,
+} from "../../service/user.service";
 import { User } from "../../interface";
 import { createSlice } from "@reduxjs/toolkit";
 import { deleteLocal, saveLocal } from "./Local";
@@ -9,7 +19,7 @@ const userReducer = createSlice({
   name: "user",
   initialState: {
     user: listAccount,
-    loggedInUser: null, 
+    loggedInUser: null,
   },
   reducers: {},
   extraReducers: (builder: any) => {
@@ -21,29 +31,37 @@ const userReducer = createSlice({
         state.user.push(action.payload);
       })
       .addCase(login.fulfilled, (state: any, action: any) => {
-        const index = state.user.findIndex((user: User) => user.id === action.payload.id);
+        const index = state.user.findIndex(
+          (user: User) => user.id === action.payload.id
+        );
         if (index !== -1) {
           state.user[index] = action.payload;
         }
         state.loggedInUser = action.payload;
-        saveLocal("loggedInUser", action.payload)
+        saveLocal("loggedInUser", action.payload);
       })
       .addCase(logout.fulfilled, (state: any, action: any) => {
-        const index = state.user.findIndex((user: User) => user.id === action.payload.id);
+        const index = state.user.findIndex(
+          (user: User) => user.id === action.payload.id
+        );
         if (index !== -1) {
           state.user[index] = action.payload;
-        }    
+        }
         state.loggedInUser = null;
-        deleteLocal("loggedInUser")
+        deleteLocal("loggedInUser");
       })
       .addCase(block.fulfilled, (state: any, action: any) => {
-        const index = state.user.findIndex((user: User) => user.id === action.payload.id);
+        const index = state.user.findIndex(
+          (user: User) => user.id === action.payload.id
+        );
         if (index !== -1) {
           state.user[index] = action.payload;
         }
       })
       .addCase(unblock.fulfilled, (state: any, action: any) => {
-        const index = state.user.findIndex((user: User) => user.id === action.payload.id);
+        const index = state.user.findIndex(
+          (user: User) => user.id === action.payload.id
+        );
         if (index !== -1) {
           state.user[index] = action.payload;
         }
@@ -52,7 +70,9 @@ const userReducer = createSlice({
         state.user = action.payload;
       })
       .addCase(updateUser.fulfilled, (state: any, action: any) => {
-        const index = state.user.findIndex((user: User) => user.id === action.payload.id);
+        const index = state.user.findIndex(
+          (user: User) => user.id === action.payload.id
+        );
         if (index !== -1) {
           state.user[index] = action.payload;
         }
@@ -61,7 +81,7 @@ const userReducer = createSlice({
           state.loggedInUser = action.payload;
           saveLocal("loggedInUser", action.payload); // Cập nhật local storage
         }
-      })
+      });
   },
 });
 

@@ -35,7 +35,7 @@ export default function Profile() {
             <div className="history-info choose-private">Mua sản phẩm</div>
           </a>
         </div>
-        <Outlet/>
+        <Outlet />
       </div>
     </>
   );

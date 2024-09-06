@@ -26,7 +26,6 @@ export default function Admin() {
     (total, product) => total + product.price * product.purchaseCount,
     0
   );
-  
 
   useEffect(() => {
     dispatch(getProduct());

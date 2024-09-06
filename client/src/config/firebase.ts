@@ -11,9 +11,9 @@ const firebaseConfig = {
   projectId: "projectreact-dd427",
   storageBucket: "projectreact-dd427.appspot.com",
   messagingSenderId: "628705096503",
-  appId: "1:628705096503:web:46f32a8137a29ac02660b2"
+  appId: "1:628705096503:web:46f32a8137a29ac02660b2",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const storage = getStorage(app)
+export const storage = getStorage(app);

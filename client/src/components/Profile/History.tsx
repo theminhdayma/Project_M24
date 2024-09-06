@@ -7,15 +7,21 @@ import { getProduct } from "../../service/product.service";
 import { getAllAccount } from "../../service/user.service";
 
 export default function History() {
-    const [showOlderDetail, setShowOlderDetail] = useState<boolean>(false)
+  const [showOlderDetail, setShowOlderDetail] = useState<boolean>(false);
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [ordersPerPage, setOrdersPerPage] = useState(5);
   const dispatch = useDispatch();
-  const listHistory: History[] = useSelector((state: any) => state.cart.history);
-  const historyUser = listHistory.filter((history: any) => history.idUser === loggedInUser?.id);
+  const listHistory: History[] = useSelector(
+    (state: any) => state.cart.history
+  );
+  const historyUser = listHistory.filter(
+    (history: any) => history.idUser === loggedInUser?.id
+  );
 
-  const listProduct: ProductType[] = useSelector((state: any) => state.product.product);
+  const listProduct: ProductType[] = useSelector(
+    (state: any) => state.product.product
+  );
   const listAccount: User[] = useSelector((state: any) => state.user.user);
 
   useEffect(() => {
@@ -53,13 +59,17 @@ export default function History() {
                 <th>Số lượng</th>
                 <th>Tổng tiền</th>
                 <th>Ngày mua</th>
-                <th>Chức năng</th>
+                <th>trạng thái</th>
               </tr>
             </thead>
             <tbody>
               {currentOrders.map((item: any, index: number) => {
-                const product = listProduct.find((pro: ProductType) => pro.id === item.idProduct);
-                const buyer = listAccount.find((acc: User) => acc.id === item.idUser);
+                const product = listProduct.find(
+                  (pro: ProductType) => pro.id === item.idProduct
+                );
+                const buyer = listAccount.find(
+                  (acc: User) => acc.id === item.idUser
+                );
                 if (!product || !buyer) return null;
                 const stt = indexOfFirstOrder + index + 1;
                 return (
@@ -81,9 +91,15 @@ export default function History() {
                     <td>{item.quantity * product.price}</td>
                     <td>{item.created_at}</td>
                     <td>
-                      <button className="border bg-red-600 text-white p-2">
-                        xem chi tiết
-                      </button>
+                      {item.status === true ? (
+                        <div className="border bg-green-700 text-white p-2 ">
+                          Đã được xác nhận
+                        </div>
+                      ) : (
+                        <div className="border bg-red-500 text-white p-2">
+                          Chưa được xác nhận
+                        </div>
+                      )}
                     </td>
                   </tr>
                 );

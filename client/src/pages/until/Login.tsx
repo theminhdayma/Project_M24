@@ -21,7 +21,6 @@ export default function Login() {
     useState<boolean>(false);
   const [checkUseEmail, setCheckUseEmail] = useState<boolean>(false);
 
-
   const listAccount: User[] = useSelector((state: any) => state.user.user);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -35,44 +34,43 @@ export default function Login() {
     e.preventDefault();
 
     if (!inputValue.email || !inputValue.password) {
-      setCheckHollow(true)
+      setCheckHollow(true);
       return;
     } else {
-      setCheckHollow(false)
+      setCheckHollow(false);
     }
 
     if (!validateEmail(inputValue.email)) {
-      setCheckEmail(true)
+      setCheckEmail(true);
       return;
     } else {
-      setCheckEmail(false)
+      setCheckEmail(false);
     }
 
     if (inputValue.password.length < 8) {
-      setCheckPassword(true)
+      setCheckPassword(true);
       return;
     } else {
-      setCheckPassword(false)
+      setCheckPassword(false);
     }
 
     const user = listAccount.find((user) => user.email === inputValue.email);
     if (user) {
-
       const bytes = CryptoJS.AES.decrypt(user.password, "secret_key");
       const decryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
 
       if (decryptedPassword !== inputValue.password) {
-        setCheckComfimPassword(true)
+        setCheckComfimPassword(true);
         return;
       } else {
-        setCheckComfimPassword(false)
+        setCheckComfimPassword(false);
       }
 
       if (user.status !== true) {
-        setCheckAccount(true)
+        setCheckAccount(true);
         return;
       } else {
-        setCheckAccount(false)
+        setCheckAccount(false);
       }
 
       dispatch(login(user.id)).then(() => {
@@ -82,10 +80,10 @@ export default function Login() {
           password: "",
         });
       });
-      setCheckAccount(false)
+      setCheckAccount(false);
       swal("Đăng nhập thành công", "", "success");
     } else {
-      setCheckUseEmail(true)
+      setCheckUseEmail(true);
     }
   };
 
@@ -111,7 +109,7 @@ export default function Login() {
         {checkHollow && (
           <p className="text-red-700">Vui lòng điền đầy đủ thông tin</p>
         )}
-        {checkAccount && (<p className="text-red-700">Tài khoản đã bị cấm</p>)}
+        {checkAccount && <p className="text-red-700">Tài khoản đã bị cấm</p>}
         <form onSubmit={handleSubmit}>
           <div className="input_box">
             <span>Email</span>
@@ -125,8 +123,12 @@ export default function Login() {
                 placeholder="Enter Email"
               />
             </div>
-            {checkUseEmail && (<p className="text-red-700">Email chưa tồn tại</p>)}
-            {checkEmail && (<p className="text-red-700">Email không đúng định dạng</p>)}
+            {checkUseEmail && (
+              <p className="text-red-700">Email chưa tồn tại</p>
+            )}
+            {checkEmail && (
+              <p className="text-red-700">Email không đúng định dạng</p>
+            )}
           </div>
           <div className="input_box">
             <span>Password</span>
@@ -140,8 +142,12 @@ export default function Login() {
                 placeholder="Enter Password"
               />
             </div>
-            {checkComfimPassword && (<p className="text-red-700">Mật khẩu không chính xác</p>)}
-            {checkPassword && (<p className="text-red-700">Mật khẩu phải đủ 8 ký tự trở lên</p>)}
+            {checkComfimPassword && (
+              <p className="text-red-700">Mật khẩu không chính xác</p>
+            )}
+            {checkPassword && (
+              <p className="text-red-700">Mật khẩu phải đủ 8 ký tự trở lên</p>
+            )}
           </div>
           <button type="submit">Đăng Nhập</button>
           <p className="signup">Or Sign Up Using</p>

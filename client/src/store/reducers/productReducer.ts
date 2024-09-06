@@ -57,9 +57,7 @@ const productReducer = createSlice({
       .addCase(deleteCategory.fulfilled, (state, action) => {
         const categoryId = action.payload;
         // Xóa category
-        state.category = state.category.filter(
-          (cat) => cat.id !== categoryId
-        );
+        state.category = state.category.filter((cat) => cat.id !== categoryId);
         // Xóa các sản phẩm liên quan
         state.product = state.product.filter(
           (prod) => prod.idCategory !== categoryId

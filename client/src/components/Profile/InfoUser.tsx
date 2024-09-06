@@ -86,10 +86,13 @@ export default function InfoUser() {
       confirmButtonText: "Tiếp tục",
       showLoaderOnConfirm: true,
       preConfirm: (currentPassword) => {
-        const bytes = CryptoJS.AES.decrypt(loggedInUser?.password || "", "secret_key");
+        const bytes = CryptoJS.AES.decrypt(
+          loggedInUser?.password || "",
+          "secret_key"
+        );
         const decryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
         console.log(decryptedPassword);
-        
+
         if (currentPassword !== decryptedPassword) {
           Swal.showValidationMessage("Mật khẩu hiện tại không chính xác");
         }
@@ -133,9 +136,15 @@ export default function InfoUser() {
               },
             }).then((result) => {
               if (result.isConfirmed) {
-                const encryptedPassword = CryptoJS.AES.encrypt(result.value, "secret_key").toString();
+                const encryptedPassword = CryptoJS.AES.encrypt(
+                  result.value,
+                  "secret_key"
+                ).toString();
                 if (loggedInUser) {
-                  const updatedUser = { ...loggedInUser, password: encryptedPassword };
+                  const updatedUser = {
+                    ...loggedInUser,
+                    password: encryptedPassword,
+                  };
                   saveLocal("loggedInUser", updatedUser);
                   axios
                     .put(
@@ -164,7 +173,6 @@ export default function InfoUser() {
       }
     });
   };
-  
 
   return (
     <>

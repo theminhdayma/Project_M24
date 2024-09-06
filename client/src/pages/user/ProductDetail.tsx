@@ -30,7 +30,6 @@ export default function ProductDetail() {
   const relateProduct = listProduct.filter((pro) => {
     return pro.brand === product?.brand && pro.id !== product.id;
   });
-  console.log(relateProduct);
 
   const user: User = getLocal("loggedInUser");
 
@@ -84,6 +83,7 @@ export default function ProductDetail() {
         quantity: inputValue,
         price: product.price * inputValue,
         created_at: timeCreate,
+        status: false,
       };
       swal("Mua thành công", "", "success");
 
@@ -97,6 +97,7 @@ export default function ProductDetail() {
           id: product.id,
           totalBuy: newTotal,
           purchaseCount: newPurchaseCount,
+          status: false,
         })
       );
       dispatch(addHistory(historyItem));
@@ -176,7 +177,9 @@ export default function ProductDetail() {
           </div>
         </section>
         <section className="mt-10 flex flex-col gap-10">
-          <h1 className="w-full text-center text-3xl font-semibold">Gợi Ý Sản Phẩm</h1>
+          <h1 className="w-full text-center text-3xl font-semibold">
+            Gợi Ý Sản Phẩm
+          </h1>
           <hr />
           <div className="widthImage product-grid">
             {relateProduct.map((product: ProductType) => (
