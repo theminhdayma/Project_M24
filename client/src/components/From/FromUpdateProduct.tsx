@@ -51,7 +51,7 @@ export default function FromUpdateProduct() {
     created_at: productToUpdate.created_at,
     updated_at: productToUpdate.updated_at,
     statusProduct: productToUpdate.statusProduct,
-    id: productToUpdate.id, // make sure to include the ID for update operation
+    id: productToUpdate.id,
   });
 
   useEffect(() => {
