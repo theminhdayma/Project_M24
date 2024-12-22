@@ -41,10 +41,8 @@ const cartReducer = createSlice({
             item.idProduct === addedProduct.idProduct
         );
         if (existingIndex !== -1) {
-          // Nếu đã có sản phẩm trong giỏ hàng, cập nhật lại số lượng
           state.cartDetail[existingIndex].quantity = addedProduct.quantity;
         } else {
-          // Nếu chưa có, thêm sản phẩm vào giỏ hàng
           state.cartDetail.push(addedProduct);
         }
       })
