@@ -168,9 +168,9 @@
       "idCategory": 1,
       "brand": "NIKE",
       "name": "Giày_nikee air force",
-      "total": 7467,
+      "total": 7465,
       "price": 670,
-      "purchaseCount": 2384,
+      "purchaseCount": 2386,
       "description": "Giày_nikee air force 1 canvas navy, giày thể thao AF1 vải canvas vệt xanh chuẩn Form êm chân bản cao cấp đế air full box",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luj6g9d2yx458a",
@@ -179,16 +179,17 @@
       ],
       "created_at": "",
       "updated_at": "",
-      "statusProduct": true
+      "statusProduct": true,
+      "status": false
     },
     {
       "id": 10,
       "idCategory": 2,
       "brand": "Rag & Bone",
       "name": "Quần JEAN Túi Hộp",
-      "total": 8421,
+      "total": 8417,
       "price": 551,
-      "purchaseCount": 1279,
+      "purchaseCount": 1283,
       "description": "Quần JEAN Túi Hộp Cúc Bấm Nam Nữ Chính Hãng Tiệm Nhà SƠN",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvcnuvwrxug49b",
@@ -197,7 +198,8 @@
       ],
       "created_at": "",
       "updated_at": "",
-      "statusProduct": false
+      "statusProduct": false,
+      "status": false
     },
     {
       "id": 11,
@@ -688,230 +690,16 @@
       "statusProduct": true
     }
   ],
-  "cart": [
-    {
-      "idUser": 6,
-      "idProduct": 3,
-      "quantity": 1,
-      "price": 136,
-      "id": 2
-    },
-    {
-      "idUser": 10,
-      "idProduct": 2,
-      "quantity": 2,
-      "price": 332,
-      "id": 7
-    },
-    {
-      "idUser": 1,
-      "idProduct": 8,
-      "quantity": 1,
-      "price": 416,
-      "id": 9
-    },
-    {
-      "idUser": 1,
-      "idProduct": 49,
-      "quantity": 1,
-      "price": 477,
-      "id": 11
-    },
-    {
-      "idUser": 12,
-      "idProduct": 11,
-      "quantity": 2,
-      "price": 258,
-      "id": 12
-    },
-    {
-      "idUser": 12,
-      "idProduct": 5,
-      "quantity": 2,
-      "price": 619,
-      "id": 13
-    }
-  ],
+  "cart": [],
   "history": [
     {
       "idUser": 1,
-      "idProduct": 50,
+      "idProduct": 10,
       "quantity": 2,
-      "price": 372,
-      "created_at": "14-07-2024",
-      "status": false,
+      "price": 1102,
+      "created_at": "22-12-2024",
+      "status": true,
       "id": 1
-    },
-    {
-      "idUser": 1,
-      "idProduct": 6,
-      "quantity": 1,
-      "price": 331,
-      "created_at": "14-07-2024",
-      "status": true,
-      "id": 2
-    },
-    {
-      "idUser": 1,
-      "idProduct": 4,
-      "quantity": 1,
-      "price": 267,
-      "created_at": "14-07-2024",
-      "status": false,
-      "id": 3
-    },
-    {
-      "idUser": 1,
-      "idProduct": 7,
-      "quantity": 1,
-      "price": 211,
-      "created_at": "14-07-2024",
-      "status": true,
-      "id": 4
-    },
-    {
-      "idUser": 1,
-      "idProduct": 1,
-      "quantity": 1,
-      "price": 578,
-      "created_at": "14-07-2024",
-      "status": true,
-      "id": 5
-    },
-    {
-      "idUser": 1,
-      "idProduct": 2,
-      "quantity": 1,
-      "price": 332,
-      "created_at": "14-07-2024",
-      "status": true,
-      "id": 6
-    },
-    {
-      "idUser": 1,
-      "idProduct": 3,
-      "quantity": 1,
-      "price": 136,
-      "created_at": "14-07-2024",
-      "status": false,
-      "id": 7
-    },
-    {
-      "idUser": 1,
-      "idProduct": 4,
-      "quantity": 2,
-      "price": 534,
-      "created_at": "14-07-2024",
-      "status": true,
-      "id": 8
-    },
-    {
-      "idUser": 1,
-      "idProduct": 2,
-      "quantity": 2,
-      "price": 664,
-      "created_at": "14-07-2024",
-      "status": false,
-      "id": 9
-    },
-    {
-      "idUser": 10,
-      "idProduct": 23,
-      "quantity": 2,
-      "price": 1062,
-      "created_at": "14-07-2024",
-      "status": true,
-      "id": 10
-    },
-    {
-      "idUser": 10,
-      "idProduct": 27,
-      "quantity": 1,
-      "price": 412,
-      "created_at": "14-07-2024",
-      "status": true,
-      "id": 11
-    },
-    {
-      "idUser": 10,
-      "idProduct": 8,
-      "quantity": 1,
-      "price": 416,
-      "created_at": "14-07-2024",
-      "status": true,
-      "id": 12
-    },
-    {
-      "idUser": 10,
-      "idProduct": 2,
-      "quantity": 2,
-      "price": 664,
-      "created_at": "14-07-2024",
-      "status": false,
-      "id": 13
-    },
-    {
-      "idUser": 12,
-      "idProduct": 3,
-      "quantity": 1,
-      "price": 136,
-      "created_at": "15-07-2024",
-      "status": false,
-      "id": 14
-    },
-    {
-      "idUser": 12,
-      "idProduct": 4,
-      "quantity": 2,
-      "price": 534,
-      "created_at": "15-07-2024",
-      "status": false,
-      "id": 15
-    },
-    {
-      "idUser": 12,
-      "idProduct": 8,
-      "quantity": 1,
-      "price": 416,
-      "created_at": "15-07-2024",
-      "status": false,
-      "id": 16
-    },
-    {
-      "idUser": 12,
-      "idProduct": 11,
-      "quantity": 1,
-      "price": 258,
-      "created_at": "15-07-2024",
-      "status": true,
-      "id": 17
-    },
-    {
-      "idUser": 1,
-      "idProduct": 11,
-      "quantity": 10,
-      "price": 2580,
-      "created_at": "18-07-2024",
-      "status": true,
-      "id": 18
-    },
-    {
-      "idUser": 1,
-      "idProduct": 16,
-      "quantity": 1,
-      "price": 339,
-      "created_at": "01-08-2024",
-      "status": true,
-      "id": 19
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "idUser": 1,
-      "idProduct": 1,
-      "content": "Sản phẩm này đẹp !",
-      "statusComment": false
     }
   ]
 }

@@ -55,6 +55,7 @@ export default function Login() {
     }
 
     const user = listAccount.find((user) => user.email === inputValue.email);
+    
     if (user) {
       const bytes = CryptoJS.AES.decrypt(user.password, "secret_key");
       const decryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
