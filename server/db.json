@@ -141,8 +141,8 @@
   ],
   "category": [
     {
-      "name": "Giày dép",
-      "description": "Tất cả các sản phẩm liên quan tới giày dép ",
+      "name": "TV",
+      "description": "Tất cả các sản phẩm liên quan tới TV",
       "products": [],
       "created_at": "01-01-2024",
       "status": true,
@@ -150,27 +150,35 @@
     },
     {
       "id": 2,
-      "name": "Quần áo",
-      "description": "Tất cả các sản phẩm liên quan tới quần áo",
+      "name": "Tủ lạnh",
+      "description": "Tất cả các sản phẩm liên quan tới tủ lạnh",
       "products": [],
       "created_at": "01-01-2024",
       "status": true
+    },
+    {
+      "name": "đIỆN THOẠI",
+      "description": "đIỆN THOẠI VIPPRO",
+      "products": [],
+      "created_at": "24-12-2024",
+      "status": true,
+      "id": 3
     }
   ],
   "products": [
     {
       "id": 1,
       "idCategory": 1,
-      "brand": "NIKE",
-      "name": "Giày NIKE_AF1",
+      "brand": "SamSung",
+      "name": "TV Neo QLED 8K",
       "total": 4568,
       "price": 578,
       "purchaseCount": 1480,
-      "description": "Giày NIKE_AF1 Trắng Bản Cao Cấp, Giày Nike_AIR_FORCE_1 Thời Trang Nam Nữ (CÓ HỖ TRỢ ĐỔI SIZE) || BAKANY",
+      "description": "Shaasung32 / 43 Inch Tên miền màu cao TV WiFi thông minh Thiết kế toàn màn hình Tivi hệ thống Android siêu trong suốt",
       "imageProduct": [
-        "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/products%2Fvn-11134207-7r98o-lwlcekuq56fv19.jpg?alt=media&token=6556ad40-bd49-433e-b9a4-334ec01ef485",
-        "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/products%2Fvn-11134207-7r98o-lwlcekuq9e57ca%20(1).jpg?alt=media&token=fdb53258-9b05-4ada-9d5d-baee9ef61771",
-        "https://firebasestorage.googleapis.com/v0/b/projectreact-dd427.appspot.com/o/products%2Fvn-11134207-7r98o-lwlcekuq9e57ca.jpg?alt=media&token=413206e1-3eea-4203-9a81-8a0d18701d75"
+        "https://down-vn.img.susercontent.com/file/cn-11134207-7ras8-m20j0lwzfpl8f7.webp",
+        "https://down-vn.img.susercontent.com/file/cn-11134207-7ras8-m1w6misjpyy536.webp",
+        "https://down-vn.img.susercontent.com/file/cn-11134207-7ras8-m1w6misjrdil42.webp"
       ],
       "created_at": "",
       "updated_at": "",
@@ -180,54 +188,35 @@
     {
       "id": 9,
       "idCategory": 1,
-      "brand": "NIKE",
-      "name": "Giày_nikee air force",
+      "brand": "SamSung",
+      "name": "TV Neo QLED",
       "total": 7465,
       "price": 670,
       "purchaseCount": 2386,
-      "description": "Giày_nikee air force 1 canvas navy, giày thể thao AF1 vải canvas vệt xanh chuẩn Form êm chân bản cao cấp đế air full box",
+      "description": "Smart Tivi Samsung 4K UHD 43 Inch UA43AU7002KXXV - Miễn phí lắp đặt:Chính Hãng",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luj6g9d2yx458a",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luj6g9d2b11ued",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luj6g9d2xijp7a"
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lx0ylf8ismhl08.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lx0ylf8hxpzt7d.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lx0ylf8id61n2b.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": true,
-      "status": false
-    },
-    {
-      "id": 10,
-      "idCategory": 2,
-      "brand": "Rag & Bone",
-      "name": "Quần JEAN Túi Hộp",
-      "total": 8417,
-      "price": 551,
-      "purchaseCount": 1283,
-      "description": "Quần JEAN Túi Hộp Cúc Bấm Nam Nữ Chính Hãng Tiệm Nhà SƠN",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvcnuvwrxug49b",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvcnuvwrz90kc2",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvczywst7hjh6e"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": false,
       "status": false
     },
     {
       "id": 11,
       "idCategory": 1,
-      "brand": "adidas",
-      "name": "Dép Đúc răng cưa dép bánh mì",
+      "brand": "Sony",
+      "name": "Tivi Sony 4K 55 inch KD-55X80L",
       "total": 7410,
       "price": 258,
       "purchaseCount": 2644,
-      "description": "Dép Đúc răng cưa dép bánh mì nam nữ không thấm nước - hỗ trợ đổi size",
+      "description": "Tivi Sony Mới Nhất 2024 - BRAVIA 3 75 Inch | 4K Ultra HD | Dải tần nhạy sáng cao (HDR) | Smart TV (Google TV) - 75S30",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpd72azwzlfy8d",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpd72azx3t5a58",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpd72azx57pqfb"
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m3ylqfc1two80d.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m3ylqf405okof8.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m3ylqf5y2s69f7.webp"
       ],
       "created_at": "",
       "updated_at": "",
@@ -235,127 +224,54 @@
       "status": false
     },
     {
-      "id": 12,
-      "idCategory": 2,
-      "brand": "Winny",
-      "name": "Bộ Quần Áo Thể Thao",
-      "total": 8324,
-      "price": 735,
-      "purchaseCount": 1736,
-      "description": "Bộ Quần Áo Thể Thao Thời Trang Nam Form Trẻ Trung Chất Thun Co Giãn Cao Cấp",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lhf7dit5qk755d",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lhf7dit5tdc1c6",
-        "https://down-vn.img.susercontent.com/file/bb46785892a5bda97eb6258da5f39f36"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": true
-    },
-    {
       "id": 13,
       "idCategory": 1,
-      "brand": "adidas",
-      "name": "dép capybara bánh mì gấu",
+      "brand": "Sony",
+      "name": "Tivi Sony 65 inch 4K KD-65X85L",
       "total": 2472,
       "price": 249,
       "purchaseCount": 2131,
-      "description": "Dễ thương bãi biển của phụ nữ dép capybara bánh mì gấu trong NHÀ EVA dép đi trong nhà",
+      "description": "Tivi Sony Mới Nhất 2024 - BRAVIA 3 55 Inch | KD-55S30 I 4K Ultra HD | Dải tần nhạy sáng cao (HDR) | Smart TV (Google TV)",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7rcdk-ltc2xisrf26a02",
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7rce7-ltc2xhwaqjsg94",
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7rcds-ltc2xj1x1nmza8"
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m3ylqialhzmwf2.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m3ylqi97jz5od5.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m3ylqi9hjm3s83.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": false
-    },
-    {
-      "id": 14,
-      "idCategory": 2,
-      "brand": "Winny",
-      "name": "Bộ quần đùi áo thun unisex",
-      "total": 8282,
-      "price": 262,
-      "purchaseCount": 1265,
-      "description": "Bộ quần đùi áo thun unisex nữ tay lỡ form rộng chất cotton su in chữ BTO HALUSA B53",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lldkx013bkjaff",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lldkx013a5yu38",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lldkx013fs8m00"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": true
     },
     {
       "id": 15,
       "idCategory": 1,
-      "brand": "adidas",
-      "name": "Dép bánh mì đế dày",
+      "brand": "Sony",
+      "name": "Tivi Sony 4K KD-65X75K [65X75K]",
       "total": 7247,
       "price": 342,
       "purchaseCount": 1364,
-      "description": "Dép bánh mì đế dày 3cm chống trượt chống thấm nước họa tiết hoạt hình dễ thương dành cho nữ",
+      "description": "Sale-Google Tivi Sony OLED 4K 65 Inch XR-65A95L",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7qve4-lgg1bx8cbz7kc3",
-        "https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lhigb7532fojcb",
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7qven-lgd5paspojr4aa"
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7rfh2-m3z4rmaypgaw8a.webp",
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7rfgc-m3z4rmj0dncq37.webp",
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7rfgo-m3z4rmq8339z17.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": false
     },
     {
-      "id": 16,
-      "idCategory": 2,
-      "brand": "Winny",
-      "name": "Bộ Quần Áo Thể Thao Nam",
-      "total": 7281,
-      "price": 339,
-      "purchaseCount": 2463,
-      "description": "Bộ Quần Áo Thể Thao Nam Mùa Hè Unisex, Hình Thêu Sắc Nét, Phong Cách Cao Cấp",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/0735e1565b79e033290e93f9e08c243e",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lh3x4v5d0ylua6",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lh3x4v5d56b6a4"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": false,
-      "status": false
-    },
-    {
       "id": 17,
       "idCategory": 1,
-      "brand": "adidas",
-      "name": "Dép bánh mì tai mèo",
+      "brand": "Sony",
+      "name": "Tivi Sony 4K 65 inch XR-65X90L - Chính hãng",
       "total": 6735,
       "price": 321,
       "purchaseCount": 1365,
-      "description": "Dép bánh mì tai mèo dễ thương nhẹ mềm mỏng mùa hè 2023 Mã 60",
+      "description": "Lắp đặt 0Đ HN HCM] Google Tivi Sony 4K 65 inch XR-65X90L - Ultra HD Google TV - Bảo hành 24 tháng",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/sg-11134201-23020-9zvppl0vfinvc0",
-        "https://down-vn.img.susercontent.com/file/sg-11134201-23020-2hhzc8dwfinvce",
-        "https://down-vn.img.susercontent.com/file/sg-11134201-23020-wz8wo8yvfinvaa"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": true
-    },
-    {
-      "id": 18,
-      "idCategory": 2,
-      "brand": "Winny",
-      "name": "Bộ thể thao nam nữ JULIDO",
-      "total": 3727,
-      "price": 407,
-      "purchaseCount": 1983,
-      "description": "Bộ thể thao nam nữ JULIDO áo tay ngắn quần short dáng rộng thời trang Phối Dây Rút bản to Thời Trang Unisex",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwdcz4q80gd5ce",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwbz0g17tgbded",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwbz0g17w9g918"
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lp8vz2m0ba6zdc.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lp8vz2maniorc3.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lp8vz2ma82fvad.webp"
       ],
       "created_at": "",
       "updated_at": "",
@@ -364,107 +280,52 @@
     {
       "id": 19,
       "idCategory": 1,
-      "brand": "adidas",
-      "name": "NEW APR1701",
+      "brand": "Sony",
+      "name": "Tivi OLED Sony 4K 77 inch XR-77A95L",
       "total": 7846,
       "price": 244,
       "purchaseCount": 1128,
-      "description": "Hana dép nữ dép bánh mì dép bánh mì nữ 2023 NEW APR1701",
+      "description": "KD-32W830K - Google Tivi Sony HD 32 inch KD-32W830K Công nghệ X-Reality PRO - GIAO TOÀN QUỐC",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lftgscghhb3yb6",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7qukw-lf3f4pnzj8lzf7",
-        "https://down-vn.img.susercontent.com/file/tw-11134201-7qukz-lfatedzaff3jce"
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m2xncsj10ohce4.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m2xnct8003ayc2.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m2xncttx425s70.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": true
-    },
-    {
-      "id": 20,
-      "idCategory": 2,
-      "brand": "Winny",
-      "name": "Bộ Quần Áo Nam Phối Layer",
-      "total": 8463,
-      "price": 529,
-      "purchaseCount": 1641,
-      "description": "Bộ Quần Áo Nam Phối Layer Chất vải Tổ Ong Mềm Nhẹ Co Giãn Thoải Mái – MayLinh Shop, Set đồ nam, bộ đồ nam mặc nhà",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lgj4gcjrflgq7f",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lgj4gchtifsaa8",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lgj4gchtv37b69"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": false
     },
     {
       "id": 21,
       "idCategory": 1,
-      "brand": "GUCCI",
-      "name": "Giày Jordan_Cổ Thấp",
+      "brand": "Xiaomi",
+      "name": "Xiaomi 55 inch EA Pro 4K – Phiên bản 2023/2024",
       "total": 6368,
       "price": 274,
       "purchaseCount": 1613,
-      "description": "Giày Jordan_Cổ Thấp,Giày_Jordan Low Panda Đế Cao Phong Cách Thời Trang Full Box Bill || BAKANY",
+      "description": "Xiaomi Google Tivi HD 32 inch 32A - TV Với Trợ lý Google Voice Bảo Hành 24 Tháng Chính Hãng",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvqwoofwcbjt55",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvqwoofwhxtl10",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvqwsbzxo3buf3"
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lkg7hqlqmy0899.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lkg7hqlq7hrc37.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvy3inl8zxsre3.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": false
     },
     {
-      "id": 22,
-      "idCategory": 2,
-      "brand": "Local Brand",
-      "name": "LOCAL BRAND",
-      "total": 3576,
-      "price": 276,
-      "purchaseCount": 2046,
-      "description": "LOCAL BRAND Áo thun The Weird Phong Cách Unisex Form Rộng ATK803",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lm5hdpspal0f0b",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lp8v3zff01238a",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lm4f9vztbgm77e"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": false,
-      "status": false
-    },
-    {
       "id": 23,
       "idCategory": 1,
-      "brand": "GUCCI",
-      "name": "Giày Jordan Low",
+      "brand": "Xiaomi",
+      "name": "Tivi Xiaomi Redmi Max 98 inch",
       "total": 4632,
       "price": 531,
       "purchaseCount": 2675,
-      "description": "Giày Jordan Low Trắng Đen Cổ Thấp Bản Quản Châu Cao Cấp - Giày thể thao Sneakers AIR JORDAN 1 Low Black and White",
+      "description": "Tivi Xiaomi Redmi Max 100 Inch Quốc Tế Model 2025 4K Tần Số 144 Hz - Chính Hãng A143",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lrqw44583jd067",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lrpv4deufy6cf4",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lrp9pnx4ymxl84"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": true
-    },
-    {
-      "id": 24,
-      "idCategory": 2,
-      "brand": "Local Brand",
-      "name": "CHUJIE Áo Thun",
-      "total": 3585,
-      "price": 546,
-      "purchaseCount": 1983,
-      "description": "CHUJIE Áo Thun áo phông Cotton Tay Ngắn Họa Tiết Sọc Đơn Giản Thời Trang Mùa Hè Mới Cho Nữ TXS104 A29J0WB",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7rbkl-lpp7utygp33keb",
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7rbna-lpp7uv8srv0l23",
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7rblf-lpp7uvyvsi4l7b"
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m2zfqbr5isjq4f.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m2zfqbrphzba48.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m2zfqbsjgr7e36.webp"
       ],
       "created_at": "",
       "updated_at": "",
@@ -473,70 +334,34 @@
     {
       "id": 25,
       "idCategory": 1,
-      "brand": "GUCCI",
-      "name": "Giày Jordan Cổ Cao",
+      "brand": "Xiaomi",
+      "name": "Tivi Xiaomi TV5 Pro 55 inch Siêu Mỏng",
       "total": 7475,
       "price": 285,
       "purchaseCount": 2004,
-      "description": "Giày Jordan Cổ Cao, Giày Thể Thao Nam Nữ Sneaker Thời Trang Hàng Đẹp Full Box Bill HDL 99",
+      "description": "Tivi Xiaomi EA 55 inch chất lương 4K - Giá tốt nhất thị trường",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnxm38oa4cml53",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnxm3alnau7u37",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnxm3bmtsfl931"
+        "https://down-vn.img.susercontent.com/file/vn-11134201-23020-vjp6vqpzlrnv61.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-23020-ldbhdi3zlrnv17.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-23020-roq3cy11lrnvce.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": false
-    },
-    {
-      "id": 26,
-      "idCategory": 2,
-      "brand": "Local Brand",
-      "name": "Áo thun FAFIC mascot Jersey",
-      "total": 6357,
-      "price": 212,
-      "purchaseCount": 2005,
-      "description": "Áo thun FAFIC mascot Jersey Ngắn Tay 11 Jersey vải mè lưới xịn mặc thoáng mát GONZ.STUDIO",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lv1uq0ek8daad3",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lv1uq0ek8dr7fe",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lv1uq0h24pj0c5"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": true
     },
     {
       "id": 27,
       "idCategory": 1,
-      "brand": "GUCCI",
-      "name": "Giày Jodan Thấp Đỏ Đen",
+      "brand": "Xiaomi",
+      "name": "Tivi Xiaomi ES75 2022 Series",
       "total": 3575,
       "price": 412,
       "purchaseCount": 2025,
-      "description": "Giày Jodan Thấp Đỏ Đen , Giày Sneaker JD 1 Nam Nữ Full Box Bill C235 Camille Sneaker",
+      "description": "Tivi Xiaomi A Pro 65 Inch 4K UHD - Màn Hình Siêu Mỏng, Tần Số 120Hz - Âm Thanh Sống Động-Hình Ảnh Chân ThựcBản Nội Địa",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/sg-11134201-23020-col97c2wctnve6",
-        "https://down-vn.img.susercontent.com/file/sg-11134201-23020-a9x5of2wctnvb2",
-        "https://down-vn.img.susercontent.com/file/sg-11134201-23020-h3v1gi2wctnv29"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": false
-    },
-    {
-      "id": 28,
-      "idCategory": 2,
-      "brand": "Local Brand",
-      "name": "Áo thun cặp thêu",
-      "total": 5673,
-      "price": 370,
-      "purchaseCount": 1984,
-      "description": "Áo thun cặp thêu chữ BABY LOVE cho nam nữ form rộng chất cotton mỏng nhẹ Gonz.studio",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3t49t013f",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3wq4il88b",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lu7bv3ty8lan7f"
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7reqc-m2j9dv4prg1kb9.webp",
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7reog-m2j9dvib7juj45.webp",
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7reo6-m2j9dw845s8z49.webp"
       ],
       "created_at": "",
       "updated_at": "",
@@ -545,164 +370,225 @@
     {
       "id": 29,
       "idCategory": 1,
-      "brand": "GUCCI",
-      "name": "Giày JORDAN Cổ Cao",
+      "brand": "Xiaomi",
+      "name": "Tivi Xiaomi EA75 2022 Series",
       "total": 5732,
       "price": 437,
       "purchaseCount": 1975,
-      "description": "Giày JORDAN Cổ Cao Nam Nữ, Giày Sneaker JD1 FULL MÀU - UNISEX_Hàng Cao Cấp__XT - Sneacker",
+      "description": "Cam kết chính hãng TV XIAOMI EA55 RAM 2.0 Bộ nhớ 16 GB Wifi 5G Cài App miễn phí 300 kênh của FPT. BẢO HÀNH 24 THÁNG",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lo0qgey7p7u50c",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmuecyuqwqu7bf",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmuecyuqy5ende"
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7qukw-lkcg0ftacxb0cc.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7qukw-lkcg0iq63gdk0f.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7qukw-lkcg0lnbtkfcb2.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": true
-    },
-    {
-      "id": 30,
-      "idCategory": 2,
-      "brand": "Local Brand",
-      "name": "Áo thun form BOXY Whenever",
-      "total": 4683,
-      "price": 255,
-      "purchaseCount": 2183,
-      "description": "Áo thun form BOXY Whenever in nổi 3D , vải cotton không xù lông Sgenz.Studio 2024",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-ltgxc1ws3zbg55",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-ltgxc1xw2cuk3c",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-ltgxc1q4dqco70"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": false
     },
     {
       "id": 31,
       "idCategory": 1,
-      "brand": "Crocs",
-      "name": "Dép Cross Classic Sandal Crush Clog",
+      "brand": "Toshiba",
+      "name": "Tivi Toshiba QLED 4K 50 inch (50M550LP)",
       "total": 5375,
       "price": 500,
       "purchaseCount": 1237,
-      "description": "Dép Cross Classic Sandal Crush Clog nữ đế cao 5cm tặng",
+      "description": "Smart Tivi TOSHIBA 55 inch 55E330NP, Màn Hình LED 4K UHD - Loa 24W - Lắp Đặt Toàn Quốc",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-loilmbgo4w6r57",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-loilmbgoaigj3b",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-loilmbgoeq5vd4"
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m27psougzfec93.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m27ps1jp5ol046.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m27ps1jp735gdd.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": false
-    },
-    {
-      "id": 32,
-      "idCategory": 2,
-      "brand": "Under Armour",
-      "name": "quần áo đá bóng P*S*G",
-      "total": 3573,
-      "price": 458,
-      "purchaseCount": 2045,
-      "description": "[In tên, số áo 4-6 ngày nhận hàng] - Bộ quần áo đá bóng P*S*G mẫu mới màu Đen - Hàng thun lạnh cao cấp",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzvm4klmta51e",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzvm4jhofc64f",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzvm4h9rok581"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": true
     },
     {
       "id": 33,
       "idCategory": 1,
-      "brand": "Crocs",
-      "name": "Dép cross nam",
+      "brand": "Toshiba",
+      "name": "Smart Tivi Toshiba OLED 4K 55 inch (55X9900LP)",
       "total": 8464,
       "price": 235,
       "purchaseCount": 1587,
-      "description": "Dép cross nam đi mưa cao cấp sục kín mũi, Dép quai hậu siêu êm cao cấp bền đẹp, Dép sandal",
+      "description": "Vidaa Tivi TOSHIBA 55 inch 55E330NP, Smart TV Màn Hình LED 4K UHD - Loa 24W - Lắp Đặt Toàn Quốc )",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lva21j8ae9waf5",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lva21j8alaqi4b",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lva21j8afogqb0"
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m1nqnt4ppi9r52.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m1nqo089bjgz4e.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m1nqok8u12dv3f.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": false
-    },
-    {
-      "id": 34,
-      "idCategory": 2,
-      "brand": "Under Armour",
-      "name": "Bộ quần áo bóng đá",
-      "total": 4673,
-      "price": 234,
-      "purchaseCount": 2105,
-      "description": "Bộ quần áo bóng đá ko logo 3 lá đen - In tên số áo theo yêu cầu - Hàng thun lạnh cao cấp",
-      "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzrd6hx3uec4f",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzrd5pm99cvad",
-        "https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lqzrd65zlb0g1d"
-      ],
-      "created_at": "",
-      "updated_at": "",
-      "statusProduct": true
     },
     {
       "id": 35,
       "idCategory": 1,
-      "brand": "Crocs",
-      "name": "Dép cross nữ",
+      "brand": "Toshiba",
+      "name": "Tivi Toshiba 4K QLED 100 inch 100Z670NP",
       "total": 3573,
       "price": 638,
       "purchaseCount": 1294,
-      "description": "Dép cross nữ Dép Bánh Mì Cao Cấp Đế 4.5cm Mềm Mại Chống Trượt Cho Nam Nữ - QUAN JIA",
+      "description": "TV TOSHIBA LED 4K UHD 75'' 75C350LP - Tìm kiếm bằng giọng nói - Bảo hành 2 năm",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltlqsblvr7d66a",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lkdhdixh85987f",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lj84j1h93q3689"
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkqkb8ndm9j4f9.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkqkb8ndno3kd7.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkqkb8ndtadcfc.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": true
     },
     {
-      "id": 36,
-      "idCategory": 2,
-      "brand": "Under Armour",
-      "name": "Quần Áo Bóng Đá",
-      "total": 3773,
-      "price": 406,
-      "purchaseCount": 2196,
-      "description": "[in sau lưng theo yêu cầu] Quần Áo Bóng Đá logo thêu Real Madrid 2024 MÈ HÀN Cao Cấp",
+      "id": 37,
+      "idCategory": 1,
+      "brand": "Toshiba",
+      "name": "Tivi Toshiba 4K 65 inch 65C350LP",
+      "total": 6446,
+      "price": 212,
+      "purchaseCount": 1982,
+      "description": "Tivi TOSHIBA 75 inch 75C350NP, Smart TV Màn Hình LED 4K UHD - Loa 36W - Lắp Đặt Toàn Quốc",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/sg-11134201-7rbko-lldtp2825z8s47",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvnaqdquwjnd33",
-        "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvnaqdquv52xde"
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2bul0h73gdw8b.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2bul0i1dh2q9b.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2bulwg4b7w249.webp"
+      ],
+      "created_at": "",
+      "updated_at": "",
+      "statusProduct": true
+    },
+    {
+      "id": 2,
+      "name": "Tủ Lạnh",
+      "description": "Tất cả các sản phẩm liên quan tới tủ lạnh",
+      "products": [],
+      "created_at": "01-01-2024",
+      "status": true
+    },
+    {
+      "id": 10,
+      "idCategory": 2,
+      "brand": "LG",
+      "name": "Tủ lạnh LG Inverter 470 lít Multi Door GR-B50BL",
+      "total": 8417,
+      "price": 551,
+      "purchaseCount": 1283,
+      "description": "Thiết kế kiểu dáng Multi Door cao cấp, thiết kế sang trọng và đẳng cấp. ",
+      "imageProduct": [
+        "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m12padg7nxr364.webp"
+      ],
+      "created_at": "",
+      "updated_at": "",
+      "statusProduct": false,
+      "status": false
+    },
+    {
+      "id": 12,
+      "idCategory": 2,
+      "brand": "LG",
+      "name": "GR-D257WB Tủ lạnh LG Inverter 635 lít GR-D257WB",
+      "total": 8324,
+      "price": 735,
+      "purchaseCount": 1736,
+      "description": "Công nghệ làm lạnh:tHệ thống làm lạnh đa chiều",
+      "imageProduct": [
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m379p0nefsocd3.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m379p1gt8r8sc0.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m379p27q5dd860.webp"
+      ],
+      "created_at": "",
+      "updated_at": "",
+      "statusProduct": true
+    },
+    {
+      "id": 14,
+      "idCategory": 2,
+      "brand": "Samsung",
+      "name": "Tủ lạnh Samsung Inverter 200 lít RT20HAR8DBU/SV",
+      "total": 8282,
+      "price": 262,
+      "purchaseCount": 1265,
+      "description": "Công nghệ Inverter:Tủ lạnh Inverter",
+      "imageProduct": [
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m37atn0yfegcb2.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m37atnyj3mshac.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m37atos7usosd9.webp"
+      ],
+      "created_at": "",
+      "updated_at": "",
+      "statusProduct": true
+    },
+    {
+      "id": 16,
+      "idCategory": 2,
+      "brand": "Sharp",
+      "name": "SJ-FX420V-SL -- Tủ lạnh Sharp Inverter 362 lít SJ-FX420V-SL",
+      "total": 7281,
+      "price": 339,
+      "purchaseCount": 2463,
+      "description": "Tủ lạnh dung tích 362 lít, thích hợp sử dụng cho gia đình từ 3 - 4 thành viên",
+      "imageProduct": [
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m2ymlm3zeoee41.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m2ymlmo8l2pced.webp",
+        "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m2ymlnfzgfly1e.webp"
+      ],
+      "created_at": "",
+      "updated_at": "",
+      "statusProduct": false,
+      "status": false
+    },
+    {
+      "id": 18,
+      "idCategory": 2,
+      "brand": "Sharp",
+      "name": "Tủ Lạnh Sharp Inverter 626 Lít SJ-FX630V-ST",
+      "total": 3727,
+      "price": 407,
+      "purchaseCount": 1983,
+      "description": "Chất liệu ống dẫn gas, dàn lạnh:Ống dẫn gas bằng Nhôm - Lá tản nhiệt bằng Nhôm",
+      "imageProduct": [
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7rdyd-m1bbtwwh274n0e.webp",
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7rdy6-m1dn7cewsobc7d.webp"
+      ],
+      "created_at": "",
+      "updated_at": "",
+      "statusProduct": true
+    },
+    {
+      "id": 20,
+      "idCategory": 2,
+      "brand": "LG",
+      "name": "GV-D262BL - Tủ lạnh LG Inverter 264 Lít GV-D262BL",
+      "total": 8463,
+      "price": 529,
+      "purchaseCount": 1641,
+      "description": "Chất liệu ống dẫn gas, dàn lạnh:Ống dẫn gas bằng Nhôm - Lá tản nhiệt bằng Nhôm",
+      "imageProduct": [
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7rdx4-ly4om9bp1n2f3b.webp",
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7rdyd-m1bbtwwh274n0e.webp"
       ],
       "created_at": "",
       "updated_at": "",
       "statusProduct": false
     },
     {
-      "id": 37,
-      "idCategory": 1,
-      "brand": "Crocs",
-      "name": "Sục Cross Đế độn",
-      "total": 6446,
-      "price": 212,
-      "purchaseCount": 1982,
-      "description": "Sục Cross Đế độn 3cm Tặng kèm Sticker BearBrick cao su 2D",
+      "id": 22,
+      "idCategory": 2,
+      "brand": "Aqua",
+      "name": "Tủ lạnh Aqua Inverter 456 lít AQR-M525XA(FB)",
+      "total": 3576,
+      "price": 276,
+      "purchaseCount": 2046,
+      "description": "Công nghệ bảo quản thực phẩm:Công nghệ cân bằng độ ẩm HCSLàm lạnh đa chiều giúp thực phẩm tươi ngon",
       "imageProduct": [
-        "https://down-vn.img.susercontent.com/file/293c4cebb40997cdc5875aac385fff84",
-        "https://down-vn.img.susercontent.com/file/d83769381eec8417c116ac725cac046f",
-        "https://down-vn.img.susercontent.com/file/0e5814cdbef7439bc6ce7dc0ec048a69"
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7rdy4-m1gy9exnk2bt95.webp",
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7rdwr-m16h9pg1k3tqae.webp",
+        "https://down-vn.img.susercontent.com/file/sg-11134201-7rff2-m3n8h4b6kmlk6a.webp"
       ],
       "created_at": "",
       "updated_at": "",
-      "statusProduct": true
+      "statusProduct": false,
+      "status": false
     }
   ],
   "cart": [],
