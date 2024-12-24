@@ -195,7 +195,7 @@ export default function HeaderUser() {
                   ""
                 )}
                 <Link to={`/cart/${loggedInUser?.id}`} className="checkout-btn">
-                  View Cart
+                  Giỏ hàng
                 </Link>
               </div>
             </div>

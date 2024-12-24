@@ -123,6 +123,20 @@
       "updated_at": "",
       "status": true,
       "id": 12
+    },
+    {
+      "name": "linh trần",
+      "age": 0,
+      "address": "Hà Nội",
+      "numberPhone": "0999999999",
+      "email": "linh@gmail.com",
+      "password": "U2FsdGVkX1+EjR9n65Vf6cshHHRh+q9D1q1RSsVNcSc=",
+      "image": "",
+      "role": 1,
+      "created_at": "24-12-2024",
+      "updated_at": "",
+      "status": true,
+      "id": 13
     }
   ],
   "category": [
@@ -206,9 +220,9 @@
       "idCategory": 1,
       "brand": "adidas",
       "name": "Dép Đúc răng cưa dép bánh mì",
-      "total": 7412,
+      "total": 7410,
       "price": 258,
-      "purchaseCount": 2642,
+      "purchaseCount": 2644,
       "description": "Dép Đúc răng cưa dép bánh mì nam nữ không thấm nước - hỗ trợ đổi size",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpd72azwzlfy8d",
@@ -297,9 +311,9 @@
       "idCategory": 2,
       "brand": "Winny",
       "name": "Bộ Quần Áo Thể Thao Nam",
-      "total": 7282,
+      "total": 7281,
       "price": 339,
-      "purchaseCount": 2462,
+      "purchaseCount": 2463,
       "description": "Bộ Quần Áo Thể Thao Nam Mùa Hè Unisex, Hình Thêu Sắc Nét, Phong Cách Cao Cấp",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/0735e1565b79e033290e93f9e08c243e",
@@ -406,9 +420,9 @@
       "idCategory": 2,
       "brand": "Local Brand",
       "name": "LOCAL BRAND",
-      "total": 3577,
+      "total": 3576,
       "price": 276,
-      "purchaseCount": 2045,
+      "purchaseCount": 2046,
       "description": "LOCAL BRAND Áo thun The Weird Phong Cách Unisex Form Rộng ATK803",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lm5hdpspal0f0b",
@@ -417,7 +431,8 @@
       ],
       "created_at": "",
       "updated_at": "",
-      "statusProduct": false
+      "statusProduct": false,
+      "status": false
     },
     {
       "id": 23,
@@ -700,6 +715,33 @@
       "created_at": "22-12-2024",
       "status": true,
       "id": 1
+    },
+    {
+      "idUser": 13,
+      "idProduct": 16,
+      "quantity": 1,
+      "price": 339,
+      "created_at": "24-12-2024",
+      "status": false,
+      "id": 2
+    },
+    {
+      "idUser": 13,
+      "idProduct": 11,
+      "quantity": 2,
+      "price": 516,
+      "created_at": "24-12-2024",
+      "status": false,
+      "id": 3
+    },
+    {
+      "idUser": 13,
+      "idProduct": 22,
+      "quantity": 1,
+      "price": 276,
+      "created_at": "24-12-2024",
+      "status": false,
+      "id": 4
     }
   ]
 }

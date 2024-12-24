@@ -51,6 +51,7 @@ export default function Cart() {
   }, [dispatch, currentPage, productsPerPage]);
 
   useEffect(() => {
+    dispatch(getCart({ page: currentPage, limit: productsPerPage }));
     calculateTotalPrice();
   }, [selectedProducts, cartUser, listProduct]);
 
