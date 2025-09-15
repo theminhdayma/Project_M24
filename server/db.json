@@ -137,6 +137,20 @@
       "updated_at": "",
       "status": true,
       "id": 13
+    },
+    {
+      "name": "Thế Minh dz",
+      "age": 0,
+      "address": "Hà nội",
+      "numberPhone": "0364577211",
+      "email": "julianaje86232@chedoden.com",
+      "password": "U2FsdGVkX19tjinOy00sJxFBQqM58n03943/wxPo3iw=",
+      "image": "",
+      "role": 1,
+      "created_at": "12-09-2025",
+      "updated_at": "",
+      "status": false,
+      "id": 14
     }
   ],
   "category": [
@@ -171,9 +185,9 @@
       "idCategory": 1,
       "brand": "SamSung",
       "name": "TV Neo QLED 8K",
-      "total": 4568,
+      "total": 4566,
       "price": 578,
-      "purchaseCount": 1480,
+      "purchaseCount": 1482,
       "description": "Shaasung32 / 43 Inch Tên miền màu cao TV WiFi thông minh Thiết kế toàn màn hình Tivi hệ thống Android siêu trong suốt",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/cn-11134207-7ras8-m20j0lwzfpl8f7.webp",
@@ -183,7 +197,7 @@
       "created_at": "",
       "updated_at": "",
       "statusProduct": true,
-      "status": true
+      "status": false
     },
     {
       "id": 9,
@@ -209,9 +223,9 @@
       "idCategory": 1,
       "brand": "Sony",
       "name": "Tivi Sony 4K 55 inch KD-55X80L",
-      "total": 7410,
+      "total": 7409,
       "price": 258,
-      "purchaseCount": 2644,
+      "purchaseCount": 2645,
       "description": "Tivi Sony Mới Nhất 2024 - BRAVIA 3 75 Inch | 4K Ultra HD | Dải tần nhạy sáng cao (HDR) | Smart TV (Google TV) - 75S30",
       "imageProduct": [
         "https://down-vn.img.susercontent.com/file/vn-11134201-7ras8-m3ylqfc1two80d.webp",
@@ -628,6 +642,33 @@
       "created_at": "24-12-2024",
       "status": false,
       "id": 4
+    },
+    {
+      "idUser": 14,
+      "idProduct": 1,
+      "quantity": 1,
+      "price": 578,
+      "created_at": "12-09-2025",
+      "status": false,
+      "id": 5
+    },
+    {
+      "idUser": 14,
+      "idProduct": 1,
+      "quantity": 1,
+      "price": 578,
+      "created_at": "12-09-2025",
+      "status": false,
+      "id": 6
+    },
+    {
+      "idUser": 14,
+      "idProduct": 11,
+      "quantity": 1,
+      "price": 258,
+      "created_at": "12-09-2025",
+      "status": false,
+      "id": 7
     }
   ]
 }

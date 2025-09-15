@@ -110,87 +110,78 @@ export default function ProductDetail() {
   }
 
   return (
-    <div className="mt-[120px]">
+    <div className="bg-white min-h-screen">
       <HeaderUser />
       <main>
-        <section className="product-detail">
-          <div className="container-detail">
-            <div className="product-image">
-              <img
-                id="product-image"
-                src={product.imageProduct[0]}
-                alt={product.name}
-              />
-              <div className="list-img">
+        <section className="py-8">
+          <div className="container grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <div className="aspect-[4/5] overflow-hidden rounded-xl border border-ink-100">
+                <img
+                  id="product-image"
+                  src={product.imageProduct[0]}
+                  alt={product.name}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="mt-3 grid grid-cols-5 gap-2">
                 {product.imageProduct.map((image: string, index: number) => (
-                  <img key={index} src={image} alt={product.name} />
+                  <img key={index} src={image} alt={product.name} className="h-20 w-full object-cover rounded-md border border-ink-100" />
                 ))}
               </div>
             </div>
-            <div className="product-info">
-              <div className="w-[100px] bg-orange-600 text-white flex justify-center items-center">
-                Yêu thích +
+            <div className="flex flex-col gap-4">
+              <span className="badge bg-brand-600 text-white w-max">Yêu thích +</span>
+              <h2 className="text-xl font-medium">{product.name}</h2>
+              <p className="text-ink-700">{product.description}</p>
+              <p className="text-2xl font-semibold text-brand-700">{product.price} USD</p>
+              <p className="text-sm text-ink-600">Chính sách: Trả hàng 15 ngày • <span className="text-ink-500">Đổi miễn phí</span></p>
+              <div className="flex items-center gap-2 text-brand-600">
+                <i className="fa-solid fa-star" />
+                <i className="fa-solid fa-star" />
+                <i className="fa-solid fa-star" />
+                <i className="fa-solid fa-star" />
+                <i className="fa-solid fa-star" />
               </div>
-              <h2 className="product-name">{product.description}</h2>
-              <p className="name" id="product-description">
-                {product.name}
-              </p>
-              <p id="product-price">{product.price} USD</p>
-              <p>
-                Chính sách trả sách: Trả hàng 15 ngày &emsp;{" "}
-                <span className="text-gray-500 text-[14px]">Đổi miễn phí</span>
-              </p>
-              <div className="listStar">
-                <p className="h-[30px] flex justify-center items-center">
-                  Đánh giá:{" "}
-                </p>
-                <div className="stars">
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star"></i>
-                  <i className="fa-solid fa-star"></i>
-                </div>
-              </div>
-              <div className="w-[50%] flex justify-center items-center gap-5 p-1">
-                <label htmlFor="">Mua số sản phẩm</label>
+              <div className="flex items-center gap-3">
+                <label className="text-sm text-ink-700">Số lượng</label>
                 <input
-                  className="w-[100px] border border-gray-400 p-1"
+                  className="w-[100px] rounded-md border border-ink-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-400"
                   onChange={(e) => setInputValue(Number(e.target.value))}
                   type="number"
                   value={inputValue}
                   min="1"
                 />
               </div>
-              <div className="button-list">
+              <div className="flex items-center gap-3">
                 <button
-                  className="add-button bg-yellow-300"
+                  className="btn-ghost px-4 py-2"
                   onClick={handleAddToCart}
                 >
                   Thêm vào giỏ hàng
                 </button>
-                <button onClick={handleBuyProduct} className="buy-button">
+                <button onClick={handleBuyProduct} className="btn-primary px-4 py-2">
                   Mua hàng
                 </button>
               </div>
             </div>
           </div>
         </section>
-        <section className="mt-10 flex flex-col gap-10">
-          <h1 className="w-full text-center text-3xl font-semibold">
-            Gợi Ý Sản Phẩm
-          </h1>
-          <hr />
-          <div className="widthImage product-grid">
-            {relateProduct.map((product: ProductType) => (
-              <div key={product.id} className="product product1">
-                <Link to={`/product-detail/${product.id}`}>
-                  <img src={product.imageProduct[0]} alt={product.name} />
-                  <h3>{product.name}</h3>
-                  <p>{product.price} USD</p>
+
+        <section className="py-8">
+          <div className="container">
+            <h3 className="text-xl font-display mb-4">Gợi Ý Sản Phẩm</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              {relateProduct.map((product: ProductType) => (
+                <Link key={product.id} to={`/product-detail/${product.id}`} className="card overflow-hidden">
+                  <img src={product.imageProduct[0]} alt={product.name} className="aspect-[4/5] w-full object-cover" />
+                  <div className="p-3">
+                    <h3 className="text-sm font-medium line-clamp-1">{product.name}</h3>
+                    <p className="mt-1 text-brand-700 font-semibold">{product.price} USD</p>
+                  </div>
                 </Link>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
       </main>

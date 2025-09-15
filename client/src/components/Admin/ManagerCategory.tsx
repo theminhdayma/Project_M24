@@ -61,53 +61,59 @@ export default function ManagerCategory() {
 
   return (
     <>
-      <div className="order">
-        <div className="head">
-          <i className="bx bx-search" />
-          <i className="bx bx-filter" />
-          <h3
-            className="cursor-pointer border p-3 bg-blue-500 text-white flex justify-center items-center gap-3"
+      <div className="p-4">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3 text-ink-700">
+            <i className="bx bx-search" />
+            <i className="bx bx-filter" />
+          </div>
+          <button
+            className="btn-primary px-4 py-2 flex items-center gap-2"
             onClick={handleShowAdd}
           >
             <i className="fa-solid fa-circle-plus"></i>
             <span>Thêm Danh mục</span>
-          </h3>
+          </button>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Loại sản phẩm</th>
-              <th>Mô tả</th>
-              <th>Ngày tạo</th>
-              <th>Chức năng</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listCategory.map((category: Category, index: number) => (
-              <tr className="cursor-pointer" key={index}>
-                <td>{index + 1}</td>
-                <td>{category.name}</td>
-                <td>{category.description}</td>
-                <td>{category.created_at}</td>
-                <td className="flex gap-2">
-                  <button
-                    onClick={() => handleUpdate(category)}
-                    className="button update"
-                  >
-                    Sửa
-                  </button>
-                  <button
-                    onClick={() => handleDelete(category.id)}
-                    className="button delete"
-                  >
-                    Xóa
-                  </button>
-                </td>
+        <div className="overflow-auto rounded-lg border border-ink-100">
+          <table className="w-full min-w-[700px]">
+            <thead className="bg-ink-50 text-left text-sm text-ink-700">
+              <tr>
+                <th className="p-3">STT</th>
+                <th className="p-3">Loại sản phẩm</th>
+                <th className="p-3">Mô tả</th>
+                <th className="p-3">Ngày tạo</th>
+                <th className="p-3">Chức năng</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-ink-100">
+              {listCategory.map((category: Category, index: number) => (
+                <tr key={index}>
+                  <td className="p-3">{index + 1}</td>
+                  <td className="p-3">{category.name}</td>
+                  <td className="p-3">{category.description}</td>
+                  <td className="p-3">{category.created_at}</td>
+                  <td className="p-3">
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => handleUpdate(category)}
+                        className="btn-ghost px-3 py-1.5"
+                      >
+                        Sửa
+                      </button>
+                      <button
+                        onClick={() => handleDelete(category.id)}
+                        className="btn-primary px-3 py-1.5"
+                      >
+                        Xóa
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       {showFormAddCategory && <FormAddCategory closeFromAdd={closeFromAdd} />}
       {showFormUpdateCategory && selectedCategory && (

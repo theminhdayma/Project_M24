@@ -69,7 +69,8 @@ export default function HeaderUser() {
   };
 
   return (
-    <header>
+    <>
+    <header className="fixed top-0 inset-x-0 z-50">
       <div style={{ display: "flex" }} className="container-header">
         <div className="header-top">
           {loggedInUser?.role === 0 && (
@@ -204,5 +205,8 @@ export default function HeaderUser() {
         </div>
       </div>
     </header>
+    <div className="h-16" />
+    </>
   );
 }
+

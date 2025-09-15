@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import FooterUser from "../../components/User/FooterUser";
 import HeaderUser from "../../components/User/HeaderUser";
+import FooterUser from "../../components/User/FooterUser";
 import {
   getCart,
   removeFromCart,
@@ -252,107 +252,92 @@ export default function Cart() {
   );
 
   return (
-    <div className="mt-[120px]">
+    <div className="bg-white min-h-screen">
       <HeaderUser />
       <main>
-        <section className="cart">
+        <section className="py-8">
           <div className="container">
-            <h2>Your Shopping Cart</h2>
-            <table className="cart-table">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Sản Phẩm</th>
-                  <th>Giá</th>
-                  <th>Số lượng</th>
-                  <th>Tổng tiền</th>
-                  <th>Chức năng</th>
-                </tr>
-              </thead>
-              <tbody>
-                {currentProducts.map((item: any) => {
-                  const product = listProduct.find(
-                    (prod: ProductType) => prod.id === item.idProduct
-                  );
-                  if (!product) return null;
-                  return (
-                    <tr key={item.id}>
-                      <td>
-                        <input
-                          type="checkbox"
-                          checked={selectedProducts.includes(item.id)}
-                          onChange={() => handleSelectProduct(item.id)}
-                        />
-                      </td>
-                      <td>
-                        <Link
-                          to={`/product-detail/${product.id}`}
-                          className="cart-item"
-                        >
-                          <img
-                            src={product.imageProduct[0]}
-                            alt={product.name}
+            <h2 className="text-2xl font-display mb-4">Giỏ hàng</h2>
+            <div className="overflow-auto rounded-lg border border-ink-100">
+              <table className="w-full min-w-[700px]">
+                <thead className="bg-ink-50 text-left text-sm text-ink-700">
+                  <tr>
+                    <th className="p-3"></th>
+                    <th className="p-3">Sản phẩm</th>
+                    <th className="p-3">Giá</th>
+                    <th className="p-3">Số lượng</th>
+                    <th className="p-3">Tổng tiền</th>
+                    <th className="p-3">Chức năng</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-ink-100">
+                  {currentProducts.map((item: any) => {
+                    const product = listProduct.find(
+                      (prod: ProductType) => prod.id === item.idProduct
+                    );
+                    if (!product) return null;
+                    return (
+                      <tr key={item.id}>
+                        <td className="p-3">
+                          <input
+                            type="checkbox"
+                            checked={selectedProducts.includes(item.id)}
+                            onChange={() => handleSelectProduct(item.id)}
                           />
-                          <span>{product.name}</span>
-                        </Link>
-                      </td>
-                      <td>{product.price} USD</td>
-                      <td className="h-[100px] flex justify-center items-center gap-2">
-                        <button
-                          onClick={() => handleDecreaseQuantity(item.id)}
-                          className="w-[30px] border border-gray-700"
-                        >
-                          -
-                        </button>
-                        <span>{item.quantity}</span>
-                        <button
-                          onClick={() => handleIncreaseQuantity(item.id)}
-                          className="w-[30px] border border-gray-700"
-                        >
-                          +
-                        </button>
-                      </td>
-                      <td>{product.price * item.quantity} USD</td>
-                      <td>
-                        <button
-                          className="remove-btn"
-                          onClick={() => handleRemove(item.id)}
-                        >
-                          Xóa
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <div className="flex justify-between items-center">
-              <div className="w-[250px] text-2xl">
-                Số sản phẩm: {cartUser.length}
-              </div>
-              <div className="w-full p-3 flex justify-end items-center gap-2">
-                <div>
+                        </td>
+                        <td className="p-3">
+                          <Link to={`/product-detail/${product.id}`} className="flex items-center gap-3">
+                            <img src={product.imageProduct[0]} alt={product.name} className="h-14 w-14 object-cover rounded" />
+                            <span className="line-clamp-1">{product.name}</span>
+                          </Link>
+                        </td>
+                        <td className="p-3">{product.price} USD</td>
+                        <td className="p-3">
+                          <div className="inline-flex items-center gap-2">
+                            <button onClick={() => handleDecreaseQuantity(item.id)} className="w-7 h-7 rounded-md border border-ink-300">-</button>
+                            <span>{item.quantity}</span>
+                            <button onClick={() => handleIncreaseQuantity(item.id)} className="w-7 h-7 rounded-md border border-ink-300">+</button>
+                          </div>
+                        </td>
+                        <td className="p-3">{product.price * item.quantity} USD</td>
+                        <td className="p-3">
+                          <button className="btn-ghost px-3 py-1.5" onClick={() => handleRemove(item.id)}>Xóa</button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="text-ink-700">Số sản phẩm: {cartUser.length}</div>
+              <div className="flex items-center gap-3">
+                <label className="text-sm text-ink-700 flex items-center gap-2">
+                  Hiển thị
                   <select
-                    className="border border-gray-800"
+                    className="rounded-md border border-ink-300 px-2 py-1 outline-none focus:ring-2 focus:ring-brand-400"
                     name="productsPerPage"
                     id="productsPerPage"
                     value={productsPerPage}
                     onChange={handlePerPageChange}
                   >
-                    <option value="5">5 items</option>
-                    <option value="10">10 items</option>
-                    <option value="15">15 items</option>
-                    <option value="20">20 items</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
                   </select>
-                </div>
+                </label>
                 <div className="flex gap-2">
                   {Array.from(
                     Array(Math.ceil(cartUser.length / productsPerPage)).keys()
                   ).map((number, index) => (
                     <button
                       key={index}
-                      className={`border border-gray-950 p-1 ${
-                        currentPage === number + 1 ? "bg-gray-200" : ""
+                      className={`px-3 py-1.5 rounded-md border ${
+                        currentPage === number + 1
+                          ? "bg-brand-600 text-white border-brand-600"
+                          : "border-ink-200 text-ink-700 hover:bg-ink-100"
                       }`}
                       onClick={() => paginate(number + 1)}
                     >
@@ -362,36 +347,23 @@ export default function Cart() {
                 </div>
               </div>
             </div>
-            <div className="cart-summary">
-              <div className="flex justify-center items-center gap-5">
-                <div className="flex justify-center items-center gap-2">
+
+            <div className="mt-6 card p-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
                   <input
                     className="w-[16px] h-[16px]"
                     type="checkbox"
                     onChange={handleSelectAll}
                     checked={selectedProducts.length === cartUser.length}
                   />
-                  <label htmlFor="">Chọn tất cả sản phẩm</label>
+                  <label>Chọn tất cả sản phẩm</label>
+                  <button className="btn-ghost px-3 py-1.5" onClick={handleRemoveSelected}>Xóa đã chọn</button>
                 </div>
-                <button
-                  style={{ background: "#ff4081" }}
-                  className="w-[60px] border text-white p-2"
-                  onClick={handleRemoveSelected}
-                >
-                  Xóa
-                </button>
-              </div>
-              <div className="flex justify-center items-center gap-9">
-                <p className="flex gap-2 text-3xl text-orange-600">
-                  <span>Thành Tiền:</span>
-                  {totalPrice} USD
-                </p>
-                <button
-                  onClick={handleBuySelectedProducts}
-                  className="checkout-btn"
-                >
-                  Mua hàng
-                </button>
+                <div className="flex items-center gap-4">
+                  <p className="text-xl text-brand-700 font-semibold">Thành Tiền: {totalPrice} USD</p>
+                  <button onClick={handleBuySelectedProducts} className="btn-primary px-4 py-2">Mua hàng</button>
+                </div>
               </div>
             </div>
           </div>

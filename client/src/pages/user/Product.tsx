@@ -1,10 +1,12 @@
 import HeaderUser from "../../components/User/HeaderUser";
 import FooterUser from "../../components/User/FooterUser";
-import { Link } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
 import { Category, ProductType } from "../../interface";
 import { useEffect, useState } from "react";
 import { getAllCategory, getProducts } from "../../service/product.service";
+import CategorySelect from "../../components/product/CategorySelect";
+import ProductCard from "../../components/product/ProductCard";
 
 export default function Product() {
   const dispatch = useDispatch();
@@ -104,107 +106,123 @@ export default function Product() {
   };
 
   return (
-    <div className="mt-[120px]">
+    <div className="bg-white min-h-screen">
       <HeaderUser />
-      <main className="main">
-        <nav>
-          <div className="filter-sort">
-            <select value={selectedCategory} onChange={handleCategoryChange}>
-              <option value="">Tất cả sản phẩm</option>
-              {listCategory.map((category: Category) => (
-                <option key={category.id} value={category.id.toString()}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
-            <select value={selectedBrand} onChange={handleBrandChange}>
-              <option value="">Tất cả các hãng</option>
-              {listProduct &&
-                listProduct.length > 0 &&
-                listProduct
-                  .map((product) => product.brand)
-                  .filter((value, index, self) => self.indexOf(value) === index)
-                  .map((brand, index) => (
-                    <option key={index} value={brand}>
-                      {brand}
-                    </option>
-                  ))}
-            </select>
-            <select
-              value={selectedPriceRange}
-              onChange={handlePriceRangeChange}
-            >
-              <option value="">Tất cả giá</option>
-              <option value="0-100">0 - 100 USD</option>
-              <option value="100-200">100 - 200 USD</option>
-              <option value="200-300">200 - 300 USD</option>
-              <option value="300-400">300 - 400 USD</option>
-              <option value="400-500">400 - 500 USD</option>
-              <option value="500-600">500 - 600 USD</option>
-              <option value="600-700">600 - 700 USD</option>
-              <option value="700-800">700 - 800 USD</option>
-              <option value="800-900">800 - 900 USD</option>
-            </select>
-          </div>
-        </nav>
-        <section className="product-list">
-          <div className="container">
-            <h2>Các Loại Sản Phẩm</h2>
-            <div className="search-bar">
-              <form onSubmit={handleSearchSubmit}>
-                <input
-                  type="text"
-                  name="query"
-                  placeholder="Tìm kiếm sản phẩm..."
-                  value={searchKeyword}
-                  onChange={handleSearchChange}
+      <main>
+        <div className="border-b border-ink-100">
+          <div className="container py-6 flex flex-col gap-4">
+            <h1 className="text-2xl font-display">Cửa hàng</h1>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <CategorySelect
+                  categories={listCategory}
+                  onChange={(v) => setSelectedCategory(v)}
+                  value={selectedCategory}
                 />
-                <button type="submit">Search</button>
+                <label className="flex flex-col gap-2 text-sm">
+                  <span className="text-ink-700">Hãng</span>
+                  <select
+                    className="rounded-md border border-ink-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-400"
+                    value={selectedBrand}
+                    onChange={handleBrandChange}
+                  >
+                    <option value="">Tất cả các hãng</option>
+                    {listProduct &&
+                      listProduct
+                        .map((product) => product.brand)
+                        .filter((value, index, self) => self.indexOf(value) === index)
+                        .map((brand, index) => (
+                          <option key={index} value={brand}>
+                            {brand}
+                          </option>
+                        ))}
+                  </select>
+                </label>
+                <label className="flex flex-col gap-2 text-sm">
+                  <span className="text-ink-700">Khoảng giá</span>
+                  <select
+                    className="rounded-md border border-ink-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-400"
+                    value={selectedPriceRange}
+                    onChange={handlePriceRangeChange}
+                  >
+                    <option value="">Tất cả giá</option>
+                    <option value="0-100">0 - 100 USD</option>
+                    <option value="100-200">100 - 200 USD</option>
+                    <option value="200-300">200 - 300 USD</option>
+                    <option value="300-400">300 - 400 USD</option>
+                    <option value="400-500">400 - 500 USD</option>
+                    <option value="500-600">500 - 600 USD</option>
+                    <option value="600-700">600 - 700 USD</option>
+                    <option value="700-800">700 - 800 USD</option>
+                    <option value="800-900">800 - 900 USD</option>
+                  </select>
+                </label>
+              </div>
+              <form onSubmit={handleSearchSubmit} className="flex items-end gap-2">
+                <label className="flex flex-col gap-2 w-full">
+                  <span className="text-sm text-ink-700">Tìm kiếm</span>
+                  <input
+                    type="text"
+                    name="query"
+                    placeholder="Tìm kiếm sản phẩm..."
+                    value={searchKeyword}
+                    onChange={handleSearchChange}
+                    className="rounded-md border border-ink-300 px-3 py-2 outline-none focus:ring-2 focus:ring-brand-400"
+                  />
+                </label>
+                <button type="submit" className="btn-primary px-4 py-2">Search</button>
               </form>
             </div>
-            <div className="product-grid">
-              {/* Display filtered and paginated products */}
-              {currentProducts.map((product: ProductType) => (
-                <div key={product.id} className="product">
-                  <Link to={`/product-detail/${product.id}`}>
-                    <img src={product.imageProduct[0]} alt={product.name} />
-                    <h3>{product.name}</h3>
-                    <p>{product.price} USD</p>
-                  </Link>
-                </div>
-              ))}
-            </div>
           </div>
-          {/* Pagination section */}
-          <div className="w-full p-3 flex justify-end items-center gap-2">
-            <div>
-              {/* Dropdown for products per page */}
-              <select
-                className="border border-gray-800"
-                name="productsPerPage"
-                id="productsPerPage"
-                value={productsPerPage}
-                onChange={handlePerPageChange}
-              >
-                <option value="5">5 items per page</option>
-                <option value="10">10 items per page</option>
-                <option value="15">15 items per page</option>
-                <option value="20">20 items per page</option>
-              </select>
-            </div>
-            <div className="flex gap-2">
-              {/* Pagination buttons */}
-              {Array.from(Array(pageNumbers).keys()).map((number) => (
-                <button
-                  key={number}
-                  className={`border border-gray-950 p-1 ${
-                    currentPage === number + 1 ? "bg-gray-200" : ""
-                  }`}
-                  onClick={() => paginate(number + 1)}
-                >
-                  {number + 1}
-                </button>
+        </div>
+
+        <section className="py-8">
+          <div className="container">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              {currentProducts.map((product: ProductType) => (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  price={product.price}
+                  image={product.imageProduct[0]}
+                  badge={product.purchaseCount > 50 ? "Hot" : undefined}
+                />
               ))}
+            </div>
+
+            <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <label className="text-sm text-ink-700 flex items-center gap-2">
+                Hiển thị
+                <select
+                  className="rounded-md border border-ink-300 px-2 py-1 outline-none focus:ring-2 focus:ring-brand-400"
+                  name="productsPerPage"
+                  id="productsPerPage"
+                  value={productsPerPage}
+                  onChange={handlePerPageChange}
+                >
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                </select>
+                sản phẩm/trang
+              </label>
+              <div className="flex gap-2">
+                {Array.from(Array(pageNumbers).keys()).map((number) => (
+                  <button
+                    key={number}
+                    className={`px-3 py-1.5 rounded-md border ${
+                      currentPage === number + 1
+                        ? "bg-brand-600 text-white border-brand-600"
+                        : "border-ink-200 text-ink-700 hover:bg-ink-100"
+                    }`}
+                    onClick={() => paginate(number + 1)}
+                  >
+                    {number + 1}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </section>

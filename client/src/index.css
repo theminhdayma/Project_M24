@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 10px;
+    }
+
+    html,
+    body,
+    #root {
+        height: 100%;
+    }
+
+    body {
+        @apply bg-white text-ink-800 font-body;
+    }
+}
+
+@layer components {
+    .container {
+        @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-brand-400 disabled:opacity-60 disabled:cursor-not-allowed;
+    }
+
+    .btn-primary {
+        @apply btn bg-brand-600 text-white hover:bg-brand-700 shadow-soft;
+    }
+
+    .btn-ghost {
+        @apply btn bg-transparent text-ink-700 hover:bg-ink-100;
+    }
+
+    .card {
+        @apply bg-white rounded-xl shadow-soft border border-ink-100;
+    }
+
+    .badge {
+        @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-ink-100 text-ink-700;
+    }
+}

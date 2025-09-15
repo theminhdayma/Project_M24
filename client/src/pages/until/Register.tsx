@@ -167,105 +167,107 @@ export default function Register() {
   };
 
   return (
-    <div className="body1">
-      <div className="login">
-        <div className="logo">
-          <i className="bx bx-user-circle" />
-          <h2>Đăng Ký</h2>
+    <div className="bg-white min-h-screen">
+      <main>
+        <div className="container py-10">
+          <div className="mx-auto max-w-md card p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <i className="bx bx-user-circle text-2xl" />
+              <h2 className="text-xl font-display">Đăng Ký</h2>
+            </div>
+            {checkHollow && (
+              <p className="text-red-700 mb-2">Vui lòng điền đầy đủ thông tin</p>
+            )}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <label className="flex flex-col gap-2">
+                <span className="text-sm text-ink-700">NameUser</span>
+                <div className="flex items-center gap-2 rounded-md border border-ink-300 px-3 py-2 focus-within:ring-2 focus-within:ring-brand-400">
+                  <i className="bx bxs-user" />
+                  <input
+                    className="flex-1 outline-none"
+                    type="text"
+                    name="name"
+                    value={inputValue.name}
+                    onChange={handleChange}
+                    placeholder="Enter User"
+                  />
+                </div>
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-sm text-ink-700">Email</span>
+                <div className="flex items-center gap-2 rounded-md border border-ink-300 px-3 py-2 focus-within:ring-2 focus-within:ring-brand-400">
+                  <i className="bx bxs-email" />
+                  <input
+                    className="flex-1 outline-none"
+                    type="text"
+                    name="email"
+                    value={inputValue.email}
+                    onChange={handleChange}
+                    placeholder="Enter Email"
+                  />
+                </div>
+                {checkUseEmail && (
+                  <p className="text-red-700 text-sm">Email đã được sử dụng</p>
+                )}
+                {checkEmail && (
+                  <p className="text-red-700 text-sm">Email không đúng định dạng</p>
+                )}
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-sm text-ink-700">Password</span>
+                <div className="flex items-center gap-2 rounded-md border border-ink-300 px-3 py-2 focus-within:ring-2 focus-within:ring-brand-400">
+                  <i className="bx bxs-lock-alt" />
+                  <input
+                    className="flex-1 outline-none"
+                    type="password"
+                    name="password"
+                    value={inputValue.password}
+                    onChange={handleChange}
+                    placeholder="Enter Password"
+                  />
+                </div>
+                {checkPassword && (
+                  <p className="text-red-700 text-sm">Mật khẩu phải đủ 8 ký tự trở lên</p>
+                )}
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-sm text-ink-700">Confirm Password</span>
+                <div className="flex items-center gap-2 rounded-md border border-ink-300 px-3 py-2 focus-within:ring-2 focus-within:ring-brand-400">
+                  <i className="bx bxs-lock-alt" />
+                  <input
+                    className="flex-1 outline-none"
+                    type="password"
+                    name="confirmPassword"
+                    value={inputValue.confirmPassword}
+                    onChange={handleChange}
+                    placeholder="Enter Confirm Password"
+                  />
+                </div>
+                {checkComfimPassword && (
+                  <p className="text-red-700 text-sm">Xác nhận mật khẩu không chính xác</p>
+                )}
+              </label>
+
+              <button type="submit" className="btn-primary w-full py-2">Đăng Ký</button>
+              <p className="text-center text-sm text-ink-600">Hoặc đăng ký bằng</p>
+              <div className="flex justify-center items-center gap-3 text-ink-700">
+                <a href="#" id="facebook"><i className="bx bxl-facebook text-xl" /></a>
+                <a href="#" id="twitter"><i className="bx bxl-twitter text-xl" /></a>
+                <a href="#" id="google"><i className="bx bxl-google text-xl" /></a>
+                <a href="#" id="github"><i className="bx bxl-github text-xl" /></a>
+              </div>
+              <div className="text-center text-sm">
+                <p>
+                  Already have an account? <Link className="text-brand-700" to="/login">Đăng Nhập</Link>
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
-        {checkHollow && (
-          <p className="text-red-700">Vui lòng điền đầy đủ thông tin</p>
-        )}
-        <form onSubmit={handleSubmit}>
-          <div className="input_box">
-            <span>NameUser</span>
-            <div className="icon">
-              <i className="bx bxs-user" />
-              <input
-                type="text"
-                name="name"
-                value={inputValue.name}
-                onChange={handleChange}
-                placeholder="Enter User"
-              />
-            </div>
-          </div>
-
-          <div className="input_box">
-            <span>Email</span>
-            <div className="icon">
-              <i className="bx bxs-email" />
-              <input
-                type="text"
-                name="email"
-                value={inputValue.email}
-                onChange={handleChange}
-                placeholder="Enter Email"
-              />
-            </div>
-            {checkUseEmail && (
-              <p className="text-red-700">Email đã được sử dụng</p>
-            )}
-            {checkEmail && (
-              <p className="text-red-700">Email không đúng định dạng</p>
-            )}
-          </div>
-          <div className="input_box">
-            <span>Password</span>
-            <div className="icon">
-              <i className="bx bxs-lock-alt" />
-              <input
-                type="password"
-                name="password"
-                value={inputValue.password}
-                onChange={handleChange}
-                placeholder="Enter Password"
-              />
-            </div>
-            {checkPassword && (
-              <p className="text-red-700">Mật khẩu phải đủ 8 ký tự trở lên</p>
-            )}
-          </div>
-          <div className="input_box">
-            <span>Confirm Password</span>
-            <div className="icon">
-              <i className="bx bxs-lock-alt" />
-              <input
-                type="password"
-                name="confirmPassword"
-                value={inputValue.confirmPassword}
-                onChange={handleChange}
-                placeholder="Enter Confirm Password"
-              />
-            </div>
-            {checkComfimPassword && (
-              <p className="text-red-700">Xác nhận mật khẩu không chính xác</p>
-            )}
-          </div>
-
-          <button type="submit">Đăng Ký</button>
-          <p className="signup">Or Sign Up Using</p>
-          <div className="social_icon">
-            <a href="#" id="facebook">
-              <i className="bx bxl-facebook" />
-            </a>
-            <a href="#" id="twitter">
-              <i className="bx bxl-twitter" />
-            </a>
-            <a href="#" id="google">
-              <i className="bx bxl-google" />
-            </a>
-            <a href="#" id="github">
-              <i className="bx bxl-github" />
-            </a>
-          </div>
-          <div className="alreadyAccount">
-            <p>
-              Already have an account? <Link to="/login">Đăng Nhập</Link>
-            </p>
-          </div>
-        </form>
-      </div>
+      </main>
     </div>
   );
 }
